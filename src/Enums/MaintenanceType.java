@@ -11,5 +11,5 @@ package Enums;
  */
 public enum MaintenanceType
 {
-    STANDARD, SPECIALIST
+    FIXED, STANDARD, SPECIALIST
 }
