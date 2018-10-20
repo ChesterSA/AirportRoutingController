@@ -12,21 +12,10 @@ import Vehicles.Vehicle;
  *
  * @author s6089488
  */
-public class OutOfFuel extends VehicleState
+public abstract class VehicleState
 {
 
-    @Override
-    public boolean refuel(Vehicle v)
-    {
-        v.fuel = 100;
-        v.state = new Available();
-        return true;
-    }
+    public abstract boolean refuel(Vehicle v);
 
-    @Override
-    public boolean driveTo(Bay destination, Vehicle v)
-    {
-        return false;
-    }
-
+    public abstract boolean driveTo(Bay destination, Vehicle v);
 }

@@ -12,21 +12,20 @@ import Vehicles.Vehicle;
  *
  * @author s6089488
  */
-public class OutOfFuel extends VehicleState
+public class Driving extends VehicleState
 {
 
     @Override
     public boolean refuel(Vehicle v)
     {
-        v.fuel = 100;
-        v.state = new Available();
-        return true;
+        return false;
     }
 
     @Override
     public boolean driveTo(Bay destination, Vehicle v)
     {
-        return false;
+        v.location = destination;
+        return true;
     }
 
 }

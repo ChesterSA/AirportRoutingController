@@ -6,28 +6,27 @@
 package Vehicles;
 
 import Bays.Bay;
-import Enums.CleaningType;
 import Enums.VehicleSize;
 
 /**
  *
  * @author s6089488
  */
-public class CleaningTruck extends Vehicle
+public class CateringTruck extends Vehicle
 {
 
-    CleaningType cleaningType;
+    int foodQuantity;
 
-    public CleaningTruck(VehicleSize size, Bay location, CleaningType type)
+    public CateringTruck(int foodQuantity, VehicleSize size, Bay location)
     {
         super(size, location);
-        cleaningType = type;
+        this.foodQuantity = foodQuantity;
     }
 
     @Override
     public boolean doJob()
     {
-        //DO THE CLEANING
+        //DO THE CATERING
         return true;
     }
 

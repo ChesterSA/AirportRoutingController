@@ -6,29 +6,27 @@
 package Vehicles;
 
 import Bays.Bay;
-import Enums.CleaningType;
+import Enums.RampType;
 import Enums.VehicleSize;
 
 /**
  *
  * @author s6089488
  */
-public class CleaningTruck extends Vehicle
+public class Ramp extends Vehicle
 {
 
-    CleaningType cleaningType;
+    RampType type;
 
-    public CleaningTruck(VehicleSize size, Bay location, CleaningType type)
+    public Ramp(RampType type, VehicleSize size, Bay location)
     {
         super(size, location);
-        cleaningType = type;
+        this.type = type;
     }
 
     @Override
     public boolean doJob()
     {
-        //DO THE CLEANING
-        return true;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

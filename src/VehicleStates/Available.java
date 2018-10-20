@@ -5,24 +5,30 @@
  */
 package VehicleStates;
 
+import Bays.Bay;
 import Vehicles.Vehicle;
 
 /**
  *
  * @author s6089488
  */
-public class Available extends VehicleState{
-    
+public class Available extends VehicleState
+{
+
     @Override
-    public boolean DoJob(Vehicle v) {
-        v.state = new DoingJob();
+    public boolean refuel(Vehicle v)
+    {
+        v.fuel = 100;
         return true;
     }
 
     @Override
-    public boolean Refuel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean driveTo(Bay destination, Vehicle v)
+    {
+        v.state = new Driving();
+        v.location = destination;
+        v.state = new Available();
+        return true;
     }
-    
-    
+
 }
