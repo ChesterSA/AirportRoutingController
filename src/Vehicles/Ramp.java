@@ -8,12 +8,14 @@ package Vehicles;
 import Bays.Bay;
 import Enums.RampType;
 import Enums.VehicleSize;
+import Handlers.Chainable;
+import airportroutingcontroller.Plane;
 
 /**
  *
  * @author s6089488
  */
-public class Ramp extends Vehicle
+public class Ramp extends Vehicle implements Chainable
 {
 
     RampType type;
@@ -25,8 +27,32 @@ public class Ramp extends Vehicle
     }
 
     @Override
-    public boolean doJob()
+    public boolean doJob(Plane p)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
+    }
+
+    @Override
+    public boolean handle(Plane p)
+    {
+        if (p.size.ordinal() <= this.size.ordinal() &&
+                p.ramp == this.type)
+        {
+            return true;
+        }
+        else if (next != null)
+        {
+            return next.handle(p);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    @Override
+    public void addNext(Chainable c)
+    {
+        next = c;
     }
 }
