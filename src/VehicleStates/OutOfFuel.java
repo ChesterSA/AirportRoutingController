@@ -15,13 +15,13 @@ import Vehicles.Vehicle;
 public class OutOfFuel extends VehicleState{
 
     @Override
-    public boolean Refuel(Vehicle v) {
+    public boolean refuel(Vehicle v) {
         v.fuel = 100;
         return true;
     }
 
     @Override
-    public boolean DriveTo(Bay destination, Vehicle v) {
+    public boolean driveTo(Bay destination, Vehicle v) {
         return false;
     }
     
