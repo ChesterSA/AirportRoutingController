@@ -11,6 +11,5 @@ package Bays;
  */
 public abstract class Bay
 {
-
     int BayID;
 }

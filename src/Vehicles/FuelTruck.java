@@ -8,6 +8,7 @@ package Vehicles;
 import Bays.Bay;
 import Enums.FuelType;
 import Enums.VehicleSize;
+import airportroutingcontroller.Plane;
 
 /**
  *
@@ -17,6 +18,7 @@ public class FuelTruck extends Vehicle
 {
 
     FuelType fuelType;
+    int planeFuelQuantity;
 
     public FuelTruck(FuelType fuelType, VehicleSize size, Bay location)
     {
@@ -25,10 +27,26 @@ public class FuelTruck extends Vehicle
     }
 
     @Override
-    public boolean doJob()
-    {
-        // Do Fueling idk
+    public boolean doJob(Plane p) {
+       this.planeFuelQuantity = p.maxFuel - p.fuelQuantity;
+        p.fuelQuantity = p.maxFuel;
         return true;
+    }
+
+    @Override
+    public boolean handle(Plane p) {
+        if ((p.maxFuel- p.fuelQuantity) <= this.planeFuelQuantity)
+        {
+            return true;
+        }
+        else if (next != null)
+        {
+            return next.handle(p);
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

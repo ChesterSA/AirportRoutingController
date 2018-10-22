@@ -5,6 +5,8 @@
  */
 package Handlers;
 
+import airportroutingcontroller.Plane;
+
 /**
  *
  * @author s6089488
@@ -12,4 +14,6 @@ package Handlers;
 public interface Chainable
 {
     public void addNext(Chainable next);
+    
+    public boolean handle(Plane p);
 }

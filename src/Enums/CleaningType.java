@@ -11,5 +11,5 @@ package Enums;
  */
 public enum CleaningType
 {
-    SIMPLE, MODERATE, SEVERE, EXTERNAL
+    CLEAN, SIMPLE, MODERATE, SEVERE
 }

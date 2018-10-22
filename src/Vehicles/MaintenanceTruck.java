@@ -28,6 +28,7 @@ public class MaintenanceTruck extends Vehicle
     @Override
     public boolean doJob(Plane p) {
         p.maintenance = MaintenanceType.FIXED;
+        return true;
     }
 
     @Override

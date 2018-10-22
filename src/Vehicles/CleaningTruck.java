@@ -8,6 +8,7 @@ package Vehicles;
 import Bays.Bay;
 import Enums.CleaningType;
 import Enums.VehicleSize;
+import airportroutingcontroller.Plane;
 
 /**
  *
@@ -24,11 +25,28 @@ public class CleaningTruck extends Vehicle
         cleaningType = type;
     }
 
+
     @Override
-    public boolean doJob()
-    {
-        //DO THE CLEANING
+    public boolean doJob(Plane p) {
+        p.cleanType = CleaningType.CLEAN;
         return true;
+    }
+
+    @Override
+    public boolean handle(Plane p) {
+        if (p.size.ordinal() <= size.ordinal() &&
+            this.cleaningType.ordinal() >= p.cleanType.ordinal())    
+        {
+            return true;
+        }
+        else if (next != null)
+        {
+            return next.handle(p);
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
