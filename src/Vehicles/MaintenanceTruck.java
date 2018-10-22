@@ -8,6 +8,7 @@ package Vehicles;
 import Bays.Bay;
 import Enums.MaintenanceType;
 import Enums.VehicleSize;
+import airportroutingcontroller.Plane;
 
 /**
  *
@@ -25,9 +26,27 @@ public class MaintenanceTruck extends Vehicle
     }
 
     @Override
-    public boolean doJob()
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean doJob(Plane p) {
+        p.maintenance = MaintenanceType.FIXED;
     }
+
+    @Override
+    public boolean handle(Plane p) {
+        if (p.size.ordinal() <= this.size.ordinal() &&
+                p.maintenance.ordinal() <= this.type.ordinal())
+        {
+            return true;
+        }
+        else if (next != null)
+        {
+            return next.handle(p);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    
 
 }
