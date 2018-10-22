@@ -27,15 +27,17 @@ public class FuelTruck extends Vehicle
     }
 
     @Override
-    public boolean doJob(Plane p) {
-       this.planeFuelQuantity = p.maxFuel - p.fuelQuantity;
+    public boolean doJob(Plane p)
+    {
+        this.planeFuelQuantity = p.maxFuel - p.fuelQuantity;
         p.fuelQuantity = p.maxFuel;
         return true;
     }
 
     @Override
-    public Vehicle handle(Plane p) {
-        if ((p.maxFuel- p.fuelQuantity) <= this.planeFuelQuantity)
+    public Vehicle handle(Plane p)
+    {
+        if ((p.maxFuel - p.fuelQuantity) <= this.planeFuelQuantity)
         {
             return this;
         }

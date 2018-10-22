@@ -16,6 +16,7 @@ import airportroutingcontroller.Plane;
  */
 public class CateringTruck extends Vehicle
 {
+
     int foodQuantity;
 
     public CateringTruck(VehicleSize size, int foodQuantity, Bay location)
@@ -25,14 +26,16 @@ public class CateringTruck extends Vehicle
     }
 
     @Override
-    public boolean doJob(Plane p) {
+    public boolean doJob(Plane p)
+    {
         this.foodQuantity = p.maxFood - p.foodQuantity;
         p.foodQuantity = p.maxFood;
         return true;
     }
 
     @Override
-    public Vehicle handle(Plane p) {
+    public Vehicle handle(Plane p)
+    {
         if ((p.maxFood - p.foodQuantity) <= this.foodQuantity)
         {
             return this;
@@ -46,7 +49,5 @@ public class CateringTruck extends Vehicle
             return null;
         }
     }
-    
-    
 
 }

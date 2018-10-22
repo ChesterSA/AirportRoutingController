@@ -14,7 +14,8 @@ import airportroutingcontroller.Plane;
  */
 public interface Chainable
 {
+
     public void addNext(Chainable next);
-    
+
     public Vehicle handle(Plane p);
 }

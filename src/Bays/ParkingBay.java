@@ -15,6 +15,7 @@ import airportroutingcontroller.DeliveryVehicles;
  */
 public class ParkingBay extends Bay
 {
+
     CleaningTruck cleaning;
     MaintenanceTruck maintenance;
 
@@ -32,19 +33,19 @@ public class ParkingBay extends Bay
             this.maintenance = manager.getMaintenanceTruck(plane, this);
         }
     }
-    
+
     public void clean()
     {
         if (cleaning != null)
         {
             cleaning.executeJob(this, plane);
         }
-        
+
     }
-    
+
     public void fixPlane()
     {
-        if(maintenance != null)
+        if (maintenance != null)
         {
             maintenance.executeJob(this, plane);
         }
