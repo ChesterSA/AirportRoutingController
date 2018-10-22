@@ -7,6 +7,8 @@ package Vehicles;
 
 import Bays.Bay;
 import Enums.VehicleSize;
+import Handlers.Chainable;
+import airportroutingcontroller.Plane;
 
 /**
  *
@@ -14,20 +16,37 @@ import Enums.VehicleSize;
  */
 public class CateringTruck extends Vehicle
 {
-
     int foodQuantity;
 
-    public CateringTruck(int foodQuantity, VehicleSize size, Bay location)
+    public CateringTruck(VehicleSize size, int foodQuantity, Bay location)
     {
         super(size, location);
         this.foodQuantity = foodQuantity;
     }
 
     @Override
-    public boolean doJob()
-    {
-        //DO THE CATERING
+    public boolean doJob(Plane p) {
+        this.foodQuantity = p.maxFood - p.foodQuantity;
+        p.foodQuantity = p.maxFood;
         return true;
     }
+
+    @Override
+    public boolean handle(Plane p) {
+        if ((p.maxFood - p.foodQuantity) <= this.foodQuantity)
+        {
+            return true;
+        }
+        else if (next != null)
+        {
+            return next.handle(p);
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    
 
 }
