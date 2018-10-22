@@ -15,8 +15,8 @@ import airportroutingcontroller.DeliveryVehicles;
  */
 public class ParkingBay extends Bay
 {
-    CleaningTruck cleaningTruck;
-    MaintenanceTruck maintenanceTruck;
+    CleaningTruck cleaning;
+    MaintenanceTruck maintenance;
 
     public ParkingBay(int BayID, DeliveryVehicles manager)
     {
@@ -26,10 +26,10 @@ public class ParkingBay extends Bay
     @Override
     public void getVehicles()
     {
-        if (P != null)
+        if (plane != null)
         {
-            manager.getCleaningTruck(P, this);
-            manager.getMaintenanceTruck(P, this);
+            this.cleaning = manager.getCleaningTruck(plane, this);
+            this.maintenance = manager.getMaintenanceTruck(plane, this);
         }
     }
 }

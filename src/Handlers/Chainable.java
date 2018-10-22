@@ -5,6 +5,7 @@
  */
 package Handlers;
 
+import Vehicles.Vehicle;
 import airportroutingcontroller.Plane;
 
 /**
@@ -15,5 +16,5 @@ public interface Chainable
 {
     public void addNext(Chainable next);
     
-    public boolean handle(Plane p);
+    public Vehicle handle(Plane p);
 }

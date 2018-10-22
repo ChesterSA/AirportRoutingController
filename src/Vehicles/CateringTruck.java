@@ -32,10 +32,10 @@ public class CateringTruck extends Vehicle
     }
 
     @Override
-    public boolean handle(Plane p) {
+    public Vehicle handle(Plane p) {
         if ((p.maxFood - p.foodQuantity) <= this.foodQuantity)
         {
-            return true;
+            return this;
         }
         else if (next != null)
         {
@@ -43,7 +43,7 @@ public class CateringTruck extends Vehicle
         }
         else
         {
-            return false;
+            return null;
         }
     }
     

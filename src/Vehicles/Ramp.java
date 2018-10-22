@@ -33,12 +33,12 @@ public class Ramp extends Vehicle implements Chainable
     }
 
     @Override
-    public boolean handle(Plane p)
+    public Vehicle handle(Plane p)
     {
         if (p.size.ordinal() <= this.size.ordinal() &&
                 p.ramp == this.type)
         {
-            return true;
+            return this;
         }
         else if (next != null)
         {
@@ -46,7 +46,7 @@ public class Ramp extends Vehicle implements Chainable
         }
         else
         {
-            return false;
+            return null;
         }
     }
 

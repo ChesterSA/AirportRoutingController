@@ -33,11 +33,11 @@ public class CleaningTruck extends Vehicle
     }
 
     @Override
-    public boolean handle(Plane p) {
+    public Vehicle handle(Plane p) {
         if (p.size.ordinal() <= size.ordinal() &&
             this.cleaningType.ordinal() >= p.cleanType.ordinal())    
         {
-            return true;
+            return this;
         }
         else if (next != null)
         {
@@ -45,7 +45,7 @@ public class CleaningTruck extends Vehicle
         }
         else
         {
-            return false;
+            return null;
         }
     }
 
