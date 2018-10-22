@@ -28,7 +28,12 @@ public class LoadingBay extends Bay
     
     @Override
     public void getVehicles() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (plane != null)
+        {
+            this.fuel = manager.getFuelTruck(plane, this);
+            this.catering = manager.getCateringTruck(plane, this);
+            this.ramp = manager.getRamp(plane, this);
+        }
     }
 
 }
