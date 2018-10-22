@@ -25,7 +25,8 @@ public class Driving extends VehicleState
     public boolean driveTo(Bay destination, Vehicle v)
     {
         v.location = destination;
-        if (v.fuel > 0)
+        v.fuel -= 10;
+        if (v.fuel > 10)
         {
             v.state = new Available();
         }

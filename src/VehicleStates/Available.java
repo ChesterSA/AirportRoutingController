@@ -28,7 +28,7 @@ public class Available extends VehicleState
         v.state = new Driving();
         v.location = destination;
         v.fuel -= 10;
-        if (v.fuel > 0)
+        if (v.fuel > 10)
         {
             v.state = new Available();
         }
