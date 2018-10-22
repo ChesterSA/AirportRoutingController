@@ -56,7 +56,7 @@ public abstract class Vehicle implements Chainable
     {
         state.refuel(this);
     }
-    
+
     public void addNext(Chainable c)
     {
         this.next = c;

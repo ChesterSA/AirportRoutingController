@@ -14,7 +14,8 @@ import Enums.VehicleSize;
  *
  * @author s6089488
  */
-public class Plane {
+public class Plane
+{
 
     public final int maxFood;
     public int foodQuantity;
@@ -25,7 +26,8 @@ public class Plane {
     public RampType ramp;
     public MaintenanceType maintenance;
 
-    public Plane(int maxFood, int foodQuantity, int maxFuel, int fuelQuantity, VehicleSize size, CleaningType cleanType, RampType ramp, MaintenanceType maintenance) {
+    public Plane(int maxFood, int foodQuantity, int maxFuel, int fuelQuantity, VehicleSize size, CleaningType cleanType, RampType ramp, MaintenanceType maintenance)
+    {
         this.maxFood = maxFood;
         this.foodQuantity = foodQuantity;
         this.maxFuel = maxFuel;
@@ -36,7 +38,4 @@ public class Plane {
         this.maintenance = maintenance;
     }
 
-    
-    
-    
 }
