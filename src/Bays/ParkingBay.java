@@ -53,6 +53,7 @@ public class ParkingBay extends Bay
     @Override
     public void update()
     {
-        
+        cleaning.driveTo(VehicleStore.getInstance());
+        maintenance.driveTo(VehicleStore.getInstance());
     }
 }

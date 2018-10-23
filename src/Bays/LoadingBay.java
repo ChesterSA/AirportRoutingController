@@ -62,7 +62,10 @@ public class LoadingBay extends Bay
 
     @Override
     public void update() {
-        
+        //release vehicles back to vehicle store so selected bay can use them
+        fuel.driveTo(VehicleStore.getInstance());
+        catering.driveTo(VehicleStore.getInstance());
+        ramp.driveTo(VehicleStore.getInstance());
     }
 
 }

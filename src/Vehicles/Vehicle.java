@@ -45,7 +45,7 @@ public abstract class Vehicle implements Chainable
         return success;
     }
 
-    private boolean driveTo(Bay destination)
+    public boolean driveTo(Bay destination)
     {
         return state.driveTo(destination, this);
     }
