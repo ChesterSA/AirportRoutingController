@@ -15,20 +15,23 @@ public class AirportRoutingController
 {
 
     private LinkedList<Subscriber> subscribers;
-    
-    public void subscribe (Subscriber s)
+
+    public void subscribe(Subscriber s)
     {
         subscribers.add(s);
     }
-    
+
     public void unsubscribe(Subscriber s)
     {
         subscribers.remove(s);
     }
-    
+
     public void notifySubscribers()
     {
-        subscribers.forEach((s) -> {s.update();});
+        subscribers.forEach((s) ->
+        {
+            s.update();
+        });
     }
 
 }

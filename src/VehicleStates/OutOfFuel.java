@@ -18,8 +18,8 @@ public class OutOfFuel extends VehicleState
     @Override
     public boolean refuel(Vehicle v)
     {
-        v.fuel = 100;
-        v.state = new Available();
+        v.setFuel(100);
+        v.setState(new Available());
         return true;
     }
 

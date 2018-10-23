@@ -15,11 +15,27 @@ import Vehicles.*;
 public class DeliveryVehicles
 {
 
+    static private DeliveryVehicles instance;
+
     private FuelTruck firstFuel;
     private CateringTruck firstCatering;
     private Ramp firstRamp;
     private CleaningTruck firstCleaning;
     private MaintenanceTruck firstMaintenance;
+
+    private DeliveryVehicles()
+    {
+
+    }
+
+    static public DeliveryVehicles getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new DeliveryVehicles();
+        }
+        return instance;
+    }
 
     public FuelTruck getFuelTruck(Plane plane, LoadingBay bay)
     {
@@ -45,4 +61,30 @@ public class DeliveryVehicles
     {
         return (MaintenanceTruck) firstMaintenance.handle(plane);
     }
+
+    public void setFirstFuel(FuelTruck firstFuel)
+    {
+        this.firstFuel = firstFuel;
+    }
+
+    public void setFirstCatering(CateringTruck firstCatering)
+    {
+        this.firstCatering = firstCatering;
+    }
+
+    public void setFirstRamp(Ramp firstRamp)
+    {
+        this.firstRamp = firstRamp;
+    }
+
+    public void setFirstCleaning(CleaningTruck firstCleaning)
+    {
+        this.firstCleaning = firstCleaning;
+    }
+
+    public void setFirstMaintenance(MaintenanceTruck firstMaintenance)
+    {
+        this.firstMaintenance = firstMaintenance;
+    }
+
 }

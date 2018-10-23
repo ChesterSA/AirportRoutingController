@@ -15,14 +15,14 @@ import airportroutingcontroller.Plane;
 public abstract class Bay
 {
 
-    int BayID;
-    Plane plane;
-    DeliveryVehicles manager;
+    protected int BayID;
+    protected Plane plane;
+    protected DeliveryVehicles manager;
 
-    public Bay(int BayID, DeliveryVehicles manager)
+    public Bay(int BayID)
     {
         this.BayID = BayID;
-        this.manager = manager;
+        this.manager = DeliveryVehicles.getInstance();
     }
 
     public abstract void getVehicles();

@@ -16,12 +16,12 @@ import airportroutingcontroller.DeliveryVehicles;
 public class ParkingBay extends Bay
 {
 
-    CleaningTruck cleaning;
-    MaintenanceTruck maintenance;
+    private CleaningTruck cleaning;
+    private MaintenanceTruck maintenance;
 
-    public ParkingBay(int BayID, DeliveryVehicles manager)
+    public ParkingBay(int BayID)
     {
-        super(BayID, manager);
+        super(BayID);
     }
 
     @Override

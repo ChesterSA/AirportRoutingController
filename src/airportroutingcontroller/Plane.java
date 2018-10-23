@@ -38,59 +38,69 @@ public class Plane
         this.maintenance = maintenance;
     }
 
-    public int getMaxFood() {
+    public int getMaxFood()
+    {
         return maxFood;
     }
 
-    public int getFoodQuantity() {
+    public int getFoodQuantity()
+    {
         return foodQuantity;
     }
 
-    public int getMaxFuel() {
+    public int getMaxFuel()
+    {
         return maxFuel;
     }
 
-    public int getFuelQuantity() {
+    public int getFuelQuantity()
+    {
         return fuelQuantity;
     }
 
-    public VehicleSize getSize() {
+    public VehicleSize getSize()
+    {
         return size;
     }
 
-    public CleaningType getCleanType() {
+    public CleaningType getCleanType()
+    {
         return cleanType;
     }
 
-    public RampType getRamp() {
+    public RampType getRamp()
+    {
         return ramp;
     }
 
-    public MaintenanceType getMaintenance() {
+    public MaintenanceType getMaintenance()
+    {
         return maintenance;
     }
 
-    public void setFoodQuantity(int foodQuantity) {
+    public void setFoodQuantity(int foodQuantity)
+    {
         this.foodQuantity = foodQuantity;
     }
 
-    public void setFuelQuantity(int fuelQuantity) {
+    public void setFuelQuantity(int fuelQuantity)
+    {
         this.fuelQuantity = fuelQuantity;
     }
 
-    public void setCleanType(CleaningType cleanType) {
+    public void setCleanType(CleaningType cleanType)
+    {
         this.cleanType = cleanType;
     }
 
-    public void setRamp(RampType ramp) {
+    public void setRamp(RampType ramp)
+    {
         this.ramp = ramp;
     }
 
-    public void setMaintenance(MaintenanceType maintenance) {
+    public void setMaintenance(MaintenanceType maintenance)
+    {
         this.maintenance = maintenance;
     }
-    
-    
-    
 
 }

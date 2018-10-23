@@ -18,23 +18,24 @@ public class Available extends VehicleState
     @Override
     public boolean refuel(Vehicle v)
     {
-        v.fuel = 100;
+        v.setFuel(100);
         return true;
     }
 
     @Override
     public boolean driveTo(Bay destination, Vehicle v)
     {
-        v.state = new Driving();
-        v.location = destination;
-        v.fuel -= 10;
-        if (v.fuel > 10)
+        v.setState(new Driving());
+        v.setLocation(destination);
+        v.setFuel(v.getFuel()-10);
+        
+        if (v.getFuel() > 10)
         {
-            v.state = new Available();
+            v.setState(new Available());
         }
         else
         {
-            v.state = new OutOfFuel();
+            v.setState(new OutOfFuel());
         }
 
         return true;

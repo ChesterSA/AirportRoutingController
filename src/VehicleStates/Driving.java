@@ -24,15 +24,15 @@ public class Driving extends VehicleState
     @Override
     public boolean driveTo(Bay destination, Vehicle v)
     {
-        v.location = destination;
-        v.fuel -= 10;
-        if (v.fuel > 10)
+        v.setLocation(destination);
+        v.setFuel(v.getFuel()-10);
+        if (v.getFuel() > 10)
         {
-            v.state = new Available();
+            v.setState(new Available());
         }
         else
         {
-            v.state = new OutOfFuel();
+            v.setState(new OutOfFuel());
         }
         return true;
     }

@@ -9,6 +9,8 @@ package airportroutingcontroller;
  *
  * @author s6089488
  */
-public interface Subscriber {
+public interface Subscriber
+{
+
     public void update();
 }

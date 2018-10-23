@@ -17,7 +17,7 @@ import airportroutingcontroller.Plane;
 public class MaintenanceTruck extends Vehicle
 {
 
-    MaintenanceType type;
+    private MaintenanceType type;
 
     public MaintenanceTruck(MaintenanceType type, VehicleSize size, Bay location)
     {

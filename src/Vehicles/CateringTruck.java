@@ -17,7 +17,7 @@ import airportroutingcontroller.Plane;
 public class CateringTruck extends Vehicle
 {
 
-    int foodQuantity;
+    private int foodQuantity;
 
     public CateringTruck(VehicleSize size, int foodQuantity, Bay location)
     {

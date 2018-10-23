@@ -17,8 +17,8 @@ import airportroutingcontroller.Plane;
 public class FuelTruck extends Vehicle
 {
 
-    FuelType fuelType;
-    int planeFuelQuantity;
+    private FuelType fuelType;
+    private int planeFuelQuantity;
 
     public FuelTruck(FuelType fuelType, VehicleSize size, Bay location)
     {

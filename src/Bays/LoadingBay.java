@@ -22,9 +22,9 @@ public class LoadingBay extends Bay implements Subscriber
     private CateringTruck catering;
     private Ramp ramp;
 
-    public LoadingBay(int BayID, DeliveryVehicles manager)
+    public LoadingBay(int BayID)
     {
-        super(BayID, manager);
+        super(BayID);
     }
 
     @Override

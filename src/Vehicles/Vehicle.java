@@ -19,12 +19,12 @@ import airportroutingcontroller.Plane;
  */
 public abstract class Vehicle implements Chainable
 {
-
-    VehicleSize size;
-    public int fuel;
-    public Bay location;
-    public VehicleState state;
-    public Chainable next;
+ 
+    protected VehicleSize size;
+    protected int fuel;
+    protected Bay location;
+    protected VehicleState state;
+    protected Chainable next;
 
     public Vehicle(VehicleSize size, Bay location)
     {
@@ -60,5 +60,35 @@ public abstract class Vehicle implements Chainable
     public void addNext(Chainable c)
     {
         this.next = c;
+    }
+    
+    public int getFuel()
+    {
+        return fuel;
+    }
+
+    public void setFuel(int fuel)
+    {
+        this.fuel = fuel;
+    }
+
+    public Bay getLocation()
+    {
+        return location;
+    }
+
+    public void setLocation(Bay location)
+    {
+        this.location = location;
+    }
+
+    public VehicleState getState()
+    {
+        return state;
+    }
+
+    public void setState(VehicleState state)
+    {
+        this.state = state;
     }
 }

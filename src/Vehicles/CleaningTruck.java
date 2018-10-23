@@ -17,7 +17,7 @@ import airportroutingcontroller.Plane;
 public class CleaningTruck extends Vehicle
 {
 
-    CleaningType cleaningType;
+    private CleaningType cleaningType;
 
     public CleaningTruck(VehicleSize size, Bay location, CleaningType type)
     {
