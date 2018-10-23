@@ -5,17 +5,22 @@
  */
 package Bays;
 
+import VehicleStates.Available;
+import Vehicles.Vehicle;
+
 /**
  *
  * @author s6089488
  */
-public class VehicleStore extends Bay
+public class VehicleStore extends Location
 {
     static private VehicleStore instance;
+
+    
     
     private VehicleStore()
     {
-        super(0);
+        
     }
     
     static public VehicleStore getInstance()
@@ -27,16 +32,11 @@ public class VehicleStore extends Bay
         return instance;
     }
 
-    @Override
-    public void getVehicles()
+    
+    public static void refuel(Vehicle v)
     {
-        
-    }
-
-    @Override
-    public void update()
-    {
-        
+        v.setFuel(100);
+        v.setState(new Available());
     }
     
 }

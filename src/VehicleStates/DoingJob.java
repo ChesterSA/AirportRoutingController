@@ -6,6 +6,7 @@
 package VehicleStates;
 
 import Bays.Bay;
+import Bays.Location;
 import Vehicles.Vehicle;
 
 /**
@@ -22,7 +23,7 @@ public class DoingJob extends VehicleState
     }
 
     @Override
-    public boolean driveTo(Bay destination, Vehicle v)
+    public boolean driveTo(Location destination, Vehicle v)
     {
         return false;
     }

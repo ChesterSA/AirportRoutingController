@@ -13,7 +13,7 @@ import airportroutingcontroller.Subscriber;
  *
  * @author s6089488
  */
-public abstract class Bay implements Subscriber
+public abstract class Bay extends Location implements Subscriber
 {
 
     protected int BayID;

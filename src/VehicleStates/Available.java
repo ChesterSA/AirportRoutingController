@@ -6,6 +6,8 @@
 package VehicleStates;
 
 import Bays.Bay;
+import Bays.Location;
+import Bays.VehicleStore;
 import Vehicles.Vehicle;
 
 /**
@@ -18,12 +20,13 @@ public class Available extends VehicleState
     @Override
     public boolean refuel(Vehicle v)
     {
-        v.setFuel(100);
+        v.driveTo(VehicleStore.getInstance());
+        VehicleStore.refuel(v);
         return true;
     }
 
     @Override
-    public boolean driveTo(Bay destination, Vehicle v)
+    public boolean driveTo(Location destination, Vehicle v)
     {
         v.setState(new Driving());
         v.setLocation(destination);

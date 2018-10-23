@@ -5,7 +5,7 @@
  */
 package VehicleStates;
 
-import Bays.Bay;
+import Bays.Location;
 import Vehicles.Vehicle;
 
 /**
@@ -17,5 +17,5 @@ public abstract class VehicleState
 
     public abstract boolean refuel(Vehicle v);
 
-    public abstract boolean driveTo(Bay destination, Vehicle v);
+    public abstract boolean driveTo(Location destination, Vehicle v);
 }

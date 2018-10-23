@@ -6,6 +6,7 @@
 package Vehicles;
 
 import Bays.Bay;
+import Bays.Location;
 import Enums.VehicleSize;
 import airportroutingcontroller.Chainable;
 import VehicleStates.Available;
@@ -22,7 +23,7 @@ public abstract class Vehicle implements Chainable
  
     protected VehicleSize size;
     protected int fuel;
-    protected Bay location;
+    protected Location location;
     protected VehicleState state;
     protected Chainable next;
 
@@ -45,7 +46,7 @@ public abstract class Vehicle implements Chainable
         return success;
     }
 
-    public boolean driveTo(Bay destination)
+    public boolean driveTo(Location destination)
     {
         return state.driveTo(destination, this);
     }
@@ -72,12 +73,12 @@ public abstract class Vehicle implements Chainable
         this.fuel = fuel;
     }
 
-    public Bay getLocation()
+    public Location getLocation()
     {
         return location;
     }
 
-    public void setLocation(Bay location)
+    public void setLocation(Location location)
     {
         this.location = location;
     }
