@@ -9,12 +9,13 @@ import Vehicles.CateringTruck;
 import Vehicles.FuelTruck;
 import Vehicles.Ramp;
 import airportroutingcontroller.DeliveryVehicles;
+import airportroutingcontroller.Subscriber;
 
 /**
  *
  * @author s6089488
  */
-public class LoadingBay extends Bay
+public class LoadingBay extends Bay implements Subscriber
 {
 
     private FuelTruck fuel;
@@ -59,6 +60,10 @@ public class LoadingBay extends Bay
         {
             ramp.executeJob(this, plane);
         }
+    }
+
+    @Override
+    public void update() {
     }
 
 }

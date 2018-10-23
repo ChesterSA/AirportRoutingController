@@ -28,15 +28,15 @@ public class CleaningTruck extends Vehicle
     @Override
     public boolean doJob(Plane p)
     {
-        p.cleanType = CleaningType.CLEAN;
+        p.setCleanType(CleaningType.CLEAN);
         return true;
     }
 
     @Override
     public Vehicle handle(Plane p)
     {
-        if (p.size.ordinal() <= size.ordinal()
-                && this.cleaningType.ordinal() >= p.cleanType.ordinal())
+        if (p.getSize().ordinal() <= size.ordinal()
+                && this.cleaningType.ordinal() >= p.getCleanType().ordinal())
         {
             return this;
         }

@@ -17,14 +17,14 @@ import Enums.VehicleSize;
 public class Plane
 {
 
-    public final int maxFood;
-    public int foodQuantity;
-    public final int maxFuel;
-    public int fuelQuantity;
-    public VehicleSize size;
-    public CleaningType cleanType;
-    public RampType ramp;
-    public MaintenanceType maintenance;
+    private final int maxFood;
+    private int foodQuantity;
+    private final int maxFuel;
+    private int fuelQuantity;
+    private final VehicleSize size;
+    private CleaningType cleanType;
+    private RampType ramp;
+    private MaintenanceType maintenance;
 
     public Plane(int maxFood, int foodQuantity, int maxFuel, int fuelQuantity, VehicleSize size, CleaningType cleanType, RampType ramp, MaintenanceType maintenance)
     {
@@ -37,5 +37,60 @@ public class Plane
         this.ramp = ramp;
         this.maintenance = maintenance;
     }
+
+    public int getMaxFood() {
+        return maxFood;
+    }
+
+    public int getFoodQuantity() {
+        return foodQuantity;
+    }
+
+    public int getMaxFuel() {
+        return maxFuel;
+    }
+
+    public int getFuelQuantity() {
+        return fuelQuantity;
+    }
+
+    public VehicleSize getSize() {
+        return size;
+    }
+
+    public CleaningType getCleanType() {
+        return cleanType;
+    }
+
+    public RampType getRamp() {
+        return ramp;
+    }
+
+    public MaintenanceType getMaintenance() {
+        return maintenance;
+    }
+
+    public void setFoodQuantity(int foodQuantity) {
+        this.foodQuantity = foodQuantity;
+    }
+
+    public void setFuelQuantity(int fuelQuantity) {
+        this.fuelQuantity = fuelQuantity;
+    }
+
+    public void setCleanType(CleaningType cleanType) {
+        this.cleanType = cleanType;
+    }
+
+    public void setRamp(RampType ramp) {
+        this.ramp = ramp;
+    }
+
+    public void setMaintenance(MaintenanceType maintenance) {
+        this.maintenance = maintenance;
+    }
+    
+    
+    
 
 }

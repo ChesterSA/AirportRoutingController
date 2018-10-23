@@ -28,15 +28,15 @@ public class MaintenanceTruck extends Vehicle
     @Override
     public boolean doJob(Plane p)
     {
-        p.maintenance = MaintenanceType.FIXED;
+        p.setMaintenance(MaintenanceType.FIXED);
         return true;
     }
 
     @Override
     public Vehicle handle(Plane p)
     {
-        if (p.size.ordinal() <= this.size.ordinal()
-                && p.maintenance.ordinal() <= this.type.ordinal())
+        if (p.getSize().ordinal() <= this.size.ordinal()
+                && p.getMaintenance().ordinal() <= this.type.ordinal())
         {
             return this;
         }

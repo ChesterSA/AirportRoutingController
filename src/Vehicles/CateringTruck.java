@@ -28,15 +28,15 @@ public class CateringTruck extends Vehicle
     @Override
     public boolean doJob(Plane p)
     {
-        this.foodQuantity = p.maxFood - p.foodQuantity;
-        p.foodQuantity = p.maxFood;
+        this.foodQuantity = p.getMaxFood() - p.getFoodQuantity();
+        p.setFoodQuantity(p.getMaxFood());
         return true;
     }
 
     @Override
     public Vehicle handle(Plane p)
     {
-        if ((p.maxFood - p.foodQuantity) <= this.foodQuantity)
+        if ((p.getMaxFood() - p.getFoodQuantity()) <= this.foodQuantity)
         {
             return this;
         }

@@ -6,7 +6,6 @@
 package airportroutingcontroller;
 
 import Vehicles.Vehicle;
-import airportroutingcontroller.Plane;
 
 /**
  *

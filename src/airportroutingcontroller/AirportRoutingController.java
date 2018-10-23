@@ -5,6 +5,8 @@
  */
 package airportroutingcontroller;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author s6089488
@@ -12,12 +14,21 @@ package airportroutingcontroller;
 public class AirportRoutingController
 {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args)
+    private LinkedList<Subscriber> subscribers;
+    
+    public void subscribe (Subscriber s)
     {
-        // TODO code application logic here
+        subscribers.add(s);
+    }
+    
+    public void unsubscribe(Subscriber s)
+    {
+        subscribers.remove(s);
+    }
+    
+    public void notifySubscribers()
+    {
+        subscribers.forEach((s) -> {s.update();});
     }
 
 }
