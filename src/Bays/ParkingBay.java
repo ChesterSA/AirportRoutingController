@@ -7,7 +7,6 @@ package Bays;
 
 import Vehicles.CleaningTruck;
 import Vehicles.MaintenanceTruck;
-import airportroutingcontroller.DeliveryVehicles;
 
 /**
  *
@@ -49,5 +48,11 @@ public class ParkingBay extends Bay
         {
             maintenance.executeJob(this, plane);
         }
+    }
+
+    @Override
+    public void update()
+    {
+        
     }
 }

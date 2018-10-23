@@ -8,6 +8,7 @@ package Vehicles;
 import Bays.Bay;
 import Enums.CleaningType;
 import Enums.VehicleSize;
+import VehicleStates.Available;
 import airportroutingcontroller.Plane;
 
 /**
@@ -17,7 +18,7 @@ import airportroutingcontroller.Plane;
 public class CleaningTruck extends Vehicle
 {
 
-    private CleaningType cleaningType;
+    private final CleaningType cleaningType;
 
     public CleaningTruck(VehicleSize size, Bay location, CleaningType type)
     {
@@ -36,7 +37,8 @@ public class CleaningTruck extends Vehicle
     public Vehicle handle(Plane p)
     {
         if (p.getSize().ordinal() <= size.ordinal()
-                && this.cleaningType.ordinal() >= p.getCleanType().ordinal())
+                && this.cleaningType.ordinal() >= p.getCleanType().ordinal()
+                && this.state == new Available())
         {
             return this;
         }

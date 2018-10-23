@@ -8,6 +8,7 @@ package Vehicles;
 import Bays.Bay;
 import Enums.MaintenanceType;
 import Enums.VehicleSize;
+import VehicleStates.Available;
 import airportroutingcontroller.Plane;
 
 /**
@@ -17,7 +18,7 @@ import airportroutingcontroller.Plane;
 public class MaintenanceTruck extends Vehicle
 {
 
-    private MaintenanceType type;
+    private final MaintenanceType type;
 
     public MaintenanceTruck(MaintenanceType type, VehicleSize size, Bay location)
     {
@@ -36,7 +37,8 @@ public class MaintenanceTruck extends Vehicle
     public Vehicle handle(Plane p)
     {
         if (p.getSize().ordinal() <= this.size.ordinal()
-                && p.getMaintenance().ordinal() <= this.type.ordinal())
+                && p.getMaintenance().ordinal() <= this.type.ordinal()
+                && this.state == new Available())
         {
             return this;
         }

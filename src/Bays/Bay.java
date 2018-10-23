@@ -7,12 +7,13 @@ package Bays;
 
 import airportroutingcontroller.DeliveryVehicles;
 import airportroutingcontroller.Plane;
+import airportroutingcontroller.Subscriber;
 
 /**
  *
  * @author s6089488
  */
-public abstract class Bay
+public abstract class Bay implements Subscriber
 {
 
     protected int BayID;

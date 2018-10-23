@@ -37,6 +37,7 @@ public class DeliveryVehicles
         return instance;
     }
 
+    
     public FuelTruck getFuelTruck(Plane plane, LoadingBay bay)
     {
         return (FuelTruck) firstFuel.handle(plane);
@@ -62,6 +63,7 @@ public class DeliveryVehicles
         return (MaintenanceTruck) firstMaintenance.handle(plane);
     }
 
+    
     public void setFirstFuel(FuelTruck firstFuel)
     {
         this.firstFuel = firstFuel;

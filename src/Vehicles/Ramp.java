@@ -8,6 +8,7 @@ package Vehicles;
 import Bays.Bay;
 import Enums.RampType;
 import Enums.VehicleSize;
+import VehicleStates.Available;
 import airportroutingcontroller.Chainable;
 import airportroutingcontroller.Plane;
 
@@ -18,7 +19,7 @@ import airportroutingcontroller.Plane;
 public class Ramp extends Vehicle implements Chainable
 {
 
-    RampType type;
+    private final RampType type;
 
     public Ramp(RampType type, VehicleSize size, Bay location)
     {
@@ -36,7 +37,8 @@ public class Ramp extends Vehicle implements Chainable
     public Vehicle handle(Plane p)
     {
         if (p.getSize().ordinal() <= this.size.ordinal()
-                && p.getRamp() == this.type)
+                && p.getRamp() == this.type
+                && this.state == new Available())
         {
             return this;
         }

@@ -8,14 +8,12 @@ package Bays;
 import Vehicles.CateringTruck;
 import Vehicles.FuelTruck;
 import Vehicles.Ramp;
-import airportroutingcontroller.DeliveryVehicles;
-import airportroutingcontroller.Subscriber;
 
 /**
  *
  * @author s6089488
  */
-public class LoadingBay extends Bay implements Subscriber
+public class LoadingBay extends Bay
 {
 
     private FuelTruck fuel;
@@ -64,6 +62,7 @@ public class LoadingBay extends Bay implements Subscriber
 
     @Override
     public void update() {
+        
     }
 
 }
