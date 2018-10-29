@@ -5,9 +5,6 @@
  */
 package Bays;
 
-import VehicleStates.Available;
-import Vehicles.Vehicle;
-
 /**
  *
  * @author s6089488
@@ -30,13 +27,6 @@ public class VehicleStore extends Location
             instance = new VehicleStore();
         }
         return instance;
-    }
-
-    
-    public static void refuel(Vehicle v)
-    {
-        v.setFuel(100);
-        v.setState(new Available());
     }
     
 }

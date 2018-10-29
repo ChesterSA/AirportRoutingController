@@ -14,8 +14,6 @@ import Vehicles.Vehicle;
  */
 public abstract class VehicleState
 {
-
-    public abstract boolean refuel(Vehicle v);
-
-    public abstract boolean driveTo(Location destination, Vehicle v);
+    public abstract String refuel(Vehicle v);
+    
 }

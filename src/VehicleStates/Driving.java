@@ -5,7 +5,6 @@
  */
 package VehicleStates;
 
-import Bays.Location;
 import Vehicles.Vehicle;
 
 /**
@@ -16,25 +15,9 @@ public class Driving extends VehicleState
 {
 
     @Override
-    public boolean refuel(Vehicle v)
+    public String refuel(Vehicle v)
     {
-        return false;
+        return "You can't refuel right now";
     }
-
-    @Override
-    public boolean driveTo(Location destination, Vehicle v)
-    {
-        v.setLocation(destination);
-        v.setFuel(v.getFuel()-10);
-        if (v.getFuel() > 10)
-        {
-            v.setState(new Available());
-        }
-        else
-        {
-            v.setState(new OutOfFuel());
-        }
-        return true;
-    }
-
+    
 }

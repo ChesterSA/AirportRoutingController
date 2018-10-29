@@ -8,7 +8,7 @@ package Vehicles;
 import Bays.Bay;
 import Enums.FuelType;
 import Enums.VehicleSize;
-import VehicleStates.Available;
+import VehicleStates.Waiting;
 import airportroutingcontroller.Plane;
 
 /**
@@ -39,7 +39,7 @@ public class FuelTruck extends Vehicle
     public Vehicle handle(Plane p)
     {
         if ((p.getMaxFuel() - p.getFuelQuantity()) <= this.planeFuelQuantity
-                && this.state == new Available())
+                && this.state == new Waiting())
         {
             return this;
         }

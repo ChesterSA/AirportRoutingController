@@ -9,8 +9,9 @@ import Bays.Bay;
 import Bays.Location;
 import Enums.VehicleSize;
 import airportroutingcontroller.Chainable;
-import VehicleStates.Available;
+import VehicleStates.Waiting;
 import VehicleStates.DoingJob;
+import VehicleStates.Driving;
 import VehicleStates.VehicleState;
 import airportroutingcontroller.Plane;
 
@@ -32,32 +33,48 @@ public abstract class Vehicle implements Chainable
         this.size = size;
         this.location = location;
         this.fuel = 100;
-        state = new Available();
+        state = new Waiting();
     }
 
-    public final boolean executeJob(Bay destination, Plane p)
+    public final void executeJob(Bay destination, Plane p)
     {
-        boolean success = false;
         if (driveTo(location))
         {
             state = new DoingJob();
-            success = doJob(p);
+            doJob(p);
+            System.out.println("The job has been succesfully executed");
+            state = new Waiting();
         }
-        return success;
+        else
+        {
+            System.out.println("You don't have enough fuel to drive");
+            state = new Waiting();
+        }
     }
 
     public boolean driveTo(Location destination)
     {
-        return state.driveTo(destination, this);
+        boolean success = false;
+        state = new Driving();
+        if (fuel > 10)
+        {
+            System.out.println("Driving to destination");
+            fuel -= 10;
+            location = destination;
+            success = true;
+        }
+        return success;
+        
     }
 
     public abstract boolean doJob(Plane p);
 
-    public void refuel()
+    public String refuel()
     {
-        state.refuel(this);
+        return state.refuel(this);
     }
 
+    @Override
     public void addNext(Chainable c)
     {
         this.next = c;

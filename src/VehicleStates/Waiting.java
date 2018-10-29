@@ -6,19 +6,20 @@
 package VehicleStates;
 
 import Bays.Location;
+import Bays.VehicleStore;
 import Vehicles.Vehicle;
 
 /**
  *
  * @author s6089488
  */
-public class DoingJob extends VehicleState
+public class Waiting extends VehicleState
 {
-
     @Override
     public String refuel(Vehicle v)
     {
-        return "You can't refuel right now";
+        v.driveTo(VehicleStore.getInstance());
+        v.setState(new Refueling()); 
+        return v.refuel();
     }
-    
 }

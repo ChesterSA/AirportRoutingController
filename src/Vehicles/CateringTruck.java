@@ -7,7 +7,7 @@ package Vehicles;
 
 import Bays.Bay;
 import Enums.VehicleSize;
-import VehicleStates.Available;
+import VehicleStates.Waiting;
 import airportroutingcontroller.Chainable;
 import airportroutingcontroller.Plane;
 
@@ -38,7 +38,7 @@ public class CateringTruck extends Vehicle
     public Vehicle handle(Plane p)
     {
         if ((p.getMaxFood() - p.getFoodQuantity()) <= this.foodQuantity
-                && this.state == new Available())
+                && this.state == new Waiting())
         {
             return this;
         }
