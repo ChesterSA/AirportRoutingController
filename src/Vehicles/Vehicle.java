@@ -41,7 +41,7 @@ public abstract class Vehicle implements Chainable
         if (driveTo(location))
         {
             state = new DoingJob();
-            doJob(p);
+            doJob();
             System.out.println("The job has been succesfully executed");
             state = new Waiting();
         }
@@ -67,7 +67,7 @@ public abstract class Vehicle implements Chainable
         
     }
 
-    public abstract boolean doJob(Plane p);
+    public abstract boolean doJob();
 
     public String refuel()
     {

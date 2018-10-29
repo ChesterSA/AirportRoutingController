@@ -28,7 +28,7 @@ public class Ramp extends Vehicle implements Chainable
     }
 
     @Override
-    public boolean doJob(Plane p)
+    public boolean doJob()
     {
         return true;
     }

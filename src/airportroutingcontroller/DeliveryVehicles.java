@@ -38,27 +38,27 @@ public class DeliveryVehicles
     }
 
     
-    public FuelTruck getFuelTruck(Plane plane, LoadingBay bay)
+    public FuelTruck getFuelTruck(Plane plane)
     {
         return (FuelTruck) firstFuel.handle(plane);
     }
 
-    public CateringTruck getCateringTruck(Plane plane, LoadingBay bay)
+    public CateringTruck getCateringTruck(Plane plane)
     {
         return (CateringTruck) firstCatering.handle(plane);
     }
 
-    public Ramp getRamp(Plane plane, LoadingBay bay)
+    public Ramp getRamp(Plane plane)
     {
         return (Ramp) firstRamp.handle(plane);
     }
 
-    public CleaningTruck getCleaningTruck(Plane plane, ParkingBay bay)
+    public CleaningTruck getCleaningTruck(Plane plane)
     {
         return (CleaningTruck) firstCleaning.handle(plane);
     }
 
-    public MaintenanceTruck getMaintenanceTruck(Plane plane, ParkingBay bay)
+    public MaintenanceTruck getMaintenanceTruck(Plane plane)
     {
         return (MaintenanceTruck) firstMaintenance.handle(plane);
     }

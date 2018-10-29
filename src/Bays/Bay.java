@@ -27,4 +27,16 @@ public abstract class Bay extends Location implements Subscriber
     }
 
     public abstract void getVehicles();
+
+    public Plane getPlane()
+    {
+        return plane;
+    }
+
+    public void setPlane(Plane plane)
+    {
+        this.plane = plane;
+    }
+    
+    
 }

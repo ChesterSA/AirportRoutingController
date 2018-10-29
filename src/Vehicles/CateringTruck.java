@@ -8,7 +8,6 @@ package Vehicles;
 import Bays.Bay;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
-import airportroutingcontroller.Chainable;
 import airportroutingcontroller.Plane;
 
 /**
@@ -27,8 +26,11 @@ public class CateringTruck extends Vehicle
     }
 
     @Override
-    public boolean doJob(Plane p)
+    public boolean doJob()
     {
+        Bay current = (Bay)location;
+        Plane p = current.getPlane();
+        
         this.foodQuantity = p.getMaxFood() - p.getFoodQuantity();
         p.setFoodQuantity(p.getMaxFood());
         return true;

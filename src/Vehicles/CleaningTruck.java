@@ -27,8 +27,11 @@ public class CleaningTruck extends Vehicle
     }
 
     @Override
-    public boolean doJob(Plane p)
+    public boolean doJob()
     {
+        Bay current = (Bay)location;
+        Plane p = current.getPlane();
+        
         p.setCleanType(CleaningType.CLEAN);
         return true;
     }

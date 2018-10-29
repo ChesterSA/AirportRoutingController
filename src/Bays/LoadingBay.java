@@ -30,9 +30,9 @@ public class LoadingBay extends Bay
     {
         if (plane != null)
         {
-            this.fuel = manager.getFuelTruck(plane, this);
-            this.catering = manager.getCateringTruck(plane, this);
-            this.ramp = manager.getRamp(plane, this);
+            this.fuel = manager.getFuelTruck(plane);
+            this.catering = manager.getCateringTruck(plane);
+            this.ramp = manager.getRamp(plane);
         }
     }
 

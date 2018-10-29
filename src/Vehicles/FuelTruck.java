@@ -18,7 +18,7 @@ import airportroutingcontroller.Plane;
 public class FuelTruck extends Vehicle
 {
 
-    private FuelType fuelType;
+    private final FuelType fuelType;
     private int planeFuelQuantity;
 
     public FuelTruck(FuelType fuelType, VehicleSize size, Bay location)
@@ -28,10 +28,14 @@ public class FuelTruck extends Vehicle
     }
 
     @Override
-    public boolean doJob(Plane p)
+    public boolean doJob()
     {
-        this.planeFuelQuantity = p.getMaxFuel()- p.getFuelQuantity();
+        Bay current = (Bay)location;
+        Plane p = current.getPlane();
+        
         p.setFuelQuantity(p.getMaxFuel());
+        this.planeFuelQuantity = p.getMaxFuel()- p.getFuelQuantity();
+        
         return true;
     }
 
@@ -39,6 +43,7 @@ public class FuelTruck extends Vehicle
     public Vehicle handle(Plane p)
     {
         if ((p.getMaxFuel() - p.getFuelQuantity()) <= this.planeFuelQuantity
+                && this.fuelType == p.getFuelType()
                 && this.state == new Waiting())
         {
             return this;
