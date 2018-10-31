@@ -76,4 +76,11 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
     {
         next = b;
     }
+
+    public int getBayID()
+    {
+        return BayID;
+    }
+    
+    
 }

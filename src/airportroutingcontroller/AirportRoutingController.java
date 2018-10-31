@@ -7,6 +7,8 @@ package airportroutingcontroller;
 
 import Bays.LoadingBay;
 import Bays.ParkingBay;
+import Enums.CleaningType;
+import Enums.MaintenanceType;
 import java.util.LinkedList;
 
 /**
@@ -18,8 +20,6 @@ public class AirportRoutingController
     private static LinkedList<Subscriber> subscribers;
     private static LoadingBay firstLoadingBay;
     private static ParkingBay firstParkingBay;
-    
-    
 
     public static void subscribe(Subscriber s)
     {
@@ -37,6 +37,37 @@ public class AirportRoutingController
         {
             s.update();
         });
+    }
+    
+    public void handlePlane(Plane p)
+    {
+        if (p.getMaintenance() == MaintenanceType.SPECIALIST ||
+                p.getCleanType() == CleaningType.SEVERE)          
+        {
+            ParkingBay pb = (ParkingBay)firstParkingBay.handle(p);
+            if (pb != null)
+            {
+                System.out.println("Plane has moved to parking bay " + pb.getBayID());
+                pb.setPlane(p);
+            }
+            else
+            {
+                System.out.println("No parking bays available currently");
+            }
+        }
+        else
+        {
+            LoadingBay lb = (LoadingBay)firstLoadingBay.handle(p);
+            if (lb != null)
+            {
+                System.out.println("Plane has moved to loading bay " + lb.getBayID());
+                lb.setPlane(p);
+            }
+            else
+            {
+                System.out.println("No loading bays available currently");
+            }
+        }
     }
 
     public static LoadingBay getFirstLoadingBay()
@@ -58,5 +89,6 @@ public class AirportRoutingController
     {
         AirportRoutingController.firstParkingBay = firstParking;
     }
-
+    
+    
 }
