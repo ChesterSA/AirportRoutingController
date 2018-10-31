@@ -29,6 +29,7 @@ public class MaintenanceTruck extends Vehicle
     @Override
     public boolean doJob()
     {
+        System.out.println("Fixing truck");
         Bay current = (Bay)location;
         current.getPlane().setMaintenance(MaintenanceType.FIXED);
         return true;
@@ -39,7 +40,8 @@ public class MaintenanceTruck extends Vehicle
     {
         if (p.getSize().ordinal() <= this.size.ordinal()
                 && p.getMaintenance().ordinal() <= this.type.ordinal()
-                && this.state == new Waiting())
+                //&& this.state == new Waiting()
+                )
         {
             return this;
         }

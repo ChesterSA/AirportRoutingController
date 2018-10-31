@@ -7,7 +7,6 @@ package Bays;
 
 import Enums.VehicleSize;
 import airportroutingcontroller.BayChainable;
-import airportroutingcontroller.Chainable;
 import airportroutingcontroller.DeliveryVehicles;
 import airportroutingcontroller.Plane;
 import airportroutingcontroller.Subscriber;
@@ -61,12 +60,28 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
               
     }
     
-    public void movePlane(Bay b)
+    public void movePlaneToLoading(LoadingBay lb)
     {
-        if (b.size.ordinal() >= plane.getSize().ordinal()
-                && b.plane == null)
+        if (lb.size.ordinal() >= plane.getSize().ordinal()
+                && lb.plane == null)
         {
-            b.plane = plane;
+            plane.setParkingBay(null);
+            plane.setLoadingBay(lb);
+            
+            lb.plane = plane;     
+            plane = null;
+        }
+    }
+    
+    public void movePlanetoParking(ParkingBay pb)
+    {
+        if (pb.size.ordinal() >= plane.getSize().ordinal()
+                && pb.plane == null)
+        {
+            plane.setLoadingBay(null);
+            plane.setParkingBay(pb);
+            
+            pb.plane = plane;           
             plane = null;
         }
     }

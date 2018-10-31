@@ -20,10 +20,10 @@ public class Driver
     public static void main(String[] args)
     {
         //Initialising Planes
-        Plane smallPlane = new Plane(100, 75, 250, 150, FuelType.AVGAS, VehicleSize.SMALL, CleaningType.MODERATE, RampType.OPEN, MaintenanceType.FIXED);
-        Plane mediumPlane = new Plane(250, 25, 500, 20, FuelType.AVGAS, VehicleSize.MEDIUM, CleaningType.SIMPLE, RampType.ENCLOSED, MaintenanceType.FIXED);
-        Plane largePlane = new Plane(500, 400, 750, 600, FuelType.AVGAS, VehicleSize.LARGE, CleaningType.SEVERE, RampType.ENCLOSED, MaintenanceType.STANDARD);
-        Plane jet = new Plane(0, 0, 250, 100, FuelType.JET_A1, VehicleSize.SMALL, CleaningType.CLEAN, RampType.OPEN, MaintenanceType.SPECIALIST);
+        Plane smallPlane = new Plane("SML123", 100, 75, 250, 150, FuelType.AVGAS, VehicleSize.SMALL, CleaningType.MODERATE, RampType.OPEN, MaintenanceType.FIXED);
+        Plane mediumPlane = new Plane("MED456", 250, 25, 500, 20, FuelType.AVGAS, VehicleSize.MEDIUM, CleaningType.SIMPLE, RampType.ENCLOSED, MaintenanceType.FIXED);
+        Plane largePlane = new Plane("LRG789", 500, 400, 750, 600, FuelType.AVGAS, VehicleSize.LARGE, CleaningType.SEVERE, RampType.ENCLOSED, MaintenanceType.STANDARD);
+        Plane jet = new Plane("JETX2", 0, 0, 250, 100, FuelType.JET_A1, VehicleSize.SMALL, CleaningType.CLEAN, RampType.OPEN, MaintenanceType.SPECIALIST);
 
         //Initialising Vehicles
         FuelTruck smallFuel = new FuelTruck(FuelType.AVGAS, VehicleSize.SMALL, 150);
@@ -90,21 +90,41 @@ public class Driver
         DeliveryVehicles.getInstance().setFirstRamp(smallEnclosed);
         DeliveryVehicles.getInstance().setFirstCleaning(smallCleaning);
         DeliveryVehicles.getInstance().setFirstMaintenance(smallMaintenance);
-        
+
         //Add bay chains to ARC 
         AirportRoutingController.setFirstLoadingBay(smallLoading);
         AirportRoutingController.setFirstParkingBay(smallParking);
-        
+
         AirportRoutingController arc = new AirportRoutingController();
-        
+
         arc.handlePlane(smallPlane);
+        managePlane(smallPlane, arc);
+
+        arc.handlePlane(mediumPlane);
+        managePlane(mediumPlane, arc);
         
-        LoadingBay lb = (LoadingBay)smallPlane.getCurrentBay();
+        arc.handlePlane(largePlane);
+        managePlane(largePlane, arc);
+    }
+
+    public static void managePlane(Plane p, AirportRoutingController arc)
+    {
+        if (p.getParkingBay() != null)
+        {
+            ParkingBay pb = p.getParkingBay();
+            pb.getVehicles();
+
+            pb.fixPlane();
+            pb.clean();
+
+            arc.handlePlane(p);
+        }
+
+        LoadingBay lb = p.getLoadingBay();
         lb.getVehicles();
-        
+
         lb.refuel();
         lb.refillFood();
         lb.callRamp();
-
     }
 }

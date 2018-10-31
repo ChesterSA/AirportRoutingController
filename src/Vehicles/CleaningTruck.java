@@ -30,6 +30,7 @@ public class CleaningTruck extends Vehicle
     @Override
     public boolean doJob()
     {
+        System.out.println("Cleaning Plane");
         Bay current = (Bay)location;
         Plane p = current.getPlane();
         
@@ -42,7 +43,8 @@ public class CleaningTruck extends Vehicle
     {
         if (p.getSize().ordinal() <= size.ordinal()
                 && this.cleaningType.ordinal() >= p.getCleanType().ordinal()
-                && this.state == new Waiting())
+                //&& this.state == new Waiting()
+                )
         {
             return this;
         }

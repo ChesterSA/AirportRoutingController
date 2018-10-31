@@ -6,6 +6,8 @@
 package airportroutingcontroller;
 
 import Bays.Bay;
+import Bays.LoadingBay;
+import Bays.ParkingBay;
 import Enums.*;
 
 /**
@@ -14,7 +16,8 @@ import Enums.*;
  */
 public class Plane
 {
-
+    private String planeID;
+    
     private final int maxFood;
     private int foodQuantity;
     
@@ -27,10 +30,12 @@ public class Plane
     private RampType ramp;
     private MaintenanceType maintenance;
     
-    private Bay currentBay;
+    private LoadingBay loadingBay;
+    private ParkingBay parkingBay;
 
-    public Plane(int maxFood, int foodQuantity, int maxFuel, int fuelQuantity, FuelType fuelType, VehicleSize size, CleaningType cleanType, RampType ramp, MaintenanceType maintenance)
+    public Plane(String planeID, int maxFood, int foodQuantity, int maxFuel, int fuelQuantity, FuelType fuelType, VehicleSize size, CleaningType cleanType, RampType ramp, MaintenanceType maintenance)
     {
+        this.planeID = planeID;
         this.maxFood = maxFood;
         this.foodQuantity = foodQuantity;
         this.maxFuel = maxFuel;
@@ -119,15 +124,39 @@ public class Plane
         this.fuelType = fuelType;
     }
 
-    public Bay getCurrentBay()
+    public LoadingBay getLoadingBay()
     {
-        return currentBay;
+        return loadingBay;
     }
 
-    public void setCurrentBay(Bay currentBay)
+    public void setLoadingBay(LoadingBay loadingBay)
     {
-        this.currentBay = currentBay;
+        this.loadingBay = loadingBay;
     }
+
+    public ParkingBay getParkingBay()
+    {
+        return parkingBay;
+    }
+
+    public void setParkingBay(ParkingBay parkingBay)
+    {
+        this.parkingBay = parkingBay;
+    }
+
+    public String getPlaneID()
+    {
+        return planeID;
+    }
+
+    public void setPlaneID(String PlaneID)
+    {
+        this.planeID = PlaneID;
+    }
+    
+    
+
+    
     
     
 
