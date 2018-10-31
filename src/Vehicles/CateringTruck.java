@@ -41,8 +41,10 @@ public class CateringTruck extends Vehicle
     public Vehicle handle(Plane p)
     {
         if ((p.getMaxFood() - p.getFoodQuantity()) <= this.foodQuantity
-                && this.state == new Waiting())
+                //&& this.state == new Waiting()
+                )
         {
+            System.out.println("Catering truck found");
             return this;
         }
         else if (next != null)

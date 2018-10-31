@@ -32,8 +32,16 @@ public class LoadingBay extends Bay
         if (plane != null)
         {
             this.fuel = manager.getFuelTruck(plane);
+            if (fuel != null)
+                System.out.println("Fuel Truck arrived\n");
+            
             this.catering = manager.getCateringTruck(plane);
+            if (catering != null)
+                System.out.println("Catering Truck arrived\n");
+            
             this.ramp = manager.getRamp(plane);
+            if(ramp != null)
+                System.out.println("Ramp arrived\n");
         }
     }
 
@@ -41,7 +49,9 @@ public class LoadingBay extends Bay
     {
         if (fuel != null)
         {
+            System.out.println("Refuelling Plane");
             fuel.executeJob(this, plane);
+            
         }
     }
 
@@ -49,7 +59,9 @@ public class LoadingBay extends Bay
     {
         if (catering != null)
         {
+            System.out.println("Restocking plane food");
             catering.executeJob(this, plane);
+            
         }
     }
 
@@ -57,6 +69,7 @@ public class LoadingBay extends Bay
     {
         if (ramp != null)
         {
+            System.out.println("Calling ramp");
             ramp.executeJob(this, plane);
         }
     }
@@ -65,8 +78,11 @@ public class LoadingBay extends Bay
     public void update() {
         //release vehicles back to vehicle store so selected bay can use them
         fuel.driveTo(VehicleStore.getInstance());
+        fuel = null;
         catering.driveTo(VehicleStore.getInstance());
+        catering = null;
         ramp.driveTo(VehicleStore.getInstance());
+        ramp = null;
     }
 
 }

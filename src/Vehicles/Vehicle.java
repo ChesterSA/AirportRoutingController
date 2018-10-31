@@ -34,16 +34,17 @@ public abstract class Vehicle implements Chainable
         this.size = size;
         this.location = VehicleStore.getInstance();
         this.fuel = 100;
-        state = new Waiting();
+        this.state = new Waiting();
     }
 
     public final void executeJob(Bay destination, Plane p)
     {
-        if (driveTo(location))
+        if (driveTo(destination))
         {
+            location = destination;
             state = new DoingJob();
             doJob();
-            System.out.println("The job has been succesfully executed");
+            System.out.println("The job has been succesfully executed\n");
             state = new Waiting();
         }
         else

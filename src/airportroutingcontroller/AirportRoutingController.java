@@ -47,12 +47,13 @@ public class AirportRoutingController
             ParkingBay pb = (ParkingBay)firstParkingBay.handle(p);
             if (pb != null)
             {
-                System.out.println("Plane has moved to parking bay " + pb.getBayID());
+                System.out.println("Plane has moved to parking bay " + pb.getBayID() + "\n");
                 pb.setPlane(p);
+                p.setCurrentBay(pb);
             }
             else
             {
-                System.out.println("No parking bays available currently");
+                System.out.println("No parking bays available currently\n");
             }
         }
         else
@@ -60,12 +61,13 @@ public class AirportRoutingController
             LoadingBay lb = (LoadingBay)firstLoadingBay.handle(p);
             if (lb != null)
             {
-                System.out.println("Plane has moved to loading bay " + lb.getBayID());
+                System.out.println("Plane has moved to loading bay " + lb.getBayID() + "\n");
                 lb.setPlane(p);
+                p.setCurrentBay(lb);
             }
             else
             {
-                System.out.println("No loading bays available currently");
+                System.out.println("No loading bays available currently\n");
             }
         }
     }

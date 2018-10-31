@@ -55,6 +55,8 @@ public class ParkingBay extends Bay
     public void update()
     {
         cleaning.driveTo(VehicleStore.getInstance());
+        cleaning = null;
         maintenance.driveTo(VehicleStore.getInstance());
+        maintenance = null;
     }
 }

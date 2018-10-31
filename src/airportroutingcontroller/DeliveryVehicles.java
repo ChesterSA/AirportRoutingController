@@ -40,16 +40,19 @@ public class DeliveryVehicles
     
     public FuelTruck getFuelTruck(Plane plane)
     {
+        System.out.println("Getting fuel truck");
         return (FuelTruck) firstFuel.handle(plane);
     }
 
     public CateringTruck getCateringTruck(Plane plane)
     {
+        System.out.println("Getting catering truck");
         return (CateringTruck) firstCatering.handle(plane);
     }
 
     public Ramp getRamp(Plane plane)
     {
+        System.out.println("Getting ramp");
         return (Ramp) firstRamp.handle(plane);
     }
 

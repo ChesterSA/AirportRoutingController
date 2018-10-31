@@ -5,6 +5,7 @@
  */
 package airportroutingcontroller;
 
+import Bays.Bay;
 import Enums.*;
 
 /**
@@ -25,6 +26,8 @@ public class Plane
     private CleaningType cleanType;
     private RampType ramp;
     private MaintenanceType maintenance;
+    
+    private Bay currentBay;
 
     public Plane(int maxFood, int foodQuantity, int maxFuel, int fuelQuantity, FuelType fuelType, VehicleSize size, CleaningType cleanType, RampType ramp, MaintenanceType maintenance)
     {
@@ -114,6 +117,16 @@ public class Plane
     public void setFuelType(FuelType fuelType)
     {
         this.fuelType = fuelType;
+    }
+
+    public Bay getCurrentBay()
+    {
+        return currentBay;
+    }
+
+    public void setCurrentBay(Bay currentBay)
+    {
+        this.currentBay = currentBay;
     }
     
     

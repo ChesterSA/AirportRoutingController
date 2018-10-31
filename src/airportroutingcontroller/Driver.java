@@ -95,7 +95,16 @@ public class Driver
         AirportRoutingController.setFirstLoadingBay(smallLoading);
         AirportRoutingController.setFirstParkingBay(smallParking);
         
+        AirportRoutingController arc = new AirportRoutingController();
         
+        arc.handlePlane(smallPlane);
+        
+        LoadingBay lb = (LoadingBay)smallPlane.getCurrentBay();
+        lb.getVehicles();
+        
+        lb.refuel();
+        lb.refillFood();
+        lb.callRamp();
 
     }
 }

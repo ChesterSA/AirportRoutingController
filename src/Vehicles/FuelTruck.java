@@ -26,6 +26,7 @@ public class FuelTruck extends Vehicle
     {
         super(size);
         this.fuelType = fuelType;
+        this.planeFuelQuantity = planeFuelQuantity;
     }
 
     @Override
@@ -45,16 +46,20 @@ public class FuelTruck extends Vehicle
     {
         if ((p.getMaxFuel() - p.getFuelQuantity()) <= this.planeFuelQuantity
                 && this.fuelType == p.getFuelType()
-                && this.state == new Waiting())
+                //&& this.state == new Waiting()
+                )
         {
+            System.out.println("Fuel truck found");
             return this;
         }
         else if (next != null)
         {
+            System.out.println("Trying next truck");
             return next.handle(p);
         }
         else
         {
+            System.out.println("no fuel found");
             return null;
         }
     }
