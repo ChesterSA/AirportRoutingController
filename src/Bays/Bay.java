@@ -24,9 +24,10 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
     protected VehicleSize size;
     protected BayChainable next;
 
-    public Bay(int BayID)
+    public Bay(int BayID, VehicleSize size)
     {
         this.BayID = BayID;
+        this.size = size;
         this.manager = DeliveryVehicles.getInstance();
     }
 

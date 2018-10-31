@@ -5,6 +5,8 @@
  */
 package airportroutingcontroller;
 
+import Bays.LoadingBay;
+import Bays.ParkingBay;
 import java.util.LinkedList;
 
 /**
@@ -13,25 +15,48 @@ import java.util.LinkedList;
  */
 public class AirportRoutingController
 {
+    private static LinkedList<Subscriber> subscribers;
+    private static LoadingBay firstLoadingBay;
+    private static ParkingBay firstParkingBay;
+    
+    
 
-    private LinkedList<Subscriber> subscribers;
-
-    public void subscribe(Subscriber s)
+    public static void subscribe(Subscriber s)
     {
         subscribers.add(s);
     }
 
-    public void unsubscribe(Subscriber s)
+    public static void unsubscribe(Subscriber s)
     {
         subscribers.remove(s);
     }
 
-    public void notifySubscribers()
+    public static void notifySubscribers()
     {
         subscribers.forEach((s) ->
         {
             s.update();
         });
+    }
+
+    public static LoadingBay getFirstLoadingBay()
+    {
+        return firstLoadingBay;
+    }
+
+    public static void setFirstLoadingBay(LoadingBay firstLoadingBay)
+    {
+        AirportRoutingController.firstLoadingBay = firstLoadingBay;
+    }
+
+    public static ParkingBay getFirstParkingBay()
+    {
+        return firstParkingBay;
+    }
+
+    public static void setFirstParkingBay(ParkingBay firstParking)
+    {
+        AirportRoutingController.firstParkingBay = firstParking;
     }
 
 }

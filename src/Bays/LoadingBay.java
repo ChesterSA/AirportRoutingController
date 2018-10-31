@@ -5,6 +5,7 @@
  */
 package Bays;
 
+import Enums.VehicleSize;
 import Vehicles.CateringTruck;
 import Vehicles.FuelTruck;
 import Vehicles.Ramp;
@@ -20,9 +21,9 @@ public class LoadingBay extends Bay
     private CateringTruck catering;
     private Ramp ramp;
 
-    public LoadingBay(int BayID)
+    public LoadingBay(int BayID, VehicleSize size)
     {
-        super(BayID);
+        super(BayID, size);
     }
 
     @Override

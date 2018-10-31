@@ -5,6 +5,7 @@
  */
 package Bays;
 
+import Enums.VehicleSize;
 import Vehicles.CleaningTruck;
 import Vehicles.MaintenanceTruck;
 
@@ -18,9 +19,9 @@ public class ParkingBay extends Bay
     private CleaningTruck cleaning;
     private MaintenanceTruck maintenance;
 
-    public ParkingBay(int BayID)
+    public ParkingBay(int BayID, VehicleSize size)
     {
-        super(BayID);
+        super(BayID, size);
     }
 
     @Override
