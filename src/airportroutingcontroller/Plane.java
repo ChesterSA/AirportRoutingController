@@ -154,10 +154,5 @@ public class Plane
         this.planeID = PlaneID;
     }
     
-    
-
-    
-    
-    
 
 }

@@ -126,5 +126,7 @@ public class Driver
         lb.refuel();
         lb.refillFood();
         lb.callRamp();
+        
+        lb.finishPlane();
     }
 }

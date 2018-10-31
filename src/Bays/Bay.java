@@ -97,5 +97,11 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
         return BayID;
     }
     
-    
+    public void finishPlane()
+    {
+        System.out.println("Plane " + plane.getPlaneID() + " moves to the runway\n");
+        
+        plane.setLoadingBay(null);
+        plane.setParkingBay(null);
+    }
 }
