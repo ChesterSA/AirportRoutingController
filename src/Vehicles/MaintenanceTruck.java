@@ -20,9 +20,9 @@ public class MaintenanceTruck extends Vehicle
 
     private final MaintenanceType type;
 
-    public MaintenanceTruck(MaintenanceType type, VehicleSize size, Bay location)
+    public MaintenanceTruck(MaintenanceType type, VehicleSize size)
     {
-        super(size, location);
+        super(size);
         this.type = type;
     }
 

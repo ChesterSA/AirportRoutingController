@@ -6,6 +6,7 @@
 package Vehicles;
 
 import Bays.Bay;
+import Bays.Location;
 import Enums.RampType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
@@ -21,9 +22,9 @@ public class Ramp extends Vehicle implements Chainable
 
     private final RampType type;
 
-    public Ramp(RampType type, VehicleSize size, Bay location)
+    public Ramp(RampType type, VehicleSize size)
     {
-        super(size, location);
+        super(size);
         this.type = type;
     }
 

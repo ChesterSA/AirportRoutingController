@@ -6,6 +6,7 @@
 package Vehicles;
 
 import Bays.Bay;
+import Bays.Location;
 import Enums.FuelType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
@@ -21,9 +22,9 @@ public class FuelTruck extends Vehicle
     private final FuelType fuelType;
     private int planeFuelQuantity;
 
-    public FuelTruck(FuelType fuelType, VehicleSize size, Bay location)
+    public FuelTruck(FuelType fuelType, VehicleSize size, int planeFuelQuantity)
     {
-        super(size, location);
+        super(size);
         this.fuelType = fuelType;
     }
 

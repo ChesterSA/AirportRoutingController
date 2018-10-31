@@ -5,6 +5,9 @@
  */
 package Bays;
 
+import Enums.VehicleSize;
+import airportroutingcontroller.BayChainable;
+import airportroutingcontroller.Chainable;
 import airportroutingcontroller.DeliveryVehicles;
 import airportroutingcontroller.Plane;
 import airportroutingcontroller.Subscriber;
@@ -13,12 +16,13 @@ import airportroutingcontroller.Subscriber;
  *
  * @author s6089488
  */
-public abstract class Bay extends Location implements Subscriber
+public abstract class Bay extends Location implements Subscriber, BayChainable
 {
-
     protected int BayID;
     protected Plane plane;
     protected DeliveryVehicles manager;
+    protected VehicleSize size;
+    protected BayChainable next;
 
     public Bay(int BayID)
     {
@@ -38,5 +42,37 @@ public abstract class Bay extends Location implements Subscriber
         this.plane = plane;
     }
     
+    @Override
+    public Bay handle(Plane p)
+    {
+        if (this.size.ordinal() >= p.getSize().ordinal())
+        {
+            return this;
+        }
+        else if (next != null)
+        {
+            return next.handle(p);
+        }
+        else
+        {
+            return null;
+        }
+              
+    }
     
+    public void movePlane(Bay b)
+    {
+        if (b.size.ordinal() >= plane.getSize().ordinal()
+                && b.plane == null)
+        {
+            b.plane = plane;
+            plane = null;
+        }
+    }
+    
+    @Override
+    public void addNext(BayChainable b)
+    {
+        next = b;
+    }
 }

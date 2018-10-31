@@ -7,6 +7,7 @@ package Vehicles;
 
 import Bays.Bay;
 import Bays.Location;
+import Bays.VehicleStore;
 import Enums.VehicleSize;
 import airportroutingcontroller.Chainable;
 import VehicleStates.Waiting;
@@ -28,10 +29,10 @@ public abstract class Vehicle implements Chainable
     protected VehicleState state;
     protected Chainable next;
 
-    public Vehicle(VehicleSize size, Bay location)
+    public Vehicle(VehicleSize size)
     {
         this.size = size;
-        this.location = location;
+        this.location = VehicleStore.getInstance();
         this.fuel = 100;
         state = new Waiting();
     }

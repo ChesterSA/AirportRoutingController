@@ -6,6 +6,7 @@
 package Vehicles;
 
 import Bays.Bay;
+import Bays.Location;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
 import airportroutingcontroller.Plane;
@@ -19,9 +20,9 @@ public class CateringTruck extends Vehicle
 
     private int foodQuantity;
 
-    public CateringTruck(VehicleSize size, int foodQuantity, Bay location)
+    public CateringTruck(VehicleSize size, int foodQuantity)
     {
-        super(size, location);
+        super(size);
         this.foodQuantity = foodQuantity;
     }
 

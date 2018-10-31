@@ -6,6 +6,7 @@
 package Vehicles;
 
 import Bays.Bay;
+import Bays.Location;
 import Enums.CleaningType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
@@ -20,9 +21,9 @@ public class CleaningTruck extends Vehicle
 
     private final CleaningType cleaningType;
 
-    public CleaningTruck(VehicleSize size, Bay location, CleaningType type)
+    public CleaningTruck(VehicleSize size, CleaningType type)
     {
-        super(size, location);
+        super(size);
         cleaningType = type;
     }
 

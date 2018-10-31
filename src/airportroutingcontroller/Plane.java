@@ -5,11 +5,7 @@
  */
 package airportroutingcontroller;
 
-import Enums.CleaningType;
-import Enums.FuelType;
-import Enums.MaintenanceType;
-import Enums.RampType;
-import Enums.VehicleSize;
+import Enums.*;
 
 /**
  *
@@ -30,12 +26,13 @@ public class Plane
     private RampType ramp;
     private MaintenanceType maintenance;
 
-    public Plane(int maxFood, int foodQuantity, int maxFuel, int fuelQuantity, VehicleSize size, CleaningType cleanType, RampType ramp, MaintenanceType maintenance)
+    public Plane(int maxFood, int foodQuantity, int maxFuel, int fuelQuantity, FuelType fuelType, VehicleSize size, CleaningType cleanType, RampType ramp, MaintenanceType maintenance)
     {
         this.maxFood = maxFood;
         this.foodQuantity = foodQuantity;
         this.maxFuel = maxFuel;
         this.fuelQuantity = fuelQuantity;
+        this.fuelType = fuelType;
         this.size = size;
         this.cleanType = cleanType;
         this.ramp = ramp;
