@@ -22,9 +22,9 @@ public class FuelTruck extends Vehicle
     private final FuelType fuelType;
     private int planeFuelQuantity;
 
-    public FuelTruck(FuelType fuelType, VehicleSize size, int planeFuelQuantity)
+    public FuelTruck(VehicleSize size, String name, FuelType fuelType,  int planeFuelQuantity)
     {
-        super(size);
+        super(size, name);
         this.fuelType = fuelType;
         this.planeFuelQuantity = planeFuelQuantity;
     }
@@ -49,7 +49,7 @@ public class FuelTruck extends Vehicle
                 //&& this.state == new Waiting()
                 )
         {
-            System.out.println("Fuel truck found");
+            System.out.println("Fuel truck " + name + " found");
             return this;
         }
         else if (next != null)

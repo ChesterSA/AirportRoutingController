@@ -16,17 +16,31 @@ import org.junit.Test;
  *
  * @author s6089488
  */
-public class StateTest
+public class TestWaiting
 {
 
-    FuelTruck testTruck = new FuelTruck(FuelType.AVGAS, VehicleSize.MEDIUM, 250);
+    FuelTruck testTruck = new FuelTruck(VehicleSize.MEDIUM, "testFuel", FuelType.AVGAS, 250);
 
     @Test
-    public void testTests()
+    public void testStringOutput()
     {
         //System.out.println(testTruck.refuel());
         String expected = "Vehicle is driving to refuel - All refueled";
         String actual = testTruck.refuel();
+        assertEquals(expected, actual);
+          
+    }
+    
+    @Test
+    public void testFuelIncrease()
+    {
+        testTruck.setFuel(50);
+        int expected = 100;
+        
+        testTruck.refuel();
+        
+        int actual = testTruck.getFuel();
+        
         assertEquals(expected, actual);
     }
 }

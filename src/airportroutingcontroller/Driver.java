@@ -26,29 +26,30 @@ public class Driver
         Plane jet = new Plane("JETX2", 0, 0, 250, 100, FuelType.JET_A1, VehicleSize.SMALL, CleaningType.CLEAN, RampType.OPEN, MaintenanceType.SPECIALIST);
 
         //Initialising Vehicles
-        FuelTruck smallFuel = new FuelTruck(FuelType.AVGAS, VehicleSize.SMALL, 150);
-        FuelTruck mediumFuel = new FuelTruck(FuelType.AVGAS, VehicleSize.MEDIUM, 500);
-        FuelTruck largeFuel = new FuelTruck(FuelType.AVGAS, VehicleSize.LARGE, 300);
-        FuelTruck jetFuel = new FuelTruck(FuelType.JET_A1, VehicleSize.SMALL, 200);
+        FuelTruck smallFuel = new FuelTruck(VehicleSize.SMALL, "smlFuel", FuelType.AVGAS,  150);
+        FuelTruck mediumFuel = new FuelTruck(VehicleSize.MEDIUM, "medFuel", FuelType.AVGAS, 500);
+        FuelTruck largeFuel = new FuelTruck(VehicleSize.LARGE, "lrgFuel", FuelType.AVGAS, 300);
+        FuelTruck jetFuel = new FuelTruck(VehicleSize.SMALL, "jetFuel", FuelType.JET_A1, 200);
 
-        CateringTruck smallCatering = new CateringTruck(VehicleSize.SMALL, 50);
-        CateringTruck mediumCatering = new CateringTruck(VehicleSize.MEDIUM, 250);
-        CateringTruck largeCatering = new CateringTruck(VehicleSize.LARGE, 300);
+        CateringTruck smallCatering = new CateringTruck(VehicleSize.SMALL, "smlCater", 50);
+        CateringTruck mediumCatering = new CateringTruck(VehicleSize.MEDIUM, "medCater", 250);
+        CateringTruck largeCatering = new CateringTruck(VehicleSize.LARGE, "lrgCater", 300);
 
-        Ramp smallEnclosed = new Ramp(RampType.ENCLOSED, VehicleSize.SMALL);
-        Ramp mediumEnclosed = new Ramp(RampType.ENCLOSED, VehicleSize.MEDIUM);
-        Ramp largeEnclosed = new Ramp(RampType.ENCLOSED, VehicleSize.LARGE);
-        Ramp smallOpen = new Ramp(RampType.OPEN, VehicleSize.SMALL);
-        Ramp mediumOpen = new Ramp(RampType.OPEN, VehicleSize.MEDIUM);
-        Ramp largeOpen = new Ramp(RampType.OPEN, VehicleSize.LARGE);
+        Ramp smallEnclosed = new Ramp(VehicleSize.SMALL, "smlRmpEnc", RampType.ENCLOSED);
+        Ramp mediumEnclosed = new Ramp(VehicleSize.MEDIUM, "medRmpEnc", RampType.ENCLOSED);
+        Ramp largeEnclosed = new Ramp(VehicleSize.LARGE, "lrgRmpEnc", RampType.ENCLOSED);
+        Ramp smallOpen = new Ramp(VehicleSize.SMALL, "smlRmpOpn", RampType.OPEN);
+        Ramp mediumOpen = new Ramp(VehicleSize.MEDIUM, "medRmpOpn", RampType.OPEN);
+        Ramp largeOpen = new Ramp(VehicleSize.LARGE, "lrgRmpOpn", RampType.OPEN);
 
-        CleaningTruck smallCleaning = new CleaningTruck(VehicleSize.SMALL, CleaningType.SIMPLE);
-        CleaningTruck largeCleaning = new CleaningTruck(VehicleSize.LARGE, CleaningType.SEVERE);
 
-        MaintenanceTruck smallMaintenance = new MaintenanceTruck(MaintenanceType.STANDARD, VehicleSize.SMALL);
-        MaintenanceTruck largeMaintenance = new MaintenanceTruck(MaintenanceType.STANDARD, VehicleSize.LARGE);
-        MaintenanceTruck specialistMaintenance = new MaintenanceTruck(MaintenanceType.SPECIALIST, VehicleSize.MEDIUM);
+        CleaningTruck smallCleaning = new CleaningTruck(VehicleSize.SMALL, "smlClean", CleaningType.SIMPLE);
+        CleaningTruck largeCleaning = new CleaningTruck(VehicleSize.LARGE, "lrgClean", CleaningType.SEVERE);
 
+        MaintenanceTruck smallMaintenance = new MaintenanceTruck(VehicleSize.SMALL, "smlMaint", MaintenanceType.STANDARD);
+        MaintenanceTruck largeMaintenance = new MaintenanceTruck(VehicleSize.LARGE, "lrgMaint", MaintenanceType.STANDARD);      
+        MaintenanceTruck specialistMaintenance = new MaintenanceTruck(VehicleSize.MEDIUM, "medMaint", MaintenanceType.SPECIALIST);
+        
         //Setting chains for vehicles
         smallFuel.addNext(mediumFuel);
         mediumFuel.addNext(largeFuel);

@@ -21,9 +21,9 @@ public class CleaningTruck extends Vehicle
 
     private final CleaningType cleaningType;
 
-    public CleaningTruck(VehicleSize size, CleaningType type)
+    public CleaningTruck(VehicleSize size, String name, CleaningType type)
     {
-        super(size);
+        super(size, name);
         cleaningType = type;
     }
 
@@ -46,6 +46,7 @@ public class CleaningTruck extends Vehicle
                 //&& this.state == new Waiting()
                 )
         {
+            System.out.println("Cleaning truck " + name + " found");
             return this;
         }
         else if (next != null)

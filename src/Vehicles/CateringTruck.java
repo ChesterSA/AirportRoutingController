@@ -20,9 +20,9 @@ public class CateringTruck extends Vehicle
 
     private int foodQuantity;
 
-    public CateringTruck(VehicleSize size, int foodQuantity)
+    public CateringTruck(VehicleSize size, String name, int foodQuantity)
     {
-        super(size);
+        super(size, name);
         this.foodQuantity = foodQuantity;
     }
 
@@ -44,7 +44,7 @@ public class CateringTruck extends Vehicle
                 //&& this.state == new Waiting()
                 )
         {
-            System.out.println("Catering truck found");
+            System.out.println("Catering truck " + name + " found");
             return this;
         }
         else if (next != null)

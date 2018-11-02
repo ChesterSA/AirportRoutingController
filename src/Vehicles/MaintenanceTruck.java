@@ -20,9 +20,9 @@ public class MaintenanceTruck extends Vehicle
 
     private final MaintenanceType type;
 
-    public MaintenanceTruck(MaintenanceType type, VehicleSize size)
+    public MaintenanceTruck(VehicleSize size, String name, MaintenanceType type)
     {
-        super(size);
+        super(size, name);
         this.type = type;
     }
 
@@ -43,6 +43,7 @@ public class MaintenanceTruck extends Vehicle
                 //&& this.state == new Waiting()
                 )
         {
+            System.out.println("Fuel truck " + name + " found");
             return this;
         }
         else if (next != null)

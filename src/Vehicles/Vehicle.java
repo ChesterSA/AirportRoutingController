@@ -22,16 +22,17 @@ import airportroutingcontroller.Plane;
  */
 public abstract class Vehicle implements Chainable
 {
- 
+    protected String name;
     protected VehicleSize size;
     protected int fuel;
     protected Location location;
     protected VehicleState state;
     protected Chainable next;
 
-    public Vehicle(VehicleSize size)
+    public Vehicle(VehicleSize size, String name)
     {
         this.size = size;
+        this.name = name;
         this.location = VehicleStore.getInstance();
         this.fuel = 100;
         this.state = new Waiting();
@@ -57,13 +58,20 @@ public abstract class Vehicle implements Chainable
     public boolean driveTo(Location destination)
     {
         boolean success = false;
-        state = new Driving();
+        
         if (fuel > 10)
         {
-            System.out.println("Driving to " + destination.getName());
+            state = new Driving();
+            System.out.println(name + " is driving to " + destination.getName());
             fuel -= 10;
+            System.out.println(name + "'s fuel is now " + fuel);
             location = destination;
             success = true;
+        }
+        else
+        {
+            System.out.println(name + " does not have enough fuel");
+            refuel();
         }
         return success;
         
@@ -80,6 +88,11 @@ public abstract class Vehicle implements Chainable
     public void addNext(Chainable c)
     {
         this.next = c;
+    }
+
+    public String getName()
+    {
+        return name;
     }
     
     public int getFuel()

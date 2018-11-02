@@ -22,9 +22,9 @@ public class Ramp extends Vehicle implements Chainable
 
     private final RampType type;
 
-    public Ramp(RampType type, VehicleSize size)
+    public Ramp(VehicleSize size, String name, RampType type)
     {
-        super(size);
+        super(size, name);
         this.type = type;
     }
 
@@ -42,7 +42,7 @@ public class Ramp extends Vehicle implements Chainable
                 //&& this.state == new Waiting()
                 )
         {
-            System.out.println("Ramp found");
+            System.out.println("Ramp " + name + " found");
             return this;
         }
         else if (next != null)
