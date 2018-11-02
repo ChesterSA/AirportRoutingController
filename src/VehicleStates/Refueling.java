@@ -18,7 +18,8 @@ public class Refueling extends VehicleState
     public String refuel(Vehicle v)
     {
         v.setFuel(100);
-        return "\n" + v.getName() + " is refueled";
+        System.out.println(v.getName() + " is refueled");
+        return v.getName() + " is refueled";
     }
 
 }
