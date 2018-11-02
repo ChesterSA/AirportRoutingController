@@ -6,20 +6,28 @@
 package Bays;
 
 /**
- *
- * @author s6089488
+ * VehicleStore class, stores vehicles that aren't in use and refuels them
  */
 public class VehicleStore extends Location
 {
+    /**
+     * instance object for singleton 
+     */
     static private VehicleStore instance;
-
-    
-    
+ 
+    /**
+     *  constructor, private for singleton
+     */
     private VehicleStore()
     {
         name = "Vehicle Store";
     }
     
+    /**
+     * getInstance, necessary for Singleton
+     * 
+     * @return the VehicleStore instance
+     */
     static public VehicleStore getInstance()
     {
         if (instance == null)

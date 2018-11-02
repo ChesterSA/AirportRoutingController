@@ -6,13 +6,20 @@
 package Bays;
 
 /**
- *
- * @author s6089488
+ * The location object that all other locations extend
+ * @author Chester Swann-Auger
  */
 public abstract class Location
 {
+    /**
+     * the name of the location, used for identification
+     */
     String name;
 
+    /**
+     * getter for the name object
+     * @return the name string
+     */
     public String getName()
     {
         return name;

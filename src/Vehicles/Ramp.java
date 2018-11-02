@@ -50,6 +50,7 @@ public class Ramp extends Vehicle implements Chainable
         }
         else
         {
+            System.out.println("No ramps available");
             return null;
         }
     }

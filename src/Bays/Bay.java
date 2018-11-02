@@ -12,17 +12,45 @@ import airportroutingcontroller.Plane;
 import airportroutingcontroller.Subscriber;
 
 /**
- *
- * @author s6089488
+ * Bay, supertype for ParkingBay and LoadingBay, extends Location
+ * 
+ * @author Chester Swann-Auger
+ * @since 02/11/18
  */
 public abstract class Bay extends Location implements Subscriber, BayChainable
 {
+
+    /**
+     * integer to identify the bay
+     */
     protected int bayID;
+
+    /**
+     * the plane that's currently at the bay
+     */
     protected Plane plane;
+
+    /**
+     * the DeliveryVehicles class that manages selecting vehicles for the bay
+     */
     protected DeliveryVehicles manager;
+
+    /**
+     * the size of plane and vehicle that the bay can use
+     */
     protected VehicleSize size;
+
+    /**
+     * the next bay in the chain, used for Chain of Responsibility pattern
+     */
     protected BayChainable next;
 
+    /**
+     * Constructor for the class
+     *
+     * @param bayID the bay ID to be used
+     * @param size which size vehicles the bay can manage
+     */
     public Bay(int bayID, VehicleSize size)
     {
         this.bayID = bayID;
@@ -30,22 +58,43 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
         this.manager = DeliveryVehicles.getInstance();
     }
 
+    /**
+     * call all vehicles that are required by the bay to drive to the bay
+     */
     public abstract void getVehicles();
 
+    /**
+     * getter for plane
+     *
+     * @return the current plane object
+     */
     public Plane getPlane()
     {
         return plane;
     }
 
+    /**
+     * setter for plane
+     *
+     * @param plane the plane object for the Bay to handle
+     */
     public void setPlane(Plane plane)
     {
         this.plane = plane;
     }
-    
+
+    /**
+     * handle method for Chain of Responsibility 
+     * checks bay size and that no plane is at bay
+     *
+     * @param p the plane object to handle
+     * @return a bay which can handle the plane, or null if none available
+     */
     @Override
     public Bay handle(Plane p)
     {
-        if (this.size.ordinal() >= p.getSize().ordinal())
+        if (this.size.ordinal() >= p.getSize().ordinal()
+                && plane == null)
         {
             return this;
         }
@@ -57,9 +106,13 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
         {
             return null;
         }
-              
+
     }
-    
+
+    /**
+     * move the current plane to a different loading bay
+     * @param lb the loading bay for the plane to move to
+     */
     public void movePlaneToLoading(LoadingBay lb)
     {
         if (lb.size.ordinal() >= plane.getSize().ordinal()
@@ -67,12 +120,16 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
         {
             plane.setParkingBay(null);
             plane.setLoadingBay(lb);
-            
-            lb.plane = plane;     
+
+            lb.plane = plane;
             plane = null;
         }
     }
-    
+
+    /**
+     * moves the current plane to a different parking bay
+     * @param pb the parking bay for the plane to move to
+     */
     public void movePlanetoParking(ParkingBay pb)
     {
         if (pb.size.ordinal() >= plane.getSize().ordinal()
@@ -80,28 +137,39 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
         {
             plane.setLoadingBay(null);
             plane.setParkingBay(pb);
-            
-            pb.plane = plane;           
+
+            pb.plane = plane;
             plane = null;
         }
     }
     
+    /**
+     * adds a bay to the next object, continues the chain
+     * @param b the BayChainable object to add
+     */
     @Override
     public void addNext(BayChainable b)
     {
         next = b;
     }
-
+    
+    /**
+     * getter for bayID
+     * @return the bayID
+     */
     public int getBayID()
     {
         return bayID;
     }
-    
+
+    /**
+     * Adds plane to the runway plane list then removes any reference to a bay
+     */
     public void finishPlane()
     {
         System.out.println("Plane " + plane.getPlaneID() + " moves to " + Runway.getInstance().getName());
         Runway.addPlane(plane);
-        
+
         plane.setLoadingBay(null);
         plane.setParkingBay(null);
     }
