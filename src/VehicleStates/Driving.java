@@ -8,17 +8,29 @@ package VehicleStates;
 import Vehicles.Vehicle;
 
 /**
- *
- * @author s6089488
+ * Driving state, used by vehicles while driving
+ * 
+ * @author Chester Swann-Auger
+ * @since 02/11/18
  */
 public class Driving extends VehicleState
 {
+    /**
+     * Instance used for singleton pattern
+     */
     static Driving instance;
 
+    /**
+     * private constructor for singleton
+     */
     private Driving()
     {      
     }
     
+    /**
+     * state instance method
+     * @return the Driving state object
+     */
     public static Driving state()
     {
         if (instance == null)
@@ -28,6 +40,12 @@ public class Driving extends VehicleState
         return instance;
     }
     
+    /**
+     * Stops the vehicle refueling while in this state
+     * 
+     * @param v the Vehicle to refuel
+     * @return a string explaining that refueling failed
+     */
     @Override
     public String refuel(Vehicle v)
     {

@@ -8,17 +8,29 @@ package VehicleStates;
 import Vehicles.Vehicle;
 
 /**
- *
- * @author s6089488
+ * DoingJob state, used by vehicles while doing job
+ * 
+ * @author Chester Swann-Auger
+ * @since 02/11/18
  */
 public class DoingJob extends VehicleState
 {
+    /**
+     * Instance used for singleton pattern
+     */
     static DoingJob instance;
 
+    /**
+     * private constructor for singleton
+     */
     private DoingJob()
     {      
     }
     
+    /**
+     * state instance method
+     * @return the DoingJob state object
+     */
     public static DoingJob state()
     {
         if (instance == null)
@@ -28,6 +40,12 @@ public class DoingJob extends VehicleState
         return instance;
     }
     
+    /**
+     * Stops the vehicle refueling while in this state
+     * 
+     * @param v the Vehicle to refuel
+     * @return a string explaining that refueling failed
+     */
     @Override
     public String refuel(Vehicle v)
     {
