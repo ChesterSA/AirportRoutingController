@@ -6,8 +6,10 @@
 package Enums;
 
 /**
- *
- * @author s6089488
+ * Maintenance types, used by MaintenanceTrucks and Planes
+ * 
+ * @author Chester Swann-Auger
+ * @since 02/11/18
  */
 public enum MaintenanceType
 {
