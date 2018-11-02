@@ -34,6 +34,24 @@ public class Runway extends Location
     public static void addPlane(Plane p)
     {
         planes.add(p);
+        listPlanes();
+    }
+    
+    public static void listPlanes()
+    {
+        String s = "Planes ";
+        
+        for (Plane p : planes)
+        {
+            s += p.getPlaneID() + ", ";
+        }
+        
+        //removes final comma
+        s = s.substring(0, s.length()-2);
+        
+        s += " are at the runway";
+        
+        System.out.println(s);
     }
     
     
