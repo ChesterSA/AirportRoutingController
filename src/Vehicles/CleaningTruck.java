@@ -43,8 +43,7 @@ public class CleaningTruck extends Vehicle
     {
         if (p.getSize().ordinal() <= size.ordinal()
                 && this.cleaningType.ordinal() >= p.getCleanType().ordinal()
-                //&& this.state == new Waiting()
-                )
+                && this.state == Waiting.state())
         {
             System.out.println("Cleaning truck " + name + " found");
             return this;

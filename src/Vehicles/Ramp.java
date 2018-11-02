@@ -39,8 +39,7 @@ public class Ramp extends Vehicle implements Chainable
     {
         if (p.getSize().ordinal() <= this.size.ordinal()
                 && p.getRamp() == this.type
-                //&& this.state == new Waiting()
-                )
+                && this.state == Waiting.state())
         {
             System.out.println("Ramp " + name + " found");
             return this;

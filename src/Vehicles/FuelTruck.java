@@ -46,8 +46,7 @@ public class FuelTruck extends Vehicle
     {
         if ((p.getMaxFuel() - p.getFuelQuantity()) <= this.planeFuelQuantity
                 && this.fuelType == p.getFuelType()
-                //&& this.state == new Waiting()
-                )
+                && this.state == Waiting.state())
         {
             System.out.println("Fuel truck " + name + " found");
             return this;
