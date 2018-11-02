@@ -8,12 +8,23 @@ package airportroutingcontroller;
 import Bays.Bay;
 
 /**
- *
- * @author s6089488
+ * Chainable interface used by the bays
+ * 
+ * @author Chester Swann-Auger
+ * @since 01/11/18
  */
 public interface BayChainable
 {
+    /**
+     * adds another BayChainable to the chain
+     * @param next the BayChainable to add
+     */
     public void addNext(BayChainable next);
 
+    /**
+     * checks if the current BayChainable can handle the plane
+     * @param p the plane to handle
+     * @return A Bay that can handle the plane, or null if none available
+     */
     public Bay handle(Plane p);
 }

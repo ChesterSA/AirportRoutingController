@@ -12,33 +12,61 @@ import Enums.MaintenanceType;
 import java.util.LinkedList;
 
 /**
- *
- * @author s6089488
+ * Entry point for system, handles where to send planes
+ * 
+ * @author Chester Swann-Auger
+ * @since 02/11/18
  */
 public class AirportRoutingController
 {
-    private static LinkedList<Subscriber> subscribers;
+    /**
+     * List of the bays, used as a subscriber list for observer
+     */
+    private static LinkedList<Subscriber> bays;
+    
+    /**
+     * Initial loading bay in the chains
+     */
     private static LoadingBay firstLoadingBay;
+    
+    /**
+     * Initial parking bay in the chain
+     */
     private static ParkingBay firstParkingBay;
 
+    /**
+     * adds a subscriber to the list
+     * @param s the subscriber to add
+     */
     public static void subscribe(Subscriber s)
     {
-        subscribers.add(s);
+        bays.add(s);
     }
 
+    /**
+     * remove a subscriber from the list
+     * @param s 
+     */
     public static void unsubscribe(Subscriber s)
     {
-        subscribers.remove(s);
+        bays.remove(s);
     }
 
+    /**
+     * calls the update method on all subscribers;
+     */
     public static void notifySubscribers()
     {
-        subscribers.forEach((s) ->
+        bays.forEach((s) ->
         {
             s.update();
         });
     }
     
+    /**
+     * Checks which type of bay the plane needs to go to, then sends it there
+     * @param p the plane to be handled
+     */
     public void handlePlane(Plane p)
     {
         if (p.getMaintenance() == MaintenanceType.SPECIALIST ||
@@ -72,25 +100,27 @@ public class AirportRoutingController
         }
     }
 
-    public static LoadingBay getFirstLoadingBay()
-    {
-        return firstLoadingBay;
-    }
-
+    /**
+     * setter for firstLoadingBay
+     * @param firstLoadingBay the bay to set it to
+     */
     public static void setFirstLoadingBay(LoadingBay firstLoadingBay)
     {
         AirportRoutingController.firstLoadingBay = firstLoadingBay;
     }
 
-    public static ParkingBay getFirstParkingBay()
+    /**
+     * setter for firstParkingBay
+     * @param firstParkingBay the bay to set it to
+     */
+    public static void setFirstParkingBay(ParkingBay firstParkingBay)
     {
-        return firstParkingBay;
+        AirportRoutingController.firstParkingBay = firstParkingBay;
     }
 
-    public static void setFirstParkingBay(ParkingBay firstParking)
-    {
-        AirportRoutingController.firstParkingBay = firstParking;
-    }
+    
+    
+    
     
     
 }

@@ -9,7 +9,6 @@ import Bays.*;
 import Enums.VehicleSize;
 import airportroutingcontroller.Chainable;
 import VehicleStates.*;
-import airportroutingcontroller.Plane;
 
 /**
  * Vehicle abstract class

@@ -11,12 +11,17 @@ import Bays.LoadingBay;
 import Bays.ParkingBay;
 
 /**
- *
- * @author s6089488
+ * Driver, runs a simulation of the airport
+ * 
+ * @author Chester Swann-Auger
+ * @since 01/11/18
  */
 public class Driver
 {
-
+    /**
+     * main method, instantiates all classes then runs a simulation
+     * @param args 
+     */
     public static void main(String[] args)
     {
         //Initialising Planes
@@ -108,6 +113,11 @@ public class Driver
         managePlane(largePlane, arc);
     }
 
+    /**
+     * manages all vehicles that the plane needs, then moves it to runway
+     * @param p the plane to handle
+     * @param arc the arc to handle where the plane goes
+     */
     public static void managePlane(Plane p, AirportRoutingController arc)
     {
         if (p.getParkingBay() != null)
