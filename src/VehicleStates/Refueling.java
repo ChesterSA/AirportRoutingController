@@ -17,8 +17,8 @@ public class Refueling extends VehicleState
     @Override
     public String refuel(Vehicle v)
     {
-            v.setFuel(100);
-            return "All refueled";    
+        v.setFuel(100);
+        return "All refueled";
     }
-    
+
 }

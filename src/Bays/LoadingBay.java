@@ -21,9 +21,10 @@ public class LoadingBay extends Bay
     private CateringTruck catering;
     private Ramp ramp;
 
-    public LoadingBay(int BayID, VehicleSize size)
+    public LoadingBay(int bayID, VehicleSize size)
     {
-        super(BayID, size);
+        super(bayID, size);
+        name = "Loading Bay " + bayID;
     }
 
     @Override

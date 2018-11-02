@@ -17,15 +17,15 @@ import airportroutingcontroller.Subscriber;
  */
 public abstract class Bay extends Location implements Subscriber, BayChainable
 {
-    protected int BayID;
+    protected int bayID;
     protected Plane plane;
     protected DeliveryVehicles manager;
     protected VehicleSize size;
     protected BayChainable next;
 
-    public Bay(int BayID, VehicleSize size)
+    public Bay(int bayID, VehicleSize size)
     {
-        this.BayID = BayID;
+        this.bayID = bayID;
         this.size = size;
         this.manager = DeliveryVehicles.getInstance();
     }
@@ -94,12 +94,13 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
 
     public int getBayID()
     {
-        return BayID;
+        return bayID;
     }
     
     public void finishPlane()
     {
         System.out.println("Plane " + plane.getPlaneID() + " moves to the runway\n");
+        Runway.addPlane(plane);
         
         plane.setLoadingBay(null);
         plane.setParkingBay(null);

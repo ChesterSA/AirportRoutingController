@@ -47,24 +47,44 @@ public class Plane
         this.maintenance = maintenance;
     }
 
+    public String getPlaneID()
+    {
+        return planeID;
+    }
+
     public int getMaxFood()
     {
         return maxFood;
     }
-    
+
     public int getFoodQuantity()
     {
         return foodQuantity;
     }
+    public void setFoodQuantity(int foodQuantity)
+    {
+        this.foodQuantity = foodQuantity;
+    }
     
+
     public int getMaxFuel()
     {
         return maxFuel;
     }
-    
+
     public int getFuelQuantity()
     {
         return fuelQuantity;
+    }
+    public void setFuelQuantity(int fuelQuantity)
+    {
+        this.fuelQuantity = fuelQuantity;
+    }
+    
+
+    public FuelType getFuelType()
+    {
+        return fuelType;
     }
 
     public VehicleSize getSize()
@@ -76,6 +96,11 @@ public class Plane
     {
         return cleanType;
     }
+    public void setCleanType(CleaningType cleanType)
+    {
+        this.cleanType = cleanType;
+    }
+    
 
     public RampType getRamp()
     {
@@ -86,49 +111,16 @@ public class Plane
     {
         return maintenance;
     }
-
-    public FuelType getFuelType()
-    {
-        return fuelType;
-    }
-
-    
-    
-    public void setFoodQuantity(int foodQuantity)
-    {
-        this.foodQuantity = foodQuantity;
-    }
-
-    public void setFuelQuantity(int fuelQuantity)
-    {
-        this.fuelQuantity = fuelQuantity;
-    }
-
-    public void setCleanType(CleaningType cleanType)
-    {
-        this.cleanType = cleanType;
-    }
-
-    public void setRamp(RampType ramp)
-    {
-        this.ramp = ramp;
-    }
-
     public void setMaintenance(MaintenanceType maintenance)
     {
         this.maintenance = maintenance;
     }
-
-    public void setFuelType(FuelType fuelType)
-    {
-        this.fuelType = fuelType;
-    }
+    
 
     public LoadingBay getLoadingBay()
     {
         return loadingBay;
     }
-
     public void setLoadingBay(LoadingBay loadingBay)
     {
         this.loadingBay = loadingBay;
@@ -138,21 +130,14 @@ public class Plane
     {
         return parkingBay;
     }
-
     public void setParkingBay(ParkingBay parkingBay)
     {
         this.parkingBay = parkingBay;
     }
+    
+    
 
-    public String getPlaneID()
-    {
-        return planeID;
-    }
-
-    public void setPlaneID(String PlaneID)
-    {
-        this.planeID = PlaneID;
-    }
+    
     
 
 }

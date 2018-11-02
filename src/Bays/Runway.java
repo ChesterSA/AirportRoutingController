@@ -5,11 +5,19 @@
  */
 package Bays;
 
+import airportroutingcontroller.Plane;
+import java.util.ArrayList;
+
 /**
  *
  * @author s6089488
  */
-public abstract class Location
+public class Runway
 {
-    String name;
+    private static ArrayList<Plane> planes = new ArrayList<>();
+    
+    public static void addPlane(Plane p)
+    {
+        planes.add(p);
+    }
 }

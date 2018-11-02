@@ -19,6 +19,7 @@ public class Waiting extends VehicleState
     {
         v.driveTo(VehicleStore.getInstance());
         v.setState(new Refueling()); 
-        return v.refuel();
+        
+        return "Vehicle is driving to refuel - " + v.refuel();
     }
 }

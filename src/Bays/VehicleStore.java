@@ -17,7 +17,7 @@ public class VehicleStore extends Location
     
     private VehicleStore()
     {
-        
+        name = "Vehicle Store";
     }
     
     static public VehicleStore getInstance()

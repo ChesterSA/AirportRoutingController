@@ -19,9 +19,10 @@ public class ParkingBay extends Bay
     private CleaningTruck cleaning;
     private MaintenanceTruck maintenance;
 
-    public ParkingBay(int BayID, VehicleSize size)
+    public ParkingBay(int bayID, VehicleSize size)
     {
-        super(BayID, size);
+        super(bayID, size);
+        name = "Parking Bay " + bayID;
     }
 
     @Override
