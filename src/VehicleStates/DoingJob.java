@@ -13,11 +13,26 @@ import Vehicles.Vehicle;
  */
 public class DoingJob extends VehicleState
 {
+    static DoingJob instance;
 
+    private DoingJob()
+    {      
+    }
+    
+    public static DoingJob state()
+    {
+        if (instance == null)
+        {
+            instance = new DoingJob();
+        }
+        return instance;
+    }
+    
     @Override
     public String refuel(Vehicle v)
     {
-        return "You can't refuel right now";
+        System.out.println(v.getName() + " is doing a job and can't refuel");
+        return v.getName() + " is doing a job and can't refuel";
     }
     
 }

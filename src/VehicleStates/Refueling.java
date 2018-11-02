@@ -13,7 +13,21 @@ import Vehicles.Vehicle;
  */
 public class Refueling extends VehicleState
 {
+    static Refueling instance;
 
+    private Refueling()
+    {      
+    }
+    
+    public static Refueling state()
+    {
+        if (instance == null)
+        {
+            instance = new Refueling();
+        }
+        return instance;
+    }
+    
     @Override
     public String refuel(Vehicle v)
     {

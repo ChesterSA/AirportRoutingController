@@ -35,7 +35,7 @@ public abstract class Vehicle implements Chainable
         this.name = name;
         this.location = VehicleStore.getInstance();
         this.fuel = 100;
-        this.state = new Waiting();
+        this.state = Waiting.state();
     }
 
     public final void executeJob(Bay destination, Plane p)
@@ -43,15 +43,15 @@ public abstract class Vehicle implements Chainable
         if (driveTo(destination))
         {
             location = destination;
-            state = new DoingJob();
+            state = DoingJob.state();
             doJob();
             System.out.println("The job has been succesfully executed\n");
-            state = new Waiting();
+            state = Waiting.state();
         }
         else
         {
             System.out.println("You don't have enough fuel to drive");
-            state = new Waiting();
+            state = Waiting.state();
         }
     }
 
@@ -61,7 +61,7 @@ public abstract class Vehicle implements Chainable
         
         if (fuel > 10)
         {
-            state = new Driving();
+            state = Driving.state();
             System.out.println(name + " is driving to " + destination.getName());
             fuel -= 10;
             System.out.println(name + "'s fuel is now " + fuel);

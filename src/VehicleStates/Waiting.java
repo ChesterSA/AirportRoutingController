@@ -14,11 +14,26 @@ import Vehicles.Vehicle;
  */
 public class Waiting extends VehicleState
 {
+    static Waiting instance;
+
+    private Waiting()
+    {      
+    }
+    
+    public static Waiting state()
+    {
+        if (instance == null)
+        {
+            instance = new Waiting();
+        }
+        return instance;
+    }
+    
     @Override
     public String refuel(Vehicle v)
     {
         v.driveTo(VehicleStore.getInstance());
-        v.setState(new Refueling()); 
+        v.setState(Refueling.state()); 
         
         System.out.println(v.getName() + " is refueling");
         return v.getName() + " is driving to refuel\n" + v.refuel();

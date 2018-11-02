@@ -5,9 +5,12 @@
  */
 package StateTests;
 
+import Enums.FuelType;
+import Enums.RampType;
 import Enums.VehicleSize;
-import VehicleStates.Refueling;
-import Vehicles.CateringTruck;
+import VehicleStates.Driving;
+import Vehicles.FuelTruck;
+import Vehicles.Ramp;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -15,16 +18,16 @@ import org.junit.Test;
  *
  * @author s6089488
  */
-public class TestRefuelling
+public class TestDriving
 {
-    CateringTruck testTruck = new CateringTruck(VehicleSize.MEDIUM, "test", 150);
-    
+    Ramp test = new Ramp(VehicleSize.MEDIUM, "test", RampType.ENCLOSED);
+
     @Test
     public void testStringOutput()
     {
-        testTruck.setState(Refueling.state());
-        String expected = "test is refueled";
-        String actual = testTruck.refuel();
+        test.setState(Driving.state());
+        String expected = "test is driving and can't refuel";
+        String actual = test.refuel();
         
         assertEquals(expected, actual);      
     }
@@ -32,13 +35,14 @@ public class TestRefuelling
     @Test
     public void testFuelIncrease()
     {
-        testTruck.setState(Refueling.state());
-        testTruck.setFuel(50);
-        int expected = 100;
+        test.setState(Driving.state());
         
-        testTruck.refuel();
+        test.setFuel(50);
+        int expected = 50;
         
-        int actual = testTruck.getFuel();
+        test.refuel();
+        
+        int actual = test.getFuel();
         
         assertEquals(expected, actual);
     }
