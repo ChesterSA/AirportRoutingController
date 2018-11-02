@@ -12,4 +12,10 @@ package Bays;
 public abstract class Location
 {
     String name;
+
+    public String getName()
+    {
+        return name;
+    }
+    
 }

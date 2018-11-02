@@ -12,12 +12,29 @@ import java.util.ArrayList;
  *
  * @author s6089488
  */
-public class Runway
+public class Runway extends Location
 {
     private static ArrayList<Plane> planes = new ArrayList<>();
+    private static Runway instance;
+    
+    private Runway()
+    {
+        name = "Runway";
+    }
+
+    static public Runway getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new Runway();
+        }
+        return instance;
+    }
     
     public static void addPlane(Plane p)
     {
         planes.add(p);
     }
+    
+    
 }

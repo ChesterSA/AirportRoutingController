@@ -60,7 +60,7 @@ public abstract class Vehicle implements Chainable
         state = new Driving();
         if (fuel > 10)
         {
-            System.out.println("Driving to destination");
+            System.out.println("Driving to " + destination.getName());
             fuel -= 10;
             location = destination;
             success = true;
