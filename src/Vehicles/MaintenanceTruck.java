@@ -12,20 +12,34 @@ import VehicleStates.Waiting;
 import airportroutingcontroller.Plane;
 
 /**
- *
- * @author s6089488
+ * FuelTruck, repairs the plane, extends Vehicle
+ * 
+ * @author Chester Swann-Auger
+ * @since 02/11/18
  */
 public class MaintenanceTruck extends Vehicle
 {
-
+    /**
+     * the type of maintenance this vehicle can perform
+     */
     private final MaintenanceType type;
 
+    /**
+     * constructor for the vehicle
+     * @param size the size of the vehicle
+     * @param name the name, used as an identifier
+     * @param type the type of maintenance the truck can do
+     */
     public MaintenanceTruck(VehicleSize size, String name, MaintenanceType type)
     {
         super(size, name);
         this.type = type;
     }
 
+    /**
+     * sets the plane's maintenanceType to repaired
+     * @return a boolean indicating if the job was successful
+     */
     @Override
     public boolean doJob()
     {
@@ -35,6 +49,13 @@ public class MaintenanceTruck extends Vehicle
         return true;
     }
 
+    /**
+     * Works out whether the current truck can handle the plane
+     * if not passes it along the chain
+     * 
+     * @param p the plane to check
+     * @return an object that can handle the plane, or null if none available
+     */
     @Override
     public Vehicle handle(Plane p)
     {

@@ -5,30 +5,55 @@
  */
 package Vehicles;
 
-import Bays.Bay;
-import Bays.Location;
-import Bays.VehicleStore;
+import Bays.*;
 import Enums.VehicleSize;
 import airportroutingcontroller.Chainable;
-import VehicleStates.Waiting;
-import VehicleStates.DoingJob;
-import VehicleStates.Driving;
-import VehicleStates.VehicleState;
+import VehicleStates.*;
 import airportroutingcontroller.Plane;
 
 /**
- *
- * @author s6089488
+ * Vehicle abstract class
+ * 
+ * @author Chester Swann-Auger
+ * @since 02/11/18
  */
 public abstract class Vehicle implements Chainable
 {
+    /**
+     * the name of the vehicle, used for identification
+     */
     protected String name;
+    
+    /**
+     * size of the vehicle
+     */
     protected VehicleSize size;
+    
+    /**
+     * how much fuel the vehicle has
+     */
     protected int fuel;
+    
+    /**
+     * location of the vehicle
+     */
     protected Location location;
+    
+    /**
+     * current state of the vehicle
+     */
     protected VehicleState state;
+    
+    /**
+     * the next vehicle in the chain
+     */
     protected Chainable next;
 
+    /**
+     * constructor for vehicles
+     * @param size the size of the vehicle
+     * @param name the name of the vehicle, used as an identifier
+     */
     public Vehicle(VehicleSize size, String name)
     {
         this.size = size;
@@ -38,7 +63,11 @@ public abstract class Vehicle implements Chainable
         this.state = Waiting.state();
     }
 
-    public final void executeJob(Bay destination, Plane p)
+    /**
+     * template method, call driveto(), then doJon() then driveTo() for every vehicle
+     * @param destination where the vehicle needs to go for the job
+     */
+    public final void executeJob(Bay destination)
     {
         if (driveTo(destination))
         {
@@ -55,6 +84,12 @@ public abstract class Vehicle implements Chainable
         }
     }
 
+    /**
+     * changes the vehicles location to destination, 
+     * changes state to driving while working
+     * @param destination where to drive to
+     * @return a boolean indicating the success
+     */
     public boolean driveTo(Location destination)
     {
         boolean success = false;
@@ -76,50 +111,63 @@ public abstract class Vehicle implements Chainable
         return success;
         
     }
+    
+    /**
+     * doJob, overriden by all vehicles
+     * @return 
+     */
+    protected abstract boolean doJob();
 
-    public abstract boolean doJob();
-
+    /**
+     * calls the vehicle state to see if the vehicle can refuel
+     * @return a string indicating whether it worked
+     */
     public String refuel()
     {
         return state.refuel(this);
     }
 
+    /**
+     * adds another vehicle to the chain for chain of responsibility
+     * @param c the Chainable to add
+     */
     @Override
     public void addNext(Chainable c)
     {
         this.next = c;
     }
 
+    /**
+     * getter for name object
+     * @return the name as a string
+     */
     public String getName()
     {
         return name;
     }
     
+    /**
+     * getter for fuel
+     * @return the fuel object
+     */
     public int getFuel()
     {
         return fuel;
     }
 
+    /**
+     * setter for the fuel object
+     * @param fuel 
+     */
     public void setFuel(int fuel)
     {
         this.fuel = fuel;
     }
 
-    public Location getLocation()
-    {
-        return location;
-    }
-
-    public void setLocation(Location location)
-    {
-        this.location = location;
-    }
-
-    public VehicleState getState()
-    {
-        return state;
-    }
-
+    /**
+     * setter for the state
+     * @param state to be set to
+     */
     public void setState(VehicleState state)
     {
         this.state = state;

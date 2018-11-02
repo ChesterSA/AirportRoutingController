@@ -5,35 +5,53 @@
  */
 package Vehicles;
 
-import Bays.Bay;
-import Bays.Location;
 import Enums.RampType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
-import airportroutingcontroller.Chainable;
 import airportroutingcontroller.Plane;
 
 /**
- *
- * @author s6089488
+ * Ramp, drives to the plane, extends Vehicle
+ * 
+ * @author Chester Swann-Auger
+ * @since 02/11/18
  */
-public class Ramp extends Vehicle implements Chainable
+public class Ramp extends Vehicle
 {
-
+    /**
+     * the type of ramp this is, defines what planes it can be used with
+     */
     private final RampType type;
 
+    /**
+     * constructor for the vehicle
+     * @param size the size of the vehicle
+     * @param name the name, used as an identifier
+     * @param type the type of ramp this will be
+     */
     public Ramp(VehicleSize size, String name, RampType type)
     {
         super(size, name);
         this.type = type;
     }
 
+    /**
+     * will handle whether it can reach the plane
+     * @return a boolean indicating if the job was successful
+     */
     @Override
     public boolean doJob()
     {
         return true;
     }
 
+    /**
+     * Works out whether the current truck can handle the plane
+     * if not passes it along the chain
+     * 
+     * @param p the plane to check
+     * @return an object that can handle the plane, or null if none available
+     */
     @Override
     public Vehicle handle(Plane p)
     {
@@ -53,11 +71,5 @@ public class Ramp extends Vehicle implements Chainable
             System.out.println("No ramps available");
             return null;
         }
-    }
-
-    @Override
-    public void addNext(Chainable c)
-    {
-        next = c;
     }
 }

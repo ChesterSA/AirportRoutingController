@@ -6,26 +6,36 @@
 package Vehicles;
 
 import Bays.Bay;
-import Bays.Location;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
 import airportroutingcontroller.Plane;
 
 /**
- *
- * @author s6089488
+ * The CateringTruck, used for filling Plane's food, extends Vehicle
  */
 public class CateringTruck extends Vehicle
 {
-
+    /**
+     * the amount of food this truck currently has
+     */
     private int foodQuantity;
 
+    /**
+     * constructor for CateringTruck
+     * @param size the size of the vehicle
+     * @param name the name for the vehicle
+     * @param foodQuantity the amount of food the truck vehicle has.
+     */
     public CateringTruck(VehicleSize size, String name, int foodQuantity)
     {
         super(size, name);
         this.foodQuantity = foodQuantity;
     }
 
+    /**
+     * fills up the food on the plane
+     * @return a boolean indicating whether the job was successful
+     */
     @Override
     public boolean doJob()
     {
@@ -37,6 +47,13 @@ public class CateringTruck extends Vehicle
         return true;
     }
 
+    /**
+     * Works out whether the current truck can handle the plane
+     * if not passes it along the chain
+     * 
+     * @param p the plane to check
+     * @return an object that can handle the plane, or null if none available
+     */
     @Override
     public Vehicle handle(Plane p)
     {

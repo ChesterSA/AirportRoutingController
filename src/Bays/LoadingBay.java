@@ -83,7 +83,7 @@ public class LoadingBay extends Bay
         if (fuel != null)
         {
             System.out.println("Refuelling Plane");
-            fuel.executeJob(this, plane);
+            fuel.executeJob(this);
         }
     }
 
@@ -95,7 +95,7 @@ public class LoadingBay extends Bay
         if (catering != null)
         {
             System.out.println("Restocking plane food");
-            catering.executeJob(this, plane);
+            catering.executeJob(this);
         }
     }
 
@@ -107,7 +107,7 @@ public class LoadingBay extends Bay
         if (ramp != null)
         {
             System.out.println("Calling ramp");
-            ramp.executeJob(this, plane);
+            ramp.executeJob(this);
         }
     }
 

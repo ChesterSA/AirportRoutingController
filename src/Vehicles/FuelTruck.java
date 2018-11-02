@@ -6,22 +6,36 @@
 package Vehicles;
 
 import Bays.Bay;
-import Bays.Location;
 import Enums.FuelType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
 import airportroutingcontroller.Plane;
 
 /**
- *
- * @author s6089488
+ * FuelTruck, refuels the plane, extends Vehicle
+ * 
+ * @author Chester Swann-Auger
+ * @since 02/11/18
  */
 public class FuelTruck extends Vehicle
 {
-
+    /**
+     * The type of fuel the truck uses
+     */
     private final FuelType fuelType;
+    
+    /**
+     * the amount of plane fuel on the truck
+     */
     private int planeFuelQuantity;
 
+    /**
+     * constructor for the vehicle
+     * @param size the size of the vehicle
+     * @param name the name, used as an identifier
+     * @param fuelType the type of fuel it will use
+     * @param planeFuelQuantity the amount of plane fuel on the truck
+     */
     public FuelTruck(VehicleSize size, String name, FuelType fuelType,  int planeFuelQuantity)
     {
         super(size, name);
@@ -29,6 +43,10 @@ public class FuelTruck extends Vehicle
         this.planeFuelQuantity = planeFuelQuantity;
     }
 
+    /**
+     * sets the plane's fuel level to max
+     * @return a boolean indicating if the job was successful
+     */
     @Override
     public boolean doJob()
     {
@@ -41,6 +59,13 @@ public class FuelTruck extends Vehicle
         return true;
     }
 
+    /**
+     * Works out whether the current truck can handle the plane
+     * if not passes it along the chain
+     * 
+     * @param p the plane to check
+     * @return an object that can handle the plane, or null if none available
+     */
     @Override
     public Vehicle handle(Plane p)
     {

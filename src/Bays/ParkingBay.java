@@ -58,7 +58,7 @@ public class ParkingBay extends Bay
     {
         if (cleaning != null)
         {
-            cleaning.executeJob(this, plane);
+            cleaning.executeJob(this);
         }
     }
 
@@ -69,7 +69,7 @@ public class ParkingBay extends Bay
     {
         if (maintenance != null)
         {
-            maintenance.executeJob(this, plane);
+            maintenance.executeJob(this);
         }
     }
 

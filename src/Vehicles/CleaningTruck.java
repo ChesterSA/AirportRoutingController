@@ -6,27 +6,40 @@
 package Vehicles;
 
 import Bays.Bay;
-import Bays.Location;
 import Enums.CleaningType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
 import airportroutingcontroller.Plane;
 
 /**
- *
- * @author s6089488
+ * Cleaning Truck, cleans the plane, extends Vehicle
+ * 
+ * @author Chester Swann-Auger
+ * @since 02/11/18
  */
 public class CleaningTruck extends Vehicle
 {
-
+    /**
+     * the type of plane that this vehicle can clean
+     */
     private final CleaningType cleaningType;
 
+    /**
+     * constructor for the vehicle
+     * @param size the size of the vehicle
+     * @param name the name, used as an identifier
+     * @param type the type of cleaning the vehicle can do
+     */
     public CleaningTruck(VehicleSize size, String name, CleaningType type)
     {
         super(size, name);
         cleaningType = type;
     }
 
+    /**
+     * changes plane CleanType to clean
+     * @return a boolean indicating if the job was successful
+     */
     @Override
     public boolean doJob()
     {
@@ -38,6 +51,13 @@ public class CleaningTruck extends Vehicle
         return true;
     }
 
+    /**
+     * Works out whether the current truck can handle the plane
+     * if not passes it along the chain
+     * 
+     * @param p the plane to check
+     * @return an object that can handle the plane, or null if none available
+     */
     @Override
     public Vehicle handle(Plane p)
     {
