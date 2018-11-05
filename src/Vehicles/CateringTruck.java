@@ -8,6 +8,7 @@ package Vehicles;
 import Bays.Bay;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
+import airportroutingcontroller.Chainable;
 import airportroutingcontroller.Plane;
 
 /**
@@ -73,4 +74,12 @@ public class CateringTruck extends Vehicle
         }
     }
 
+    @Override
+    public void addNext(Chainable c)
+    {
+        if (c instanceof CateringTruck)
+        {
+            this.next = c;
+        }
+    }
 }

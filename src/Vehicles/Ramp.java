@@ -8,6 +8,7 @@ package Vehicles;
 import Enums.RampType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
+import airportroutingcontroller.Chainable;
 import airportroutingcontroller.Plane;
 
 /**
@@ -70,6 +71,15 @@ public class Ramp extends Vehicle
         {
             System.out.println("No ramps available");
             return null;
+        }
+    }
+    
+    @Override
+    public void addNext(Chainable c)
+    {
+        if (c instanceof Ramp)
+        {
+            this.next = c;
         }
     }
 }

@@ -127,16 +127,6 @@ public abstract class Vehicle implements Chainable
     }
 
     /**
-     * adds another vehicle to the chain for chain of responsibility
-     * @param c the Chainable to add
-     */
-    @Override
-    public void addNext(Chainable c)
-    {
-        this.next = c;
-    }
-
-    /**
      * getter for name object
      * @return the name as a string
      */

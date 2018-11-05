@@ -9,6 +9,7 @@ import Bays.Bay;
 import Enums.MaintenanceType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
+import airportroutingcontroller.Chainable;
 import airportroutingcontroller.Plane;
 
 /**
@@ -73,6 +74,15 @@ public class MaintenanceTruck extends Vehicle
         else
         {
             return null;
+        }
+    }
+    
+    @Override
+    public void addNext(Chainable c)
+    {
+        if (c instanceof MaintenanceTruck)
+        {
+            this.next = c;
         }
     }
 

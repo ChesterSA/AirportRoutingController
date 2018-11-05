@@ -9,6 +9,7 @@ import Bays.Bay;
 import Enums.FuelType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
+import airportroutingcontroller.Chainable;
 import airportroutingcontroller.Plane;
 
 /**
@@ -88,4 +89,12 @@ public class FuelTruck extends Vehicle
         }
     }
 
+    @Override
+    public void addNext(Chainable c)
+    {
+        if (c instanceof FuelTruck)
+        {
+            this.next = c;
+        }
+    }
 }
