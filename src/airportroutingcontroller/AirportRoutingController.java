@@ -7,6 +7,7 @@ package airportroutingcontroller;
 
 import Bays.LoadingBay;
 import Bays.ParkingBay;
+import Bays.Runway;
 import Enums.CleaningType;
 import Enums.MaintenanceType;
 import java.util.LinkedList;
@@ -104,8 +105,8 @@ public class AirportRoutingController
         {
             System.out.println("No loading bays available currently\n");
         }
-        
-        finishPlane();
+
+        finishPlane(p);
     }
 
     /**
@@ -127,10 +128,14 @@ public class AirportRoutingController
     {
         AirportRoutingController.firstParkingBay = firstParkingBay;
     }
-    
-    private static void finishPlane()
+
+    private static void finishPlane(Plane p)
     {
-        
+        System.out.println("Plane " + p.getPlaneID() + " moves to " + Runway.getInstance().getName());
+        Runway.addPlane(p);
+
+        p.setLoadingBay(null);
+        p.setParkingBay(null);
     }
 
 }

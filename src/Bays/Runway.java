@@ -74,7 +74,7 @@ public class Runway extends Location
         //removes final comma
         s = s.substring(0, s.length()-2);
         
-        s += " are at the runway";
+        s += " are at the runway\n\n";
         
         System.out.println(s);
     }
