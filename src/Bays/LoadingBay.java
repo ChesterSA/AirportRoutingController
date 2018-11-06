@@ -17,8 +17,7 @@ import Vehicles.Ramp;
  * @author Chester Swann-Auger
  * @since 02/11/18
  */
-public class LoadingBay extends Bay
-{
+public class LoadingBay extends Bay {
 
     /**
      * the fuel truck present at the Loading Bay
@@ -41,8 +40,7 @@ public class LoadingBay extends Bay
      * @param bayID the id for the LoadingBay
      * @param size the size of vehicle it can take
      */
-    public LoadingBay(int bayID, VehicleSize size)
-    {
+    public LoadingBay(int bayID, VehicleSize size) {
         super(bayID, size);
         name = "Loading Bay " + bayID;
     }
@@ -51,25 +49,20 @@ public class LoadingBay extends Bay
      * gets the fuel, catering, and ramp vehicles for the plane
      */
     @Override
-    public void getVehicles()
-    {
-        if (plane != null)
-        {
+    public void getVehicles() {
+        if (plane != null) {
             this.fuel = manager.getFuelTruck(plane);
-            if (fuel != null)
-            {
+            if (fuel != null) {
                 System.out.println("Fuel Truck arrived\n");
             }
 
             this.catering = manager.getCateringTruck(plane);
-            if (catering != null)
-            {
+            if (catering != null) {
                 System.out.println("Catering Truck arrived\n");
             }
 
             this.ramp = manager.getRamp(plane);
-            if (ramp != null)
-            {
+            if (ramp != null) {
                 System.out.println("Ramp arrived\n");
             }
         }
@@ -78,10 +71,8 @@ public class LoadingBay extends Bay
     /**
      * fills the plane's fuel back to maximum using a FuelTruck
      */
-    public void refuel()
-    {
-        if (fuel != null)
-        {
+    public void refuel() {
+        if (fuel != null) {
             System.out.println("Refuelling Plane");
             fuel.executeJob(this);
         }
@@ -90,10 +81,8 @@ public class LoadingBay extends Bay
     /**
      * refills the plane's food using a CateringTruck
      */
-    public void refillFood()
-    {
-        if (catering != null)
-        {
+    public void refillFood() {
+        if (catering != null) {
             System.out.println("Restocking plane food");
             catering.executeJob(this);
         }
@@ -102,10 +91,8 @@ public class LoadingBay extends Bay
     /**
      * calls a Ramp object for the plane to use
      */
-    public void callRamp()
-    {
-        if (ramp != null)
-        {
+    public void callRamp() {
+        if (ramp != null) {
             System.out.println("Calling ramp");
             ramp.executeJob(this);
         }
@@ -116,18 +103,26 @@ public class LoadingBay extends Bay
      * them
      */
     @Override
-    public void update()
-    {
+    public void update() {
 
         //release vehicles back to vehicle store so selected bay can use them
         fuel.driveTo(VehicleStore.getInstance());
         fuel = null;
-        
+
         catering.driveTo(VehicleStore.getInstance());
         catering = null;
-        
+
         ramp.driveTo(VehicleStore.getInstance());
         ramp = null;
+    }
+
+    @Override
+    public void initiate() {
+        getVehicles();
+
+        refuel();
+        refillFood();
+        callRamp();
     }
 
 }

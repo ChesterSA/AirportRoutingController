@@ -11,17 +11,18 @@ import Vehicles.MaintenanceTruck;
 
 /**
  * Parking bay, used for cleaning and repairing plane, extends bay
- * 
+ *
  * @author Chester Swann-Auger
  * @since 11/02/18
  */
 public class ParkingBay extends Bay
 {
+
     /**
      * The cleaning truck used by the ParkingBay
      */
     private CleaningTruck cleaning;
-    
+
     /**
      * The maintenance truck used by the ParkingBay
      */
@@ -29,6 +30,7 @@ public class ParkingBay extends Bay
 
     /**
      * The constructor for ParkingBay
+     *
      * @param bayID the id of the bay
      * @param size the size vehicle it can take
      */
@@ -81,8 +83,17 @@ public class ParkingBay extends Bay
     {
         cleaning.driveTo(VehicleStore.getInstance());
         cleaning = null;
-        
+
         maintenance.driveTo(VehicleStore.getInstance());
         maintenance = null;
     }
+
+    @Override
+    public void initiate()
+    {
+        getVehicles();
+        fixPlane();
+        clean();
+    }
+
 }

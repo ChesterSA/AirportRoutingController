@@ -64,7 +64,7 @@ public class MaintenanceTruck extends Vehicle
                 && p.getMaintenance().ordinal() <= this.type.ordinal()
                 && this.state == Waiting.state())
         {
-            System.out.println("Fuel truck " + name + " found");
+            System.out.println("Maintenance truck " + name + " found");
             return this;
         }
         else if (next != null)

@@ -78,8 +78,9 @@ public abstract class Vehicle implements Chainable
         }
         else
         {
-            System.out.println("You don't have enough fuel to drive");
-            state = Waiting.state();
+            System.out.println("Vehicle cannot drive to location");
+            System.out.println("Refueling instead");
+            refuel();
         }
     }
 

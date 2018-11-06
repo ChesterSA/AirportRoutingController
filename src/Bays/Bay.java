@@ -161,16 +161,9 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
     {
         return bayID;
     }
-
+    
     /**
-     * Adds plane to the runway plane list then removes any reference to a bay
+     * Once a plane is in the bay, handles making sure the correct vehicles arrive and work
      */
-    public void finishPlane()
-    {
-        System.out.println("Plane " + plane.getPlaneID() + " moves to " + Runway.getInstance().getName());
-        Runway.addPlane(plane);
-
-        plane.setLoadingBay(null);
-        plane.setParkingBay(null);
-    }
+    public abstract void initiate();
 }

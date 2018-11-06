@@ -103,41 +103,10 @@ public class Driver
 
         AirportRoutingController arc = new AirportRoutingController();
 
+        
         arc.handlePlane(smallPlane);
-        managePlane(smallPlane, arc);
-
-        arc.handlePlane(mediumPlane);
-        managePlane(mediumPlane, arc);
-        
+        arc.handlePlane(mediumPlane); 
         arc.handlePlane(largePlane);
-        managePlane(largePlane, arc);
-    }
-
-    /**
-     * manages all vehicles that the plane needs, then moves it to runway
-     * @param p the plane to handle
-     * @param arc the arc to handle where the plane goes
-     */
-    public static void managePlane(Plane p, AirportRoutingController arc)
-    {
-        if (p.getParkingBay() != null)
-        {
-            ParkingBay pb = p.getParkingBay();
-            pb.getVehicles();
-
-            pb.fixPlane();
-            pb.clean();
-
-            arc.handlePlane(p);
-        }
-
-        LoadingBay lb = p.getLoadingBay();
-        lb.getVehicles();
-
-        lb.refuel();
-        lb.refillFood();
-        lb.callRamp();
-        
-        lb.finishPlane();
+        arc.handlePlane(jet);
     }
 }
