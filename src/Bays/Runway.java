@@ -20,7 +20,7 @@ public class Runway extends Location
     /**
      * the list of planes currently at the runway
      */
-    private static ArrayList<Plane> planes = new ArrayList<>();
+    private static final ArrayList<Plane> planes = new ArrayList<>();
     
     /**
      * instance object to work with the singleton pattern
@@ -64,7 +64,8 @@ public class Runway extends Location
      */
     public static void listPlanes()
     {
-        String s = "Planes ";
+        String s = "Plane";
+        s += ((planes.size() > 1 ) ? "s" : "") + " ";
         
         for (Plane p : planes)
         {
@@ -74,7 +75,10 @@ public class Runway extends Location
         //removes final comma
         s = s.substring(0, s.length()-2);
         
-        s += " are at the runway\n\n";
+        s += " ";
+        s +=  ((planes.size() > 1 ) ? "are" : "is");
+        
+        s += " at the runway\n\n";
         
         System.out.println(s);
     }

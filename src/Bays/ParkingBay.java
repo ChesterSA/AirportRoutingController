@@ -105,6 +105,9 @@ public class ParkingBay extends Bay
         }
     }
 
+    /**
+     * Gets all the vehicles needed for the plane, then makes them do job
+     */
     @Override
     public void initiate()
     {
@@ -113,6 +116,10 @@ public class ParkingBay extends Bay
         clean();
     }
     
+    /**
+     * Adds a LoadingBay to the end of the current chain
+     * @param b the bay to be added
+     */
     @Override
     public void addToChain(BayChainable b)
     {
