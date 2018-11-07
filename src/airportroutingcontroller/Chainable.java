@@ -28,5 +28,5 @@ public interface Chainable
      */
     public Vehicle handle(Plane p);
     
-    public void addToChain(Vehicle v);
+    public void addToChain(Chainable c);
 }

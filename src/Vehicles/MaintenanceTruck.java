@@ -90,17 +90,17 @@ public class MaintenanceTruck extends Vehicle
     }
     
     @Override
-    public void addToChain(Vehicle v)
+    public void addToChain(Chainable c)
     {
-        if (v instanceof MaintenanceTruck)
+        if (c instanceof MaintenanceTruck)
         {
             if (this.next == null)
             {
-                addNext(v);
+                addNext(c);
             }
             else
             {
-                next.addToChain(v);
+                next.addToChain(c);
             }
         }
 

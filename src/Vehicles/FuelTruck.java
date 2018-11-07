@@ -100,17 +100,17 @@ public class FuelTruck extends Vehicle
     }
     
     @Override
-    public void addToChain(Vehicle v)
+    public void addToChain(Chainable c)
     {
-        if (v instanceof FuelTruck)
+        if (c instanceof FuelTruck)
         {
             if (this.next == null)
             {
-                addNext(v);
+                addNext(c);
             }
             else
             {
-                next.addToChain(v);
+                next.addToChain(c);
             }
         }
 

@@ -75,9 +75,10 @@ public class AirportRoutingController
      */
     public void handlePlane(Plane p)
     {
-        notifySubscribers();
         System.out.println("************");
         System.out.println("\nPlane " + p.getPlaneID() + " has arrived at airport");
+        notifySubscribers();
+          
         if (p.getMaintenance() == MaintenanceType.SPECIALIST
                 || p.getCleanType() == CleaningType.SEVERE)
         {

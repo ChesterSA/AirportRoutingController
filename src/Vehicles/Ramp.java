@@ -89,17 +89,17 @@ public class Ramp extends Vehicle
     }
     
     @Override
-    public void addToChain(Vehicle v)
+    public void addToChain(Chainable c)
     {
-        if (v instanceof Ramp)
+        if (c instanceof Ramp)
         {
             if (this.next == null)
             {
-                addNext(v);
+                addNext(c);
             }
             else
             {
-                next.addToChain(v);
+                next.addToChain(c);
             }
         }
 

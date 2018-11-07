@@ -80,6 +80,10 @@ public class CateringTruck extends Vehicle
         }
     }
 
+    /**
+     * Sets next equal to another chainable 
+     * @param c The chainable object to add
+     */
     @Override
     public void addNext(Chainable c)
     {
@@ -89,18 +93,22 @@ public class CateringTruck extends Vehicle
         }
     }
 
-    @Override
-    public void addToChain(Vehicle v)
+    /**
+     * Adds a vehicle to the end of the chain
+     * @param c
+     */
+    //@Override
+    public void addToChain(Chainable c)
     {
-        if (v instanceof CateringTruck)
+        if (c instanceof CateringTruck)
         {
             if (this.next == null)
             {
-                addNext(v);
+                addNext(c);
             }
             else
             {
-                next.addToChain(v);
+                next.addToChain(c);
             }
         }
 
