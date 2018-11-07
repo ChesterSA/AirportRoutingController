@@ -24,7 +24,8 @@ public class DoingJob implements VehicleState
      * private constructor for singleton
      */
     private DoingJob()
-    {      
+    {
+        
     }
     
     /**

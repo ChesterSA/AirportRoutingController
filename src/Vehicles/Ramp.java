@@ -79,6 +79,10 @@ public class Ramp extends Vehicle
         }
     }
     
+    /**
+     * Sets next equal to another chainable 
+     * @param c The chainable object to add
+     */
     @Override
     public void addNext(Chainable c)
     {
@@ -88,6 +92,10 @@ public class Ramp extends Vehicle
         }
     }
     
+    /**
+     * Adds a vehicle to the end of the current chain
+     * @param c the chainable type to be added
+     */
     @Override
     public void addToChain(Chainable c)
     {

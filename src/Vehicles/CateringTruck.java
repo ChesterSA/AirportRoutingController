@@ -94,10 +94,10 @@ public class CateringTruck extends Vehicle
     }
 
     /**
-     * Adds a vehicle to the end of the chain
-     * @param c
+     * Adds a vehicle to the end of the current chain
+     * @param c the chainable type to be added
      */
-    //@Override
+    @Override
     public void addToChain(Chainable c)
     {
         if (c instanceof CateringTruck)

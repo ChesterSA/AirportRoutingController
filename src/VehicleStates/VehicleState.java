@@ -21,7 +21,4 @@ public interface VehicleState
      * @return a string describing the refueling
      */
     public abstract String refuel(Vehicle v);
-    
-    
-    
 }
