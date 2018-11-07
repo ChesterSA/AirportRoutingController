@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Created in Teesside University
+ * By Chester Swann-Auger
+ * As part of Group B - Airport Routing Controller
  */
 package Bays;
 
@@ -9,6 +9,7 @@ import Enums.VehicleSize;
 import Vehicles.CleaningTruck;
 import Vehicles.MaintenanceTruck;
 import Vehicles.Vehicle;
+import airportroutingcontroller.BayChainable;
 
 /**
  * Parking bay, used for cleaning and repairing plane, extends bay
@@ -113,7 +114,7 @@ public class ParkingBay extends Bay
     }
     
     @Override
-    public void addToChain(Bay b)
+    public void addToChain(BayChainable b)
     {
         if (b instanceof ParkingBay)
         {

@@ -1,16 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Created in Teesside University
+ * By Chester Swann-Auger
+ * As part of Group B - Airport Routing Controller
  */
 package Bays;
 
-import Enums.VehicleSize;
 import airportroutingcontroller.AirportRoutingController;
-import airportroutingcontroller.BayChainable;
 import airportroutingcontroller.DeliveryVehicles;
 import airportroutingcontroller.Plane;
 import airportroutingcontroller.Subscriber;
+import airportroutingcontroller.BayChainable;
+import Enums.VehicleSize;
 
 /**
  * Bay, supertype for ParkingBay and LoadingBay, extends Location
@@ -170,6 +170,4 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
      * Once a plane is in the bay, handles making sure the correct vehicles arrive and work
      */
     public abstract void initiate();
-    
-    
 }
