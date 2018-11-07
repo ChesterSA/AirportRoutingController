@@ -25,7 +25,7 @@ public class AirportRoutingController
     /**
      * List of the bays, used as a subscriber list for observer
      */
-    private static ArrayList<Subscriber> bays = new ArrayList<>();
+    private static final ArrayList<Subscriber> bays = new ArrayList<>();
 
     /**
      * Initial loading bay in the chains
@@ -87,22 +87,32 @@ public class AirportRoutingController
             {
                 System.out.println("Plane " + p.getPlaneID() + " has moved to parking bay " + pb.getBayID() + "\n");
                 pb.setPlane(p);
+                
                 p.setParkingBay(pb);
-                pb.initiate();
+                pb.initiate();     
+                
+                pb.setPlane(null);
+                p.setParkingBay(null);
             }
             else
             {
                 System.out.println("No parking bays available currently\n");
             }
         }
+         
         System.out.println();
+        
         LoadingBay lb = (LoadingBay) firstLoadingBay.handle(p);
         if (lb != null)
         {
             System.out.println("Plane " + p.getPlaneID() + " has moved to loading bay " + lb.getBayID() + "\n");
             lb.setPlane(p);
             p.setLoadingBay(lb);
+            
             lb.initiate();
+            
+            lb.setPlane(null);
+            p.setLoadingBay(null);
         }
         else
         {
@@ -156,13 +166,13 @@ public class AirportRoutingController
         AirportRoutingController.firstParkingBay = firstParkingBay;
     }
 
+    /**
+     * Adds the plane to the list of planes at the runway
+     * @param p the plane to be added
+     */
     private static void finishPlane(Plane p)
     {
         System.out.println("Plane " + p.getPlaneID() + " moves to " + Runway.getInstance().getName());
         Runway.addPlane(p);
-
-        p.setLoadingBay(null);
-        p.setParkingBay(null);
     }
-
 }

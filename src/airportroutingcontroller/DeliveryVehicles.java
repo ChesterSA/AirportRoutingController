@@ -68,8 +68,9 @@ public class DeliveryVehicles
         return instance;
     }
 
+    
     public void addToChain(Vehicle v)
-    {
+    {        
         if (v instanceof CateringTruck)
         {       
             if(firstCatering == null)
@@ -110,7 +111,7 @@ public class DeliveryVehicles
     /**
      * gets a FuelTruck that can handle the plane
      *
-     * @param plane
+     * @param plane the plane to be handled
      * @return a FuelTruck that can handle the plane, or null if none are
      * available
      */
@@ -123,7 +124,7 @@ public class DeliveryVehicles
     /**
      * gets a CateringTruck that can handle the plane
      *
-     * @param plane
+     * @param plane the plane to be handled
      * @return a CateringTruck that can handle the plane, or null if none are
      * available
      */
@@ -136,7 +137,7 @@ public class DeliveryVehicles
     /**
      * gets a Ramp that can handle the plane
      *
-     * @param plane
+     * @param plane the plane to be handled
      * @return a Ramp that can handle the plane, or null if none are available
      */
     public Ramp getRamp(Plane plane)
@@ -148,7 +149,7 @@ public class DeliveryVehicles
     /**
      * gets a CleaningTruck that can handle the plane
      *
-     * @param plane
+     * @param plane the plane to be handled
      * @return a CleaningTruck that can handle the plane, or null if none are
      * available
      */
@@ -161,7 +162,7 @@ public class DeliveryVehicles
     /**
      * gets a MaintenanceTruck that can handle the plane
      *
-     * @param plane
+     * @param plane the plane to be handled
      * @return a MaintenanceTruck that can handle the plane, or null if none are
      * available
      */
@@ -172,7 +173,7 @@ public class DeliveryVehicles
     }
 
     /**
-     * setter for firstFuel, keeps chain intact
+     * setter for firstFuel
      *
      * @param firstFuel the item to set firstFuel to
      */
@@ -182,7 +183,7 @@ public class DeliveryVehicles
     }
 
     /**
-     * setter for firstCatering, keeps chain intact
+     * setter for firstCatering
      *
      * @param firstCatering the item to set firstCatering to
      */
@@ -192,7 +193,7 @@ public class DeliveryVehicles
     }
 
     /**
-     * setter for firstRamp, keeps chain intact
+     * setter for firstRamp
      *
      * @param firstRamp the item to set firstRamp to
      */
@@ -202,7 +203,7 @@ public class DeliveryVehicles
     }
 
     /**
-     * setter for firstCleaning, keeps chain intact
+     * setter for firstCleaning
      *
      * @param firstCleaning the item to set firstCleaning to
      */
@@ -212,7 +213,7 @@ public class DeliveryVehicles
     }
 
     /**
-     * setter for firstMaintenance, keeps chain intact
+     * setter for firstMaintenance
      *
      * @param firstMaintenance the item to set firstMaintenance to
      */

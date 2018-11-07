@@ -6,7 +6,6 @@
 package airportroutingcontroller;
 
 import Bays.Bay;
-import Vehicles.Vehicle;
 
 /**
  * Chainable interface used by the bays

@@ -5,7 +5,6 @@
  */
 package airportroutingcontroller;
 
-import Bays.Bay;
 import Enums.*;
 import Vehicles.*;
 import Bays.LoadingBay;
@@ -21,7 +20,7 @@ public class Driver
 {
 
     /**
-     * main method, instantiates all classes then runs a simulation
+     * main method, instantiates planes and vehicles then runs a simulation
      *
      * @param args
      */
@@ -31,8 +30,23 @@ public class Driver
         Plane smallPlane = new Plane("SML123", 100, 75, 250, 150, FuelType.AVGAS, VehicleSize.SMALL, CleaningType.MODERATE, RampType.OPEN, MaintenanceType.FIXED);
         Plane mediumPlane = new Plane("MED456", 250, 25, 500, 20, FuelType.AVGAS, VehicleSize.MEDIUM, CleaningType.SIMPLE, RampType.ENCLOSED, MaintenanceType.FIXED);
         Plane largePlane = new Plane("LRG789", 500, 400, 750, 600, FuelType.AVGAS, VehicleSize.LARGE, CleaningType.SEVERE, RampType.ENCLOSED, MaintenanceType.STANDARD);
-        Plane jet = new Plane("JETX2", 0, 0, 250, 100, FuelType.JET_A1, VehicleSize.SMALL, CleaningType.CLEAN, RampType.OPEN, MaintenanceType.SPECIALIST);
+        Plane jet = new Plane("JETX2", 0, 0, 250, 100, FuelType.JET_A1, VehicleSize.SMALL, CleaningType.CLEAN, RampType.OPEN, MaintenanceType.SPECIALIST); 
 
+        initVehicles();
+        AirportRoutingController arc = new AirportRoutingController();
+
+        //Pass each plane to the program
+        arc.handlePlane(smallPlane);
+        arc.handlePlane(mediumPlane);
+        arc.handlePlane(largePlane);
+        arc.handlePlane(jet);
+    }
+    
+    /**
+     * Initialises all the vehicles at the airport
+     */
+    public static void initVehicles()
+    {
         //Initialising Vehicles
         FuelTruck smallFuel = new FuelTruck(VehicleSize.SMALL, "smlFuel", FuelType.AVGAS, 150);
         FuelTruck mediumFuel = new FuelTruck(VehicleSize.MEDIUM, "medFuel", FuelType.AVGAS, 500);
@@ -65,14 +79,6 @@ public class Driver
         ParkingBay smallParking = new ParkingBay(4, VehicleSize.SMALL);
         ParkingBay mediumParking = new ParkingBay(5, VehicleSize.MEDIUM);
         ParkingBay largeParking = new ParkingBay(6, VehicleSize.LARGE);
-
-        AirportRoutingController arc = new AirportRoutingController();
-
-        //Pass each plane to the program
-        arc.handlePlane(smallPlane);
-        arc.handlePlane(mediumPlane);
-        arc.handlePlane(largePlane);
-        arc.handlePlane(jet);
     }
 
 }
