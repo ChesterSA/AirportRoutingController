@@ -22,16 +22,6 @@ public abstract class VehicleState
      */
     public abstract String refuel(Vehicle v);
     
-    /**
-     * Cancels whatever job a vehicle is performing and returns to waiting state
-     * @param v the vehicle who's state needs changing
-     * @return a string confirming the vehicle's state has changed
-     */
-    public String cancel(Vehicle v)
-    {
-        v.setState(Waiting.state());
-        
-        return v.getName() + " is now waiting";
-    }
+    
     
 }

@@ -118,9 +118,15 @@ public abstract class Vehicle implements Chainable
      */
     protected abstract boolean doJob();
     
-    public void cancel()
+    /**
+     * Cancels whatever job a vehicle is performing and returns to waiting state
+     * @return a string confirming the vehicle's state has changed
+     */
+    public String cancel()
     {
-        state.cancel(this);
+        setState(Waiting.state());
+        
+        return getName() + " is now waiting";
     }
 
     /**
