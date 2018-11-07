@@ -5,6 +5,7 @@
  */
 package airportroutingcontroller;
 
+import Bays.Bay;
 import Enums.*;
 import Vehicles.*;
 import Bays.LoadingBay;
@@ -54,25 +55,6 @@ public class Driver
         MaintenanceTruck smallMaintenance = new MaintenanceTruck(VehicleSize.SMALL, "smlMaint", MaintenanceType.STANDARD);
         MaintenanceTruck largeMaintenance = new MaintenanceTruck(VehicleSize.LARGE, "lrgMaint", MaintenanceType.STANDARD);      
         MaintenanceTruck specialistMaintenance = new MaintenanceTruck(VehicleSize.MEDIUM, "medMaint", MaintenanceType.SPECIALIST);
-        
-        //Setting chains for vehicles
-        smallFuel.addNext(mediumFuel);
-        mediumFuel.addNext(largeFuel);
-        largeFuel.addNext(jetFuel);
-
-        smallCatering.addNext(mediumCatering);
-        mediumCatering.addNext(largeCatering);
-
-        smallEnclosed.addNext(mediumEnclosed);
-        mediumEnclosed.addNext(largeEnclosed);
-        largeEnclosed.addNext(smallOpen);
-        smallOpen.addNext(mediumOpen);
-        mediumOpen.addNext(largeOpen);
-
-        smallCleaning.addNext(largeCleaning);
-
-        smallMaintenance.addNext(largeMaintenance);
-        largeMaintenance.addNext(specialistMaintenance);
 
         //Initialising Bays
         LoadingBay smallLoading = new LoadingBay(1, VehicleSize.SMALL);
@@ -81,32 +63,32 @@ public class Driver
 
         ParkingBay smallParking = new ParkingBay(4, VehicleSize.SMALL);
         ParkingBay mediumParking = new ParkingBay(5, VehicleSize.MEDIUM);
-        ParkingBay largeParking = new ParkingBay(6, VehicleSize.LARGE);
-
-        //Initialising Chains for bays
-        smallLoading.addNext(mediumLoading);
-        mediumLoading.addNext(largeLoading);
-
-        smallParking.addNext(mediumParking);
-        mediumParking.addNext(largeParking);
-
-        //Add vehicle chains to delivery manager
-        DeliveryVehicles.getInstance().setFirstFuel(smallFuel);
-        DeliveryVehicles.getInstance().setFirstCatering(smallCatering);
-        DeliveryVehicles.getInstance().setFirstRamp(smallEnclosed);
-        DeliveryVehicles.getInstance().setFirstCleaning(smallCleaning);
-        DeliveryVehicles.getInstance().setFirstMaintenance(smallMaintenance);
-
-        //Add bay chains to ARC 
-        AirportRoutingController.setFirstLoadingBay(smallLoading);
-        AirportRoutingController.setFirstParkingBay(smallParking);
+        ParkingBay largeParking = new ParkingBay(6, VehicleSize.LARGE);       
 
         AirportRoutingController arc = new AirportRoutingController();
 
         //Pass each plane to the program
         arc.handlePlane(smallPlane);
-        arc.handlePlane(mediumPlane); 
-        arc.handlePlane(largePlane);
-        arc.handlePlane(jet);
+       arc.handlePlane(mediumPlane); 
+//       arc.handlePlane(largePlane);
+//        arc.handlePlane(jet);
+    }
+    
+    public static void manageBay(Bay b)
+    {
+        if (b instanceof LoadingBay)
+        {
+            AirportRoutingController.addBayToChain(b);
+        }
+        else
+        {
+            AirportRoutingController.addBayToChain(b);
+        }
+        AirportRoutingController.subscribe(b);
+    }
+    
+    public static void manageVehicle(Vehicle v)
+    {
+        DeliveryVehicles.getInstance().addToChain(v);
     }
 }

@@ -6,6 +6,7 @@
 package Bays;
 
 import Enums.VehicleSize;
+import airportroutingcontroller.AirportRoutingController;
 import airportroutingcontroller.BayChainable;
 import airportroutingcontroller.DeliveryVehicles;
 import airportroutingcontroller.Plane;
@@ -56,6 +57,8 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
         this.bayID = bayID;
         this.size = size;
         this.manager = DeliveryVehicles.getInstance();
+        
+        AirportRoutingController.addBayToChain(this);
     }
 
     /**
@@ -166,4 +169,6 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
      * Once a plane is in the bay, handles making sure the correct vehicles arrive and work
      */
     public abstract void initiate();
+    
+    
 }

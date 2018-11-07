@@ -5,12 +5,13 @@
  */
 package airportroutingcontroller;
 
+import Bays.Bay;
 import Bays.LoadingBay;
 import Bays.ParkingBay;
 import Bays.Runway;
 import Enums.CleaningType;
 import Enums.MaintenanceType;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  * Entry point for system, handles where to send planes
@@ -24,7 +25,7 @@ public class AirportRoutingController
     /**
      * List of the bays, used as a subscriber list for observer
      */
-    private static LinkedList<Subscriber> bays;
+    private static ArrayList<Subscriber> bays = new ArrayList<>();
 
     /**
      * Initial loading bay in the chains
@@ -61,11 +62,10 @@ public class AirportRoutingController
      */
     public static void notifySubscribers()
     {
-        bays.forEach((s)
-                ->
+        for (Subscriber b : bays)
         {
-            s.update();
-        });
+            b.update();
+        }
     }
 
     /**
@@ -75,6 +75,7 @@ public class AirportRoutingController
      */
     public void handlePlane(Plane p)
     {
+        notifySubscribers();
 
         if (p.getMaintenance() == MaintenanceType.SPECIALIST
                 || p.getCleanType() == CleaningType.SEVERE)
@@ -117,6 +118,29 @@ public class AirportRoutingController
     public static void setFirstLoadingBay(LoadingBay firstLoadingBay)
     {
         AirportRoutingController.firstLoadingBay = firstLoadingBay;
+    }
+
+    /**
+     * adds a new loading bay to the end of the current chain
+     *
+     * @param lb the bay to be added to the chain
+     */
+    public static void addBayToChain(Bay b)
+    {
+        if (b instanceof LoadingBay)
+        {       
+            if(firstLoadingBay == null)
+                firstLoadingBay = (LoadingBay)b;
+            else
+                firstLoadingBay.addToChain(b);
+        }
+        else if (b instanceof ParkingBay)
+        {       
+            if(firstParkingBay == null)
+                firstParkingBay = (ParkingBay)b;
+            else
+                firstParkingBay.addToChain(b);
+        }   
     }
 
     /**

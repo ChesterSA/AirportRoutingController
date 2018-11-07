@@ -98,4 +98,21 @@ public class FuelTruck extends Vehicle
             this.next = c;
         }
     }
+    
+    @Override
+    public void addToChain(Vehicle v)
+    {
+        if (v instanceof FuelTruck)
+        {
+            if (this.next == null)
+            {
+                addNext(v);
+            }
+            else
+            {
+                next.addToChain(v);
+            }
+        }
+
+    }
 }

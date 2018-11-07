@@ -87,4 +87,21 @@ public class Ramp extends Vehicle
             this.next = c;
         }
     }
+    
+    @Override
+    public void addToChain(Vehicle v)
+    {
+        if (v instanceof Ramp)
+        {
+            if (this.next == null)
+            {
+                addNext(v);
+            }
+            else
+            {
+                next.addToChain(v);
+            }
+        }
+
+    }
 }

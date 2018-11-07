@@ -16,6 +16,7 @@ import airportroutingcontroller.Plane;
  */
 public class CateringTruck extends Vehicle
 {
+
     /**
      * the amount of food this truck currently has
      */
@@ -23,6 +24,7 @@ public class CateringTruck extends Vehicle
 
     /**
      * constructor for CateringTruck
+     *
      * @param size the size of the vehicle
      * @param name the name for the vehicle
      * @param foodQuantity the amount of food the truck vehicle has.
@@ -35,25 +37,26 @@ public class CateringTruck extends Vehicle
 
     /**
      * fills up the food on the plane
+     *
      * @return a boolean indicating whether the job was successful
      */
     @Override
     public boolean doJob()
     {
-        Bay current = (Bay)location;
+        Bay current = (Bay) location;
         Plane p = current.getPlane();
-        
+
         System.out.println(p.getPlaneID() + " has been restocked with food");
-        
+
         this.foodQuantity = p.getMaxFood() - p.getFoodQuantity();
         p.setFoodQuantity(p.getMaxFood());
         return true;
     }
 
     /**
-     * Works out whether the current truck can handle the plane
-     * if not passes it along the chain
-     * 
+     * Works out whether the current truck can handle the plane if not passes it
+     * along the chain
+     *
      * @param p the plane to check
      * @return an object that can handle the plane, or null if none available
      */
@@ -85,4 +88,22 @@ public class CateringTruck extends Vehicle
             this.next = c;
         }
     }
+
+    @Override
+    public void addToChain(Vehicle v)
+    {
+        if (v instanceof CateringTruck)
+        {
+            if (this.next == null)
+            {
+                addNext(v);
+            }
+            else
+            {
+                next.addToChain(v);
+            }
+        }
+
+    }
+
 }

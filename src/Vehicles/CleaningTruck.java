@@ -90,4 +90,21 @@ public class CleaningTruck extends Vehicle
             this.next = c;
         }
     } 
+    
+    @Override
+    public void addToChain(Vehicle v)
+    {
+        if (v instanceof CleaningTruck)
+        {
+            if (this.next == null)
+            {
+                addNext(v);
+            }
+            else
+            {
+                next.addToChain(v);
+            }
+        }
+
+    }
 }

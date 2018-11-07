@@ -6,6 +6,7 @@
 package airportroutingcontroller;
 
 import Bays.Bay;
+import Vehicles.Vehicle;
 
 /**
  * Chainable interface used by the bays
@@ -27,4 +28,6 @@ public interface BayChainable
      * @return A Bay that can handle the plane, or null if none available
      */
     public Bay handle(Plane p);
+    
+    public void addToChain(Bay b);
 }

@@ -9,6 +9,7 @@ import Bays.*;
 import Enums.VehicleSize;
 import airportroutingcontroller.Chainable;
 import VehicleStates.*;
+import airportroutingcontroller.DeliveryVehicles;
 
 /**
  * Vehicle abstract class
@@ -60,6 +61,8 @@ public abstract class Vehicle implements Chainable
         this.location = VehicleStore.getInstance();
         this.fuel = 100;
         this.state = Waiting.state();
+        
+        DeliveryVehicles.getInstance().addToChain(this);
     }
 
     /**
@@ -139,7 +142,7 @@ public abstract class Vehicle implements Chainable
     {
         return state.refuel(this);
     }
-
+    
     /**
      * getter for name object
      * @return the name as a string

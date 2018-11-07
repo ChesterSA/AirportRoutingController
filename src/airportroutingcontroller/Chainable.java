@@ -27,4 +27,6 @@ public interface Chainable
      * @return A vehicle that can handle the plane, or null if none available
      */
     public Vehicle handle(Plane p);
+    
+    public void addToChain(Vehicle v);
 }

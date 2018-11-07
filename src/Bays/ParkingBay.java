@@ -8,6 +8,7 @@ package Bays;
 import Enums.VehicleSize;
 import Vehicles.CleaningTruck;
 import Vehicles.MaintenanceTruck;
+import Vehicles.Vehicle;
 
 /**
  * Parking bay, used for cleaning and repairing plane, extends bay
@@ -82,11 +83,20 @@ public class ParkingBay extends Bay
     @Override
     public void update()
     {
-        cleaning.driveTo(VehicleStore.getInstance());
-        cleaning = null;
+        Vehicle[] vehicles = new Vehicle[]
+        {
+            cleaning, maintenance
+        };
 
-        maintenance.driveTo(VehicleStore.getInstance());
-        maintenance = null;
+        for (Vehicle v : vehicles)
+        {
+            if (v != null)
+            {
+                System.out.println(v.getName() + " returns to vehicle store");
+                v.driveTo(VehicleStore.getInstance());
+                v = null;
+            }
+        }
     }
 
     @Override
@@ -95,6 +105,22 @@ public class ParkingBay extends Bay
         getVehicles();
         fixPlane();
         clean();
+    }
+    
+    @Override
+    public void addToChain(Bay b)
+    {
+        if (b instanceof LoadingBay)
+        {
+            if (this.next == null)
+            {
+                addNext(b);
+            }
+            else
+            {
+                next.addToChain(b);
+            }
+        }
     }
 
 }
