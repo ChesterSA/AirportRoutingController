@@ -66,15 +66,17 @@ public class CleaningTruck extends Vehicle
                 && this.cleaningType.ordinal() >= p.getCleanType().ordinal()
                 && this.state == Waiting.state())
         {
-            System.out.println("Cleaning truck " + name + " found");
+            System.out.println("Cleaning truck " + name + " found\n");
             return this;
         }
         else if (next != null)
         {
+            
             return next.handle(p);
         }
         else
         {
+            System.out.println("No Cleaning truck found\n");
             return null;
         }
     }

@@ -64,11 +64,12 @@ public class MaintenanceTruck extends Vehicle
                 && p.getMaintenance().ordinal() <= this.type.ordinal()
                 && this.state == Waiting.state())
         {
-            System.out.println("Maintenance truck " + name + " found");
+            System.out.println("Maintenance truck " + name + " found\n");
             return this;
         }
         else if (next != null)
         {
+            System.out.println("No Maintenance truck available\n");
             return next.handle(p);
         }
         else

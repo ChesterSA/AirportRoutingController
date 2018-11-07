@@ -74,17 +74,16 @@ public class FuelTruck extends Vehicle
                 && this.fuelType == p.getFuelType()
                 && this.state == Waiting.state())
         {
-            System.out.println("Fuel truck " + name + " found");
+            System.out.println("Fuel truck " + name + " found\n");
             return this;
         }
         else if (next != null)
         {
-            System.out.println("Trying next truck");
             return next.handle(p);
         }
         else
         {
-            System.out.println("no fuel found");
+            System.out.println("No Fuel Truck found\n");
             return null;
         }
     }

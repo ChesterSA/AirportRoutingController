@@ -60,7 +60,7 @@ public class Ramp extends Vehicle
                 && p.getRamp() == this.type
                 && this.state == Waiting.state())
         {
-            System.out.println("Ramp " + name + " found");
+            System.out.println("Ramp " + name + " found\n");
             return this;
         }
         else if (next != null)
@@ -69,7 +69,7 @@ public class Ramp extends Vehicle
         }
         else
         {
-            System.out.println("No ramps available");
+            System.out.println("No ramps available\n");
             return null;
         }
     }

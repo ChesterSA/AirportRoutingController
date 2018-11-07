@@ -49,6 +49,7 @@ public class ParkingBay extends Bay
         if (plane != null)
         {
             this.cleaning = manager.getCleaningTruck(plane);
+            
             this.maintenance = manager.getMaintenanceTruck(plane);
         }
     }

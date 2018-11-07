@@ -61,7 +61,7 @@ public class CateringTruck extends Vehicle
         if ((p.getMaxFood() - p.getFoodQuantity()) <= this.foodQuantity
                 && this.state == Waiting.state())
         {
-            System.out.println("Catering truck " + name + " found");
+            System.out.println("Catering truck " + name + " found\n");
             return this;
         }
         else if (next != null)
@@ -70,6 +70,7 @@ public class CateringTruck extends Vehicle
         }
         else
         {
+            System.out.println("No Catering Truck found\n");
             return null;
         }
     }
