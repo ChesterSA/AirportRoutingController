@@ -119,9 +119,22 @@ public class LoadingBay extends Bay
             {
                 System.out.println(v.getName() + " returns to vehicle store");
                 v.driveTo(VehicleStore.getInstance());
-                v = null;
+                
+                if (v instanceof FuelTruck)
+                    fuel = null;
+                else if (v instanceof CateringTruck)
+                    catering = null;
+                else if (v instanceof Ramp)
+                    ramp = null;                    
             }
         }
+        
+        if (fuel != null)
+            {
+                System.out.println(fuel.getName() + " returns to vehicle store");
+                fuel.driveTo(VehicleStore.getInstance());
+                fuel = null;
+            }
     }
 
     @Override
@@ -138,7 +151,7 @@ public class LoadingBay extends Bay
     @Override
     public void addToChain(Bay b)
     {
-        if (b instanceof ParkingBay)
+        if (b instanceof LoadingBay)
         {
             if (this.next == null)
             {

@@ -76,7 +76,8 @@ public class AirportRoutingController
     public void handlePlane(Plane p)
     {
         notifySubscribers();
-
+        System.out.println("************");
+        System.out.println("\nPlane " + p.getPlaneID() + " has arrived at airport");
         if (p.getMaintenance() == MaintenanceType.SPECIALIST
                 || p.getCleanType() == CleaningType.SEVERE)
         {
@@ -104,7 +105,7 @@ public class AirportRoutingController
         }
         else
         {
-            System.out.println("No loading bays available currently\n");
+            System.out.println("\nNo loading bays available currently\n");
         }
 
         finishPlane(p);
@@ -123,19 +124,20 @@ public class AirportRoutingController
     /**
      * adds a new loading bay to the end of the current chain
      *
-     * @param lb the bay to be added to the chain
+     * @param b the bay to be added to the chain
      */
     public static void addBayToChain(Bay b)
     {
+        bays.add(b);
         if (b instanceof LoadingBay)
         {       
             if(firstLoadingBay == null)
-                firstLoadingBay = (LoadingBay)b;
+                firstLoadingBay = (LoadingBay)b;         
             else
                 firstLoadingBay.addToChain(b);
         }
         else if (b instanceof ParkingBay)
-        {       
+        {     
             if(firstParkingBay == null)
                 firstParkingBay = (ParkingBay)b;
             else

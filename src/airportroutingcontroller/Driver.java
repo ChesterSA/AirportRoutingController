@@ -13,15 +13,17 @@ import Bays.ParkingBay;
 
 /**
  * Driver, runs a simulation of the airport
- * 
+ *
  * @author Chester Swann-Auger
  * @since 01/11/18
  */
 public class Driver
 {
+
     /**
      * main method, instantiates all classes then runs a simulation
-     * @param args 
+     *
+     * @param args
      */
     public static void main(String[] args)
     {
@@ -32,7 +34,7 @@ public class Driver
         Plane jet = new Plane("JETX2", 0, 0, 250, 100, FuelType.JET_A1, VehicleSize.SMALL, CleaningType.CLEAN, RampType.OPEN, MaintenanceType.SPECIALIST);
 
         //Initialising Vehicles
-        FuelTruck smallFuel = new FuelTruck(VehicleSize.SMALL, "smlFuel", FuelType.AVGAS,  150);
+        FuelTruck smallFuel = new FuelTruck(VehicleSize.SMALL, "smlFuel", FuelType.AVGAS, 150);
         FuelTruck mediumFuel = new FuelTruck(VehicleSize.MEDIUM, "medFuel", FuelType.AVGAS, 500);
         FuelTruck largeFuel = new FuelTruck(VehicleSize.LARGE, "lrgFuel", FuelType.AVGAS, 300);
         FuelTruck jetFuel = new FuelTruck(VehicleSize.SMALL, "jetFuel", FuelType.JET_A1, 200);
@@ -48,12 +50,11 @@ public class Driver
         Ramp mediumOpen = new Ramp(VehicleSize.MEDIUM, "medRmpOpn", RampType.OPEN);
         Ramp largeOpen = new Ramp(VehicleSize.LARGE, "lrgRmpOpn", RampType.OPEN);
 
-
         CleaningTruck smallCleaning = new CleaningTruck(VehicleSize.SMALL, "smlClean", CleaningType.SIMPLE);
         CleaningTruck largeCleaning = new CleaningTruck(VehicleSize.LARGE, "lrgClean", CleaningType.SEVERE);
 
         MaintenanceTruck smallMaintenance = new MaintenanceTruck(VehicleSize.SMALL, "smlMaint", MaintenanceType.STANDARD);
-        MaintenanceTruck largeMaintenance = new MaintenanceTruck(VehicleSize.LARGE, "lrgMaint", MaintenanceType.STANDARD);      
+        MaintenanceTruck largeMaintenance = new MaintenanceTruck(VehicleSize.LARGE, "lrgMaint", MaintenanceType.STANDARD);
         MaintenanceTruck specialistMaintenance = new MaintenanceTruck(VehicleSize.MEDIUM, "medMaint", MaintenanceType.SPECIALIST);
 
         //Initialising Bays
@@ -63,32 +64,15 @@ public class Driver
 
         ParkingBay smallParking = new ParkingBay(4, VehicleSize.SMALL);
         ParkingBay mediumParking = new ParkingBay(5, VehicleSize.MEDIUM);
-        ParkingBay largeParking = new ParkingBay(6, VehicleSize.LARGE);       
+        ParkingBay largeParking = new ParkingBay(6, VehicleSize.LARGE);
 
         AirportRoutingController arc = new AirportRoutingController();
 
         //Pass each plane to the program
         arc.handlePlane(smallPlane);
-       arc.handlePlane(mediumPlane); 
-//       arc.handlePlane(largePlane);
-//        arc.handlePlane(jet);
+        arc.handlePlane(mediumPlane);
+        arc.handlePlane(largePlane);
+        arc.handlePlane(jet);
     }
-    
-    public static void manageBay(Bay b)
-    {
-        if (b instanceof LoadingBay)
-        {
-            AirportRoutingController.addBayToChain(b);
-        }
-        else
-        {
-            AirportRoutingController.addBayToChain(b);
-        }
-        AirportRoutingController.subscribe(b);
-    }
-    
-    public static void manageVehicle(Vehicle v)
-    {
-        DeliveryVehicles.getInstance().addToChain(v);
-    }
+
 }

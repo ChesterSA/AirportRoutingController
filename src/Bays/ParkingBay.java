@@ -94,7 +94,10 @@ public class ParkingBay extends Bay
             {
                 System.out.println(v.getName() + " returns to vehicle store");
                 v.driveTo(VehicleStore.getInstance());
-                v = null;
+                if (v instanceof CleaningTruck)
+                    cleaning = null;
+                else if (v instanceof MaintenanceTruck)
+                    maintenance = null;
             }
         }
     }
@@ -110,7 +113,7 @@ public class ParkingBay extends Bay
     @Override
     public void addToChain(Bay b)
     {
-        if (b instanceof LoadingBay)
+        if (b instanceof ParkingBay)
         {
             if (this.next == null)
             {
