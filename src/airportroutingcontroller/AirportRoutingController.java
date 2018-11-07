@@ -76,7 +76,7 @@ public class AirportRoutingController
     public void handlePlane(Plane p)
     {
         System.out.println("************");
-        System.out.println("\nPlane " + p.getPlaneID() + " has arrived at airport");
+        System.out.println("\nPlane " + p.getPlaneID() + " has arrived at airport\n");
         notifySubscribers();
           
         if (p.getMaintenance() == MaintenanceType.SPECIALIST
@@ -95,7 +95,7 @@ public class AirportRoutingController
                 System.out.println("No parking bays available currently\n");
             }
         }
-
+        System.out.println();
         LoadingBay lb = (LoadingBay) firstLoadingBay.handle(p);
         if (lb != null)
         {

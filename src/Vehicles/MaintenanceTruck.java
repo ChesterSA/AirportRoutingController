@@ -70,12 +70,12 @@ public class MaintenanceTruck extends Vehicle
             return this;
         }
         else if (next != null)
-        {
-            System.out.println("No Maintenance truck available\n");
+        {          
             return next.handle(p);
         }
         else
         {
+            System.out.println("No Maintenance truck available\n");
             return null;
         }
     }

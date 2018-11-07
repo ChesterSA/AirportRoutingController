@@ -119,13 +119,14 @@ public class LoadingBay extends Bay
             {
                 System.out.println(v.getName() + " returns to vehicle store");
                 v.driveTo(VehicleStore.getInstance());
+                System.out.println();
                 
                 if (v instanceof FuelTruck)
                     fuel = null;
                 else if (v instanceof CateringTruck)
                     catering = null;
                 else if (v instanceof Ramp)
-                    ramp = null;                    
+                    ramp = null; 
             }
         }
         
