@@ -14,7 +14,7 @@ import Vehicles.Vehicle;
  * @author Chester Swann-Auger
  * @since 02/11/18
  */
-public class Waiting extends VehicleState
+public class Waiting implements VehicleState
 {
     /**
      * Instance used for singleton pattern

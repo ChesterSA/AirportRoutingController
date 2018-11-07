@@ -13,7 +13,7 @@ import Vehicles.Vehicle;
  * @author Chester Swann-Auger
  * @since 02/11/18
  */
-public class DoingJob extends VehicleState
+public class DoingJob implements VehicleState
 {
     /**
      * Instance used for singleton pattern

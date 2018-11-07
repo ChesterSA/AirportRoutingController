@@ -13,7 +13,7 @@ import Vehicles.Vehicle;
  * @author Chester Swann-Auger
  * @since 02/11/18
  */
-public abstract class VehicleState
+public interface VehicleState
 {
     /**
      * The method for refuelling, overridden by all classes
