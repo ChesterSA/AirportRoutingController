@@ -5,27 +5,28 @@
  */
 package StateTests;
 
-import Enums.FuelType;
+import Enums.MaintenanceType;
 import Enums.VehicleSize;
+import VehicleStates.DoingJob;
 import VehicleStates.VehicleState;
 import VehicleStates.Waiting;
-import Vehicles.FuelTruck;
-import static org.junit.Assert.*;
+import Vehicles.MaintenanceTruck;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
  *
  * @author s6089488
  */
-public class TestWaiting
+public class TestDoJob
 {
-
-    FuelTruck test = new FuelTruck(VehicleSize.MEDIUM, "testFuel", FuelType.AVGAS, 250);
+    MaintenanceTruck test = new MaintenanceTruck(VehicleSize.MEDIUM, "test", MaintenanceType.STANDARD);
 
     @Test
     public void testStringOutput()
     {
-        String expected = "testFuel is driving to refuel\ntestFuel is refueled";
+        test.setState(DoingJob.state());
+        String expected = "test is doing a job and can't refuel";
         String actual = test.refuel();
         
         assertEquals(expected, actual);      
@@ -34,8 +35,10 @@ public class TestWaiting
     @Test
     public void testFuelIncrease()
     {
+        test.setState(DoingJob.state());
+        
         test.setFuel(50);
-        int expected = 100;
+        int expected = 50;
         
         test.refuel();
         
@@ -44,9 +47,11 @@ public class TestWaiting
         assertEquals(expected, actual);
     }
     
-     @Test
+    @Test
     public void testCancel()
     {
+        test.setState(DoingJob.state());
+        
         test.cancel();
         
         VehicleState expected = Waiting.state();

@@ -117,6 +117,11 @@ public abstract class Vehicle implements Chainable
      * @return 
      */
     protected abstract boolean doJob();
+    
+    public void cancel()
+    {
+        state.cancel(this);
+    }
 
     /**
      * calls the vehicle state to see if the vehicle can refuel
@@ -161,5 +166,14 @@ public abstract class Vehicle implements Chainable
     public void setState(VehicleState state)
     {
         this.state = state;
+    }
+    
+    /**
+     * getter for the state
+     * @return the state the vehicle is currently in
+     */
+    public VehicleState getState()
+    {
+        return state;
     }
 }

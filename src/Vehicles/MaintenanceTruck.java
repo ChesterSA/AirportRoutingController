@@ -8,6 +8,7 @@ package Vehicles;
 import Bays.Bay;
 import Enums.MaintenanceType;
 import Enums.VehicleSize;
+import VehicleStates.VehicleState;
 import VehicleStates.Waiting;
 import airportroutingcontroller.Chainable;
 import airportroutingcontroller.Plane;
