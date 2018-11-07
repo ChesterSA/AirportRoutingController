@@ -45,9 +45,10 @@ public class MaintenanceTruck extends Vehicle
     @Override
     public boolean doJob()
     {
-        System.out.println("Fixing truck");
         Bay current = (Bay)location;
-        current.getPlane().setMaintenance(MaintenanceType.FIXED);
+        Plane p = current.getPlane();
+        
+        System.out.println(p.getPlaneID() + " has been repaired");
         return true;
     }
 

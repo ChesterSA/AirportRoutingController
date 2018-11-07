@@ -43,6 +43,8 @@ public class CateringTruck extends Vehicle
         Bay current = (Bay)location;
         Plane p = current.getPlane();
         
+        System.out.println(p.getPlaneID() + " has been restocked with food");
+        
         this.foodQuantity = p.getMaxFood() - p.getFoodQuantity();
         p.setFoodQuantity(p.getMaxFood());
         return true;

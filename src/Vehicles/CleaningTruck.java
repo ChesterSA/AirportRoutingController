@@ -44,9 +44,10 @@ public class CleaningTruck extends Vehicle
     @Override
     public boolean doJob()
     {
-        System.out.println("Cleaning Plane");
         Bay current = (Bay)location;
         Plane p = current.getPlane();
+        
+        System.out.println(p.getPlaneID() + " has been cleaned");
         
         p.setCleanType(CleaningType.CLEAN);
         return true;

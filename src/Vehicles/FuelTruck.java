@@ -54,6 +54,8 @@ public class FuelTruck extends Vehicle
         Bay current = (Bay)location;
         Plane p = current.getPlane();
         
+        System.out.println(p.getPlaneID() + " has been refilled");
+        
         p.setFuelQuantity(p.getMaxFuel());
         this.planeFuelQuantity = p.getMaxFuel()- p.getFuelQuantity();
         

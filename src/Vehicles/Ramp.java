@@ -5,6 +5,7 @@
  */
 package Vehicles;
 
+import Bays.Bay;
 import Enums.RampType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
@@ -43,6 +44,10 @@ public class Ramp extends Vehicle
     @Override
     public boolean doJob()
     {
+        Bay current = (Bay)location;
+        Plane p = current.getPlane();
+        
+        System.out.println(p.getPlaneID() + " has a ramp present");
         return true;
     }
 

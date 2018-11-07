@@ -70,10 +70,11 @@ public abstract class Vehicle implements Chainable
     {
         if (driveTo(destination))
         {
-            location = destination;
+            System.out.println(name + " STATE = DOINGJOB");
             state = DoingJob.state();
             doJob();
             System.out.println("The job has been succesfully executed\n");
+            System.out.println(name + " STATE = WAITING");
             state = Waiting.state();
         }
         else
@@ -96,6 +97,7 @@ public abstract class Vehicle implements Chainable
         
         if (fuel > 10)
         {
+            System.out.println(name + " STATE = DRIVING");
             state = Driving.state();
             System.out.println(name + " is driving to " + destination.getName());
             fuel -= 10;

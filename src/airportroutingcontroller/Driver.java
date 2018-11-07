@@ -103,7 +103,7 @@ public class Driver
 
         AirportRoutingController arc = new AirportRoutingController();
 
-        
+        //Pass each plane to the program
         arc.handlePlane(smallPlane);
         arc.handlePlane(mediumPlane); 
         arc.handlePlane(largePlane);
