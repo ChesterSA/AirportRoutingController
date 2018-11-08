@@ -111,7 +111,7 @@ public class LoadingBay extends Bay
     {
         Vehicle[] vehicles = new Vehicle[]
         {
-            fuel, catering, ramp
+            ramp
         };
 
         for (Vehicle v : vehicles)
@@ -120,30 +120,34 @@ public class LoadingBay extends Bay
             {
                 v.driveTo(VehicleStore.getInstance());
                 System.out.println(v.getName() + " returns to vehicle store");
-                
-                if (v instanceof FuelTruck)
-                {
-                    QuantityVehicle q = (QuantityVehicle)v;
-                    q.refill();
-                    fuel = null;
-                }                  
-                else if (v instanceof CateringTruck)
-                {
-                    QuantityVehicle q = (QuantityVehicle)v;
-                    q.refill();
-                    catering = null;
-                }            
-                else if (v instanceof Ramp)
+                       
+                if (v instanceof Ramp)
                     ramp = null; 
             }
         }
         
-        if (fuel != null)
+        QuantityVehicle[] quantityVehicles = new QuantityVehicle[]
+        {
+            fuel, catering
+        };
+
+        for (QuantityVehicle q : quantityVehicles)
+        {
+            if (q != null)
             {
-                System.out.println(fuel.getName() + " returns to vehicle store");
-                fuel.driveTo(VehicleStore.getInstance());
-                fuel = null;
+                q.driveTo(VehicleStore.getInstance());
+                System.out.println(q.getName() + " returns to vehicle store");
+                q.refill();
+                if (q instanceof FuelTruck)
+                {
+                    fuel = null;
+                }                  
+                else if (q instanceof CateringTruck)
+                {
+                    catering = null;
+                }           
             }
+        }
     }
 
     /**

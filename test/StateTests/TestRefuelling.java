@@ -6,7 +6,6 @@
 package StateTests;
 
 import Enums.VehicleSize;
-import VehicleStates.DoingJob;
 import VehicleStates.Refueling;
 import VehicleStates.VehicleState;
 import VehicleStates.Waiting;
@@ -26,7 +25,7 @@ public class TestRefuelling
     public void testStringOutput()
     {
         test.setState(Refueling.state());
-        String expected = "test is refueled";
+        String expected = "test has refueled";
         String actual = test.refuel();
         
         assertEquals(expected, actual);      
