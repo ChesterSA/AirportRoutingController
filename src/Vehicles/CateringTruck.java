@@ -121,7 +121,7 @@ public class CateringTruck extends QuantityVehicle
      */
     @Override
     public void refill()
-    {l
+    {
         if(location == VehicleStore.getInstance())
         {
             switch(size)
