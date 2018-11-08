@@ -221,7 +221,7 @@ public class Plane
     
     /**
      * setter for maintenanceType
-     * @param maintenanceType the type of maintenance the plane needs
+     * @param maintenance the type of maintenance the plane needs
      */
     public void setMaintenance(MaintenanceType maintenance)
     {
@@ -246,7 +246,6 @@ public class Plane
         this.loadingBay = loadingBay;
     }
 
-    
     /**
      * getter for ParkingBay
      * @return the parking bay the plane is in
@@ -264,12 +263,4 @@ public class Plane
     {
         this.parkingBay = parkingBay;
     }
-    
-    
-    
-    
-
-    
-    
-
 }

@@ -28,5 +28,9 @@ public interface Chainable
      */
     public Vehicle handle(Plane p);
     
+    /**
+     * Adds a Chainable to the end of the current chain
+     * @param c the Chainable to add
+     */
     public void addToChain(Chainable c);
 }

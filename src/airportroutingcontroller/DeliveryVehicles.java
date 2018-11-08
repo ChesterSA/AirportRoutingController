@@ -68,7 +68,10 @@ public class DeliveryVehicles
         return instance;
     }
 
-    
+    /**
+     * Adds a Vehicle to the end of the current chain
+     * @param v the Vehicle to add
+     */
     public void addToChain(Vehicle v)
     {        
         if (v instanceof CateringTruck)

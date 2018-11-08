@@ -114,7 +114,7 @@ public class AirportRoutingController
         }
         else
         {
-            System.out.println("\nNo loading bays available currently\n");
+            System.out.println("No loading bays available currently\n");
         }
 
         finishPlane(p);

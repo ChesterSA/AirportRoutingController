@@ -31,5 +31,9 @@ public interface BayChainable
      */
     public Bay handle(Plane p);
 
+    /**
+     * Adds a BayChainable to the end of the current chain
+     * @param b the BayChainable to add
+     */
     public void addToChain(BayChainable b);
 }
