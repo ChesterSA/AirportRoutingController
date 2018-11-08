@@ -116,6 +116,9 @@ public class CateringTruck extends QuantityVehicle
 
     }
     
+    /**
+     * Sets the food quantity to a different value depending on VehicleSize
+     */
     @Override
     public void refill()
     {

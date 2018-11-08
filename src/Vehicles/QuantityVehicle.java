@@ -16,11 +16,18 @@ import Enums.VehicleSize;
  */
 public abstract class QuantityVehicle extends Vehicle
 {
-
+    /**
+     * Constructor, calls the super
+     * @param size the size of the vehicle
+     * @param name the name of the vehicle
+     */
     public QuantityVehicle(VehicleSize size, String name)
     {
         super(size, name);
     }
 
+    /**
+     * Called when a vehicle needs refilling
+     */
     public abstract void refill();
 }

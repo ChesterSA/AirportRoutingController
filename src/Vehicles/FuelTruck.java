@@ -125,6 +125,9 @@ public class FuelTruck extends QuantityVehicle
 
     }
     
+    /**
+     * Sets the fuel quantity to a different value depending on VehicleSize
+     */
     @Override
     public void refill()
     {
