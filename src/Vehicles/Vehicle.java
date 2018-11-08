@@ -5,7 +5,9 @@
  */
 package Vehicles;
 
-import Bays.*;
+import Locations.VehicleStore;
+import Locations.Location;
+import Locations.Bay;
 import Enums.VehicleSize;
 import airportroutingcontroller.Chainable;
 import VehicleStates.*;
@@ -113,13 +115,6 @@ public abstract class Vehicle implements Chainable
             System.out.println(name + " does not have enough fuel");
             refuel();
         }
-        else
-        {
-            System.out.println("lol");
-        }
-        
-        state = Waiting.state();
-        System.out.println(name + " STATE = WAITING");
         return success;
         
     }

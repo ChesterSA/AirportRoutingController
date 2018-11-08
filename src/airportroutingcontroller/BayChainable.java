@@ -5,7 +5,7 @@
  */
 package airportroutingcontroller;
 
-import Bays.Bay;
+import Locations.Bay;
 
 /**
  * Chainable interface used by the bays

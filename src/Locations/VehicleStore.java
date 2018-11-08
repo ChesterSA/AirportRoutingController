@@ -3,7 +3,7 @@
  * By Chester Swann-Auger
  * As part of Group B - Airport Routing Controller
  */
-package Bays;
+package Locations;
 
 /**
  * VehicleStore class, stores vehicles that aren't in use and refuels them

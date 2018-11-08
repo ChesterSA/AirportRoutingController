@@ -3,7 +3,7 @@
  * By Chester Swann-Auger
  * As part of Group B - Airport Routing Controller
  */
-package Bays;
+package Locations;
 
 import airportroutingcontroller.AirportRoutingController;
 import airportroutingcontroller.DeliveryVehicles;
@@ -109,41 +109,6 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
         else
         {
             return null;
-        }
-
-    }
-
-    /**
-     * move the current plane to a different loading bay
-     * @param lb the loading bay for the plane to move to
-     */
-    public void movePlaneToLoading(LoadingBay lb)
-    {
-        if (lb.size.ordinal() >= plane.getSize().ordinal()
-                && lb.plane == null)
-        {
-            plane.setParkingBay(null);
-            plane.setLoadingBay(lb);
-
-            lb.plane = plane;
-            plane = null;
-        }
-    }
-
-    /**
-     * moves the current plane to a different parking bay
-     * @param pb the parking bay for the plane to move to
-     */
-    public void movePlanetoParking(ParkingBay pb)
-    {
-        if (pb.size.ordinal() >= plane.getSize().ordinal()
-                && pb.plane == null)
-        {
-            plane.setLoadingBay(null);
-            plane.setParkingBay(pb);
-
-            pb.plane = plane;
-            plane = null;
         }
     }
     

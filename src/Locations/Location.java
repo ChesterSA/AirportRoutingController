@@ -3,7 +3,7 @@
  * By Chester Swann-Auger
  * As part of Group B - Airport Routing Controller
  */
-package Bays;
+package Locations;
 
 /**
  * The location object that all other locations extend

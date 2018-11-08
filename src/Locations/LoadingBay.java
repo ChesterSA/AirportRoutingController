@@ -3,9 +3,10 @@
  * By Chester Swann-Auger
  * As part of Group B - Airport Routing Controller
  */
-package Bays;
+package Locations;
 
 import Enums.VehicleSize;
+import VehicleStates.Waiting;
 import Vehicles.CateringTruck;
 import Vehicles.FuelTruck;
 import Vehicles.QuantityVehicle;
@@ -123,7 +124,10 @@ public class LoadingBay extends Bay
                        
                 if (v instanceof Ramp)
                     ramp = null; 
-            }
+                
+                System.out.println(v.getName() + " STATE = WAITING");
+                v.setState(Waiting.state());
+            }     
         }
         
         QuantityVehicle[] quantityVehicles = new QuantityVehicle[]
@@ -145,7 +149,10 @@ public class LoadingBay extends Bay
                 else if (q instanceof CateringTruck)
                 {
                     catering = null;
-                }           
+                }
+                
+                System.out.println(q.getName() + " STATE = WAITING");
+                q.setState(Waiting.state());
             }
         }
     }

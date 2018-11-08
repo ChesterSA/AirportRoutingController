@@ -3,9 +3,10 @@
  * By Chester Swann-Auger
  * As part of Group B - Airport Routing Controller
  */
-package Bays;
+package Locations;
 
 import Enums.VehicleSize;
+import VehicleStates.Waiting;
 import Vehicles.CleaningTruck;
 import Vehicles.MaintenanceTruck;
 import Vehicles.Vehicle;
@@ -100,6 +101,9 @@ public class ParkingBay extends Bay
                     cleaning = null;
                 else if (v instanceof MaintenanceTruck)
                     maintenance = null;
+                
+                System.out.println(v.getName() + " STATE = WAITING");
+                v.setState(Waiting.state());
             }
         }
     }

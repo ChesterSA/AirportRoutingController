@@ -5,8 +5,8 @@
  */
 package Vehicles;
 
-import Bays.Bay;
-import Bays.VehicleStore;
+import Locations.Bay;
+import Locations.VehicleStore;
 import Enums.VehicleSize;
 import static Enums.VehicleSize.*;
 import VehicleStates.Waiting;

@@ -7,8 +7,8 @@ package airportroutingcontroller;
 
 import Enums.*;
 import Vehicles.*;
-import Bays.LoadingBay;
-import Bays.ParkingBay;
+import Locations.LoadingBay;
+import Locations.ParkingBay;
 import java.util.ArrayList;
 
 /**
@@ -48,10 +48,9 @@ public class Driver
         initVehicles();
         AirportRoutingController arc = new AirportRoutingController();
         
-        for (Plane p : planes)
-        {
+        planes.forEach((p) -> {
             arc.handlePlane(p);
-        }
+        });
     }
     
     /**

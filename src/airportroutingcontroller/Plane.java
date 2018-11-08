@@ -5,8 +5,8 @@
  */
 package airportroutingcontroller;
 
-import Bays.LoadingBay;
-import Bays.ParkingBay;
+import Locations.LoadingBay;
+import Locations.ParkingBay;
 import Enums.*;
 
 /**

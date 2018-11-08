@@ -5,10 +5,10 @@
  */
 package airportroutingcontroller;
 
-import Bays.Bay;
-import Bays.LoadingBay;
-import Bays.ParkingBay;
-import Bays.Runway;
+import Locations.Bay;
+import Locations.LoadingBay;
+import Locations.ParkingBay;
+import Locations.Runway;
 import Enums.CleaningType;
 import Enums.MaintenanceType;
 import java.util.ArrayList;

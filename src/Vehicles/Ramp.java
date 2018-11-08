@@ -5,7 +5,7 @@
  */
 package Vehicles;
 
-import Bays.Bay;
+import Locations.Bay;
 import Enums.RampType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
@@ -110,6 +110,5 @@ public class Ramp extends Vehicle
                 next.addToChain(c);
             }
         }
-
     }
 }

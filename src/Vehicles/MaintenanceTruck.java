@@ -5,7 +5,7 @@
  */
 package Vehicles;
 
-import Bays.Bay;
+import Locations.Bay;
 import Enums.MaintenanceType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
@@ -110,7 +110,5 @@ public class MaintenanceTruck extends Vehicle
                 next.addToChain(c);
             }
         }
-
     }
-
 }

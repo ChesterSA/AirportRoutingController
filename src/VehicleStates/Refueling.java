@@ -48,7 +48,8 @@ public class Refueling implements VehicleState
     @Override
     public String refuel(Vehicle v)
     {
-        v.setFuel(100);
+        System.out.println(v.getName() + " STATE = REFUELLING");
+        v.setFuel(100);      
         System.out.println(v.getName() + " is refueled");
         return v.getName() + " is refueled";
     }

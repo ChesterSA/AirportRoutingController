@@ -3,7 +3,7 @@
  * By Chester Swann-Auger
  * As part of Group B - Airport Routing Controller
  */
-package Bays;
+package Locations;
 
 import airportroutingcontroller.Plane;
 import java.util.ArrayList;
@@ -78,7 +78,7 @@ public class Runway extends Location
         s += " ";
         s +=  ((planes.size() > 1 ) ? "are" : "is");
         
-        s += " at the runway\n\n";
+        s += " at the runway\n";
         
         System.out.println(s);
     }
