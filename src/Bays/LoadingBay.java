@@ -104,7 +104,7 @@ public class LoadingBay extends Bay
 
     /**
      * releases any present vehicles to the Vehicle store so other bays can use
-     * them
+     * them, if vehicle is a QuantityVehicle it also refills it.
      */
     @Override
     public void update()
