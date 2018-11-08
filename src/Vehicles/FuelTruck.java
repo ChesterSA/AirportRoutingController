@@ -6,6 +6,7 @@
 package Vehicles;
 
 import Bays.Bay;
+import Bays.VehicleStore;
 import Enums.FuelType;
 import Enums.VehicleSize;
 import VehicleStates.Waiting;
@@ -18,7 +19,7 @@ import airportroutingcontroller.Plane;
  * @author Chester Swann-Auger
  * @since 02/11/18
  */
-public class FuelTruck extends Vehicle
+public class FuelTruck extends QuantityVehicle
 {
     /**
      * The type of fuel the truck uses
@@ -122,5 +123,26 @@ public class FuelTruck extends Vehicle
             }
         }
 
+    }
+    
+    @Override
+    public void refill()
+    {
+        if(location == VehicleStore.getInstance())
+        {
+            switch(size)
+            {
+                case SMALL:
+                    planeFuelQuantity = 150;
+                    break;
+                case MEDIUM:
+                    planeFuelQuantity = 50;
+                    break;
+                case LARGE:
+                    planeFuelQuantity = 800;
+                    break;    
+            }     
+        }
+        System.out.println(name + " has been refilled, it now has " + planeFuelQuantity + " fuel");
     }
 }

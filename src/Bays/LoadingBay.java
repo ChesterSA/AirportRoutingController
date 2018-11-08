@@ -8,6 +8,7 @@ package Bays;
 import Enums.VehicleSize;
 import Vehicles.CateringTruck;
 import Vehicles.FuelTruck;
+import Vehicles.QuantityVehicle;
 import Vehicles.Ramp;
 import Vehicles.Vehicle;
 import airportroutingcontroller.BayChainable;
@@ -117,14 +118,22 @@ public class LoadingBay extends Bay
         {
             if (v != null)
             {
-                System.out.println(v.getName() + " returns to vehicle store");
                 v.driveTo(VehicleStore.getInstance());
+                System.out.println(v.getName() + " returns to vehicle store");
                 System.out.println();
                 
                 if (v instanceof FuelTruck)
+                {
+                    QuantityVehicle q = (QuantityVehicle)v;
+                    q.refill();
                     fuel = null;
+                }                  
                 else if (v instanceof CateringTruck)
+                {
+                    QuantityVehicle q = (QuantityVehicle)v;
+                    q.refill();
                     catering = null;
+                }            
                 else if (v instanceof Ramp)
                     ramp = null; 
             }

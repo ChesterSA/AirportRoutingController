@@ -97,7 +97,6 @@ public abstract class Vehicle implements Chainable
     public boolean driveTo(Location destination)
     {
         boolean success = false;
-        
         if (fuel > 10)
         {
             System.out.println(name + " STATE = DRIVING");
@@ -108,11 +107,12 @@ public abstract class Vehicle implements Chainable
             location = destination;
             success = true;
         }
-        else
+        else if (fuel == 10 && destination == VehicleStore.getInstance())
         {
             System.out.println(name + " does not have enough fuel");
             refuel();
         }
+        state = Waiting.state();
         return success;
         
     }
@@ -187,4 +187,6 @@ public abstract class Vehicle implements Chainable
     {
         return state;
     }
+    
+    
 }

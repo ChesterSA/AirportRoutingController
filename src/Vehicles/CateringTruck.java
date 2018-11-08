@@ -6,7 +6,9 @@
 package Vehicles;
 
 import Bays.Bay;
+import Bays.VehicleStore;
 import Enums.VehicleSize;
+import static Enums.VehicleSize.*;
 import VehicleStates.Waiting;
 import airportroutingcontroller.Chainable;
 import airportroutingcontroller.Plane;
@@ -14,7 +16,7 @@ import airportroutingcontroller.Plane;
 /**
  * The CateringTruck, used for filling Plane's food, extends Vehicle
  */
-public class CateringTruck extends Vehicle
+public class CateringTruck extends QuantityVehicle
 {
 
     /**
@@ -113,5 +115,25 @@ public class CateringTruck extends Vehicle
         }
 
     }
-
+    
+    @Override
+    public void refill()
+    {
+        if(location == VehicleStore.getInstance())
+        {
+            switch(size)
+            {
+                case SMALL:
+                    foodQuantity = 50;
+                    break;
+                case MEDIUM:
+                    foodQuantity = 250;
+                    break;
+                case LARGE:
+                    foodQuantity = 400;
+                    break;    
+            }     
+        }
+        System.out.println(name + " has been refilled, it now has " + foodQuantity + " food");
+    }
 }

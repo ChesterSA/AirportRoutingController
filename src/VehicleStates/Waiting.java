@@ -49,7 +49,6 @@ public class Waiting implements VehicleState
     @Override
     public String refuel(Vehicle v)
     {
-        v.driveTo(VehicleStore.getInstance());
         v.setState(Refueling.state()); 
         
         System.out.println(v.getName() + " is refueling");
