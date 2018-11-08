@@ -120,7 +120,6 @@ public class LoadingBay extends Bay
             {
                 v.driveTo(VehicleStore.getInstance());
                 System.out.println(v.getName() + " returns to vehicle store");
-                System.out.println();
                 
                 if (v instanceof FuelTruck)
                 {

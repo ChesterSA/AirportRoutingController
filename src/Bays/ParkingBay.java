@@ -92,10 +92,9 @@ public class ParkingBay extends Bay
         for (Vehicle v : vehicles)
         {
             if (v != null)
-            {
-                System.out.println(v.getName() + " returns to vehicle store");
+            {     
                 v.driveTo(VehicleStore.getInstance());
-                System.out.println();
+                System.out.println(v.getName() + " returns to vehicle store");
                 
                 if (v instanceof CleaningTruck)
                     cleaning = null;

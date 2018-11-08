@@ -76,8 +76,8 @@ public abstract class Vehicle implements Chainable
             System.out.println(name + " STATE = DOINGJOB");
             state = DoingJob.state();
             doJob();
-            System.out.println("The job has been succesfully executed\n");
-            System.out.println(name + " STATE = WAITING");
+            System.out.println("The job has been succesfully executed");
+            System.out.println(name + " STATE = WAITING\n");
             state = Waiting.state();
         }
         else
@@ -96,6 +96,7 @@ public abstract class Vehicle implements Chainable
      */
     public boolean driveTo(Location destination)
     {
+        System.out.println();
         boolean success = false;
         if (fuel > 10)
         {
@@ -113,6 +114,7 @@ public abstract class Vehicle implements Chainable
             refuel();
         }
         state = Waiting.state();
+        System.out.println(name + " STATE = WAITING");
         return success;
         
     }

@@ -99,7 +99,7 @@ public abstract class Bay extends Location implements Subscriber, BayChainable
         if (this.size.ordinal() >= p.getSize().ordinal()
                 && plane == null)
         {
-            System.out.println(getName() +  " chosen for " + p.getPlaneID());
+            System.out.println("\n" + getName() +  " chosen for " + p.getPlaneID());
             return this;
         }
         else if (next != null)
