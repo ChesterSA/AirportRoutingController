@@ -64,6 +64,11 @@ public abstract class Vehicle implements Chainable
         this.fuel = 100;
         this.state = Waiting.state();
         
+        manageChain();
+    }
+    
+    public final void manageChain()
+    {
         DeliveryVehicles.getInstance().addToChain(this);
     }
 
