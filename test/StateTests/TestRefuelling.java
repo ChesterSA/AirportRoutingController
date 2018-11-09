@@ -25,7 +25,7 @@ public class TestRefuelling
     public void testStringOutput()
     {
         test.setState(Refueling.state());
-        String expected = "test has refueled";
+        String expected = "test is refueled";
         String actual = test.refuel();
         
         assertEquals(expected, actual);      
